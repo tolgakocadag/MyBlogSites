@@ -1,5 +1,5 @@
-<?php include "../Backend/_database.php"; ?>
-<?php include "../Backend/general_settings.php"; ?>
+<?php include "../backend/_database.php"; ?>
+<?php include "../backend/general_settings.php"; ?>
 <?php ses_start();ob_st();isLogin();  ?>
 <!DOCTYPE html>
 <html lang="tr">
@@ -31,7 +31,7 @@
   <body id="page-top">
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.php">TK BLOG</a>
+      <a class="navbar-brand mr-1" href="../index.php">TK BLOG</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>

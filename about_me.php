@@ -6,7 +6,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>Bana Ulaşın</h2>
+                        <h2>Hakkımda</h2>
                     </div>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Anasayfa</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Bana Ulaşın</li>
+                            <li class="breadcrumb-item active" aria-current="page">Hakkımda</li>
                         </ol>
                     </nav>
                 </div>

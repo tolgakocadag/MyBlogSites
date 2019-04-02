@@ -1,4 +1,4 @@
-<?php include "_Header.php"; ?>
+<?php include "includes/_Header.php"; ?>
 
     <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url(img/bg-img/breadcumb.jpg);">
@@ -18,7 +18,7 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                            <li class="breadcrumb-item"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i>Anasayfa</a></li>
                             <li class="breadcrumb-item"><a href="#">Archive</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Single Post Blog</li>
                         </ol>
@@ -328,34 +328,32 @@
                         <!-- Single Widget Area -->
                         <div class="single-widget-area about-me-widget text-center">
                             <div class="widget-title">
-                                <h6>About Me</h6>
+                                <h6>Hakkımda</h6>
                             </div>
                             <div class="about-me-widget-thumb">
-                                <img src="img/about-img/1.jpg" alt="">
+                                <img src="img/about-img/pp.jpg" alt="">
                             </div>
-                            <h4 class="font-shadow-into-light">Shopia Bernard</h4>
+                            <h4 class="font-shadow-into-light">Tolga Kocadağ</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
                         </div>
 
                         <!-- Single Widget Area -->
                         <div class="single-widget-area subscribe_widget text-center">
                             <div class="widget-title">
-                                <h6>Subscribe &amp; Follow</h6>
+                                <h6>Abone ol &amp; Takip et</h6>
                             </div>
                             <div class="subscribe-link">
                                 <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-google" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
                                 <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
                             </div>
                         </div>
 
                         <!-- Single Widget Area -->
                         <div class="single-widget-area popular-post-widget">
                             <div class="widget-title text-center">
-                                <h6>Populer Post</h6>
+                                <h6>Popüler Yazılar</h6>
                             </div>
                             <!-- Single Popular Post -->
                             <div class="single-populer-post d-flex">
@@ -428,12 +426,12 @@
                         <!-- Single Widget Area -->
                         <div class="single-widget-area newsletter-widget">
                             <div class="widget-title text-center">
-                                <h6>Newsletter</h6>
+                                <h6>Bülten</h6>
                             </div>
-                            <p>Subscribe our newsletter gor get notification about new updates, information discount, etc.</p>
+                            <p>Bültenimize abone olun; yeni güncellemeler, indirimler, vb. hakkında bildirim alın.</p>
                             <div class="newsletter-form">
                                 <form action="#" method="post">
-                                    <input type="email" name="newsletter-email" id="email" placeholder="Your email">
+                                    <input type="email" name="newsletter-email" id="email" placeholder="Email adresiniz">
                                     <button type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
                                 </form>
                             </div>

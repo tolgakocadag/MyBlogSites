@@ -1,6 +1,6 @@
 <?php
-  include "../Backend/_database.php";
-  include "../Backend/general_settings.php";
+  include "../backend/_database.php";
+  include "../backend/general_settings.php";
   ses_start();isLogin();
   if(isset($_POST["login"])){
     $username=$_POST["username"];
@@ -17,13 +17,14 @@
       $db_admin_password=$row["admin_PASSWORD"];
       $db_admin_email=$row["admin_EMAIL"];
       $db_admin_role=$row["admin_ROLE"];
+      $db_admin_nickname=$row["admin_NICKNAME"];
     }
     if($username!==$db_admin_username&&$password!==$db_admin_password){
       header("Location: login.php");
     }
     else if($username==$db_admin_username&&$password==$db_admin_password){
       $_SESSION["username"]=$db_admin_username;
-      $_SESSION["password"]=$db_admin_password;
+      $_SESSION["nickname"]=$db_admin_nickname;
       $_SESSION["email"]=$db_admin_email;
       $_SESSION["role"]=$db_admin_role;
       header("Location:index.php");

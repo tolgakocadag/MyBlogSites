@@ -37,10 +37,10 @@
                 <div class="col-5 col-sm-6">
                     <!--  Top Social bar start -->
                     <div class="top_social_bar">
-                        <a href="https://www.facebook.com/tolgakocadag58" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="https://www.instagram.com/tolgakocadag58" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="https://www.github.com/tolgakocadag"><i class="fa fa-github" aria-hidden="true"></i></a>
+                        <a href="https://www.facebook.com/tolgakocadag58" target="_blank"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/tolgakocadag58" target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
+                        <a href="https://www.github.com/tolgakocadag"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <!--  Login Register Area -->
@@ -61,7 +61,7 @@
                         <!-- Search Form -->
                         <div class="search-hidden-form">
                             <form action="#" method="get">
-                                <input type="search" name="search" id="search-anything" placeholder="Search Anything...">
+                                <input type="search" name="search" id="search-anything" placeholder="Bir şey ara...">
                                 <input type="submit" value="" class="d-none">
                                 <span class="searchBtn"><i class="fa fa-times" aria-hidden="true"></i></span>
                             </form>
@@ -80,7 +80,7 @@
                 <!-- Logo Area Start -->
                 <div class="col-12">
                     <div class="logo_area text-center">
-                        <a href="index.html" class="yummy-logo">Tolga Kocadağ Blog</a>
+                        <a href="index.php" class="yummy-logo">Tolga Kocadağ Blog</a>
                     </div>
                 </div>
             </div>
@@ -93,26 +93,23 @@
                         <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul class="navbar-nav" id="yummy-nav">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">Anasayfa <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="index.php">Anasayfa <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategoriler</a>
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a class="dropdown-item" href="index.html">Anasayfa</a>
-                                        <a class="dropdown-item" href="archive.html">Archive</a>
                                         <a class="dropdown-item" href="single.php">Single Blog</a>
                                         <a class="dropdown-item" href="static.html">Static Page</a>
-                                        <a class="dropdown-item" href="contact.html">Contact</a>
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="archive.html">Archive</a>
+                                    <a class="nav-link" href="archive.php">Archive</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Hakkımda</a>
+                                    <a class="nav-link" href="about_me.php">Hakkımda</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">bana ulaşın</a>
+                                    <a class="nav-link" href="contact.php">bana ulaşın</a>
                                 </li>
                             </ul>
                         </div>
