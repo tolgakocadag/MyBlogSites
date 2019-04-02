@@ -101,10 +101,11 @@
                             <!-- Post Content -->
                             <div class="post-content">
                                 <div class="post-meta d-flex">
+
                                     <div class="post-author-date-area d-flex">
                                         <!-- Post Author -->
                                         <div class="post-author">
-                                            <a href="#">By Marian</a>
+                                            <a href="#"></a>
                                         </div>
                                         <!-- Post Date -->
                                         <div class="post-date">
