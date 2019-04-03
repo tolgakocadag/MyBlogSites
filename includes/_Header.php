@@ -1,4 +1,5 @@
 <?php include "backend/_database.php" ; ?>
+<?php include "backend/general_settings.php"; ?>
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -95,7 +96,7 @@
                                 <li class="nav-item active">
                                     <a class="nav-link" href="index.php">Anasayfa <span class="sr-only">(current)</span></a>
                                 </li>
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown" style="display:none">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategoriler</a>
                                     <div class="dropdown-menu" aria-labelledby="yummyDropdown">
                                         <a class="dropdown-item" href="single.php">Single Blog</a>
@@ -103,7 +104,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="archive.php">Archive</a>
+                                    <a class="nav-link" href="archive.php">Blog Yazılarım</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="about_me.php">Hakkımda</a>
