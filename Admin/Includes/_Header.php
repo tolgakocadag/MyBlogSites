@@ -1,5 +1,6 @@
 <?php include "../backend/_database.php"; ?>
 <?php include "../backend/general_settings.php"; ?>
+<?php include "../backend/_dbConnect.php"; ?>
 <?php ses_start();ob_st();isLogin();  ?>
 <!DOCTYPE html>
 <html lang="tr">

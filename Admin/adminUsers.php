@@ -35,36 +35,40 @@
             <tbody>
               <!--KULLANICI LİSTELEME-->
               <?php
-              $sql_list="SELECT * FROM admin_users";
-              $select_all_admins=mysqli_query($con,$sql_list);
+              $sql_list=dbAdminUserList();
+              $sql_list=$con->query($sql_list);
               $k=1;
-              while ($row=mysqli_fetch_assoc($select_all_admins)) {
-                $admin_id=$row["admin_ID"];
-                $admin_username=$row["admin_USERNAME"];
-                $admin_email=$row["admin_EMAIL"];
-                $admin_password=$row["admin_PASSWORD"];
-                $admin_nickname=$row['admin_NICKNAME'];
-                $admin_role=$row["admin_ROLE"];
-                echo "<tr>
-                    <td>{$admin_id}</td>
-                    <td>{$admin_username}</td>
-                    <td>{$admin_email}</td>
-                    <td>{$admin_nickname}</td>
-                    <td>{$admin_role}</td>
-                    <td>
-                        <div class='dropdown'>
-                            <button class='btn btn-primary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                Actions
-                            </button>
-                            <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
-                                <a class='dropdown-item' data-toggle='modal' data-target='#edit_modal$k' href='#'>Edit</a>
-                                <div class='dropdown-divider'></div>
-                                <a class='dropdown-item' href='users.php?delete={$admin_id}'>Delete</a>
+              if($sql_list->num_rows>0)
+              {
+                while ($row=$sql_list->fetch_assoc()) {
+                  $admin_id=$row["admin_ID"];
+                  $admin_username=$row["admin_USERNAME"];
+                  $admin_email=$row["admin_EMAIL"];
+                  $admin_password=$row["admin_PASSWORD"];
+                  $admin_nickname=$row['admin_NICKNAME'];
+                  $admin_role=$row["admin_ROLE"];
+                  echo "<tr>
+                      <td>{$admin_id}</td>
+                      <td>{$admin_username}</td>
+                      <td>{$admin_email}</td>
+                      <td>{$admin_nickname}</td>
+                      <td>{$admin_role}</td>
+                      <td>
+                          <div class='dropdown'>
+                              <button class='btn btn-primary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                  Actions
+                              </button>
+                              <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+                                  <a class='dropdown-item' data-toggle='modal' data-target='#edit_modal$k' href='#'>Edit</a>
+                                  <div class='dropdown-divider'></div>
+                                  <a class='dropdown-item' href='adminUsers.php?delete={$admin_id}'>Delete</a>
 
-                            </div>
-                        </div>
-                    </td>
-                </tr>";
+                              </div>
+                          </div>
+                      </td>
+                  </tr>";
+              }
+
                 ?>
                 <!--KULLANICI LİSTELEME FINISH-->
 
@@ -188,18 +192,18 @@
 
       <!--KULLLANICI EKLEME-->
       <?php
-      if(isset($_POST['add_user']) && isset($_SESSION['role']) && $_SESSION['role']=='admin'){
-        $user_name=$_POST["adminusers_username"];
-        $user_email=$_POST["adminusers_email"];
-        $user_password=$_POST["adminusers_password"];
-        $user_nickname=$_POST["adminusers_nickname"];
-        $user_role=$_POST["adminusers_role"];
-        $sql_add="INSERT INTO admin_users (admin_USERNAME,admin_PASSWORD,admin_ROLE,admin_NICKNAME,admin_EMAIL)
-        VALUES ('{$user_name}','{$user_password}','{$user_role}','{$user_nickname}','{$user_email}')";
-        $create_user_query=mysqli_query($con,$sql_add);
-        header("Location: users.php");
-      }
-       ?>
+         if(isset($_POST['add_user']) && isset($_SESSION['role']) && $_SESSION['role']=='admin'){
+           $user_name=$_POST["adminusers_username"];
+           $user_email=$_POST["adminusers_email"];
+           $user_password=$_POST["adminusers_password"];
+           $user_nickname=$_POST["adminusers_nickname"];
+           $user_role=$_POST["adminusers_role"];
+           $sql_add=dbAdminUserAdd($user_name,$user_password,$user_role,$user_nickname,$user_email);
+           $con->query($sql_add);
+           $con->close();
+           header("Location: adminUsers.php");
+         }
+     ?>
        <!--KULLANICI EKLEME FINISH-->
 
        <!--KULLANICI DÜZENLEME-->
@@ -210,10 +214,10 @@
               $user_password=$_POST["adminusers_password"];
               $user_nickname=$_POST["adminusers_nickname"];
               $user_role=$_POST["adminusers_role"];
-              $sql_update="UPDATE admin_users SET admin_USERNAME='$user_name',admin_PASSWORD='$user_password',
-              admin_ROLE='$user_role',admin_NICKNAME='$user_nickname',admin_EMAIL='$user_email' WHERE admin_ID='$_POST[admin_id]'";
-              $edit_user_query=mysqli_query($con,$sql_update);
-              header("Location:users.php");
+              $sql_update=dbAdminUserEdit($user_name,$user_password,$user_role,$user_nickname,$user_email,$_POST['admin_id']);
+              $con->query($sql_update);
+              $con->close();
+              header("Location: adminUsers.php");
             }
         ?>
        <!--KULLANICI DÜZENLEME FINISH-->
@@ -222,10 +226,10 @@
        <?php
        if(isset($_GET["delete"]) && isset($_SESSION['role']) && $_SESSION['role']=='admin' ){
          $del_users_id=$_GET['delete'];
-         $sql_delete="DELETE FROM admin_users WHERE admin_ID={$del_users_id}";
-         $delete_posts_query=mysqli_query($con,$sql_delete);
-         header("Location:users.php");
-
+         $sql_delete=dbAdminUserDelete($del_users_id);
+         $con->query($sql_delete);
+         $con->close();
+         header("Location: adminUsers.php");
        }
         ?>
        <!--/KULLANICI SİLME FINISH-->

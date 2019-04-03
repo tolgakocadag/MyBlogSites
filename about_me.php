@@ -35,7 +35,29 @@
             <div class="contact-form-area">
                 <div class="row">
                     <div class="col-12 col-md-5">
-                        <div class="contact-form-sidebar item wow fadeInUpBig" data-wow-delay="0.3s" style="background-image: url(img/bg-img/contact.jpg);">
+                        <div class="contact-form-sidebar item wow fadeInUpBig" data-wow-delay="0.3s"">
+                          <div class="single-widget-area about-me-widget text-center">
+                              <div class="about-me-widget-thumb">
+                                  <img src="img/about-img/pp.jpg" alt="">
+                              </div>
+                              <h4 class="font-shadow-into-light">Tolga Kocadağ</h4>
+                              <p>Web Developer</p>
+                          </div>
+
+                          <!-- Single Widget Area -->
+                          <div class="single-widget-area subscribe_widget text-center">
+                              <div class="widget-title">
+                                  <h6>Abone ol &amp; Takip et</h6>
+                              </div>
+                              <div class="subscribe-link">
+                                  <a href="https://www.facebook.com/tolgakocadag58"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
+                                  <a href="https://www.instagram.com/tolgakocadag58"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+                                  <a href="#"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+                                  <a href="https://www.github.com/tolgakocadag"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+                              </div>
+                          </div>
+
+                          <!-- Single Widget Area -->
                         </div>
                     </div>
                     <div class="col-12 col-md-7 item">

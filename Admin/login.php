@@ -1,32 +1,31 @@
 <?php
   include "../backend/_database.php";
   include "../backend/general_settings.php";
+  include "../backend/_dbConnect.php";
   ses_start();isLogin();
-  
+
   if(isset($_POST["login"])){
     $username=$_POST["username"];
     $password=$_POST["password"];
     $username=mysqli_real_escape_string($con,$username);//kullanıcı adını güvenlik kontrolünden geçiriyoruz.
     $password=mysqli_real_escape_string($con,$password);
-
-    $query="SELECT * FROM admin_users WHERE admin_USERNAME='{$username}'";
-    $select_admin_query=mysqli_query($con,$query);
-
-    while ($row=mysqli_fetch_assoc($select_admin_query)) {
-      $db_admin_adi=$row["admin_ID"];
-      $db_admin_username=$row["admin_USERNAME"];
-      $db_admin_password=$row["admin_PASSWORD"];
-      $db_admin_email=$row["admin_EMAIL"];
-      $db_admin_role=$row["admin_ROLE"];
-      $db_admin_nickname=$row["admin_NICKNAME"];
+    $query=dbLoginConnect($username);
+    $query=$con->query($query);
+    if($query->num_rows>0){
+      while ($row=$query->fetch_assoc()) {
+        $db_admin_username=$row["admin_USERNAME"];
+        $db_admin_password=$row["admin_PASSWORD"];
+        $db_admin_role=$row["admin_ROLE"];
+        $db_admin_nickname=$row["admin_NICKNAME"];
+      }
     }
+    mysqli_stmt_close();
     if($username!==$db_admin_username&&$password!==$db_admin_password){
       header("Location: login.php");
     }
     else if($username==$db_admin_username&&$password==$db_admin_password){
       $_SESSION["username"]=$db_admin_username;
       $_SESSION["nickname"]=$db_admin_nickname;
-      $_SESSION["email"]=$db_admin_email;
       $_SESSION["role"]=$db_admin_role;
       header("Location:index.php");
     }

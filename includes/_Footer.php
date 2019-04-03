@@ -11,10 +11,10 @@
                         <a href="https://www.instagram.com/tolgakocadag58"><i class="fa fa-instagram" aria-hidden="true"></i><span>instagram</span></a>
                     </div>
                     <div class="single-icon">
-                        <a href="https://www.github.com/tolgakocadag"><i class="fa fa-github" aria-hidden="true"></i><span>GitHub</span></a>
+                      <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i><span>linkedin</span></a>
                     </div>
                     <div class="single-icon">
-                        <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i><span>linkedin</span></a>
+                        <a href="https://www.github.com/tolgakocadag"><i class="fa fa-github" aria-hidden="true"></i><span>GitHub</span></a>
                     </div>
                 </div>
             </div>

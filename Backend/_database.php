@@ -1,5 +1,9 @@
 <?php
 //$baglanti=mysqli_connect('localhost:3306','tolgakoc_admin','Tlgkcdg1327','tolgakoc_veritabani');
-$con=mysqli_connect('localhost','root','root','tolgakocadag_blog');
+$server="localhost";
+$user="root";
+$password="root";
+$database="tolgakocadag_blog";
+$con=new mysqli($server,$user,$password,$database);
 $con->set_charset("utf8");
  ?>

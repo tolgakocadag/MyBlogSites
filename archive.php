@@ -6,7 +6,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>Archive Page</h2>
+                        <h2>Blog Yazılarım</h2>
                     </div>
                 </div>
             </div>
@@ -33,479 +33,21 @@
         <div class="container">
             <div class="row">
 
-                <!-- Single Post -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
-                        <!-- Post Thumb -->
-                        <div class="post-thumb">
-                            <img src="img/blog-img/2.jpg" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-meta d-flex">
-                                <div class="post-author-date-area d-flex">
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <a href="#">By Marian</a>
-                                    </div>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
-                                    </div>
-                                </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4 class="post-headline">Where To Get The Best Sunday Roast In The Cotswolds</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post wow fadeInUp" data-wow-delay="0.2s">
-                        <!-- Post Thumb -->
-                        <div class="post-thumb">
-                            <img src="img/blog-img/3.jpg" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-meta d-flex">
-                                <div class="post-author-date-area d-flex">
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <a href="#">By Marian</a>
-                                    </div>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
-                                    </div>
-                                </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4 class="post-headline">The Top Breakfast And Brunch Spots In Hove, Brighton</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post wow fadeInUp" data-wow-delay="0.3s">
-                        <!-- Post Thumb -->
-                        <div class="post-thumb">
-                            <img src="img/blog-img/4.jpg" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-meta d-flex">
-                                <div class="post-author-date-area d-flex">
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <a href="#">By Marian</a>
-                                    </div>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
-                                    </div>
-                                </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4 class="post-headline">The 10 Best Pubs In The Lake District, Cumbria</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post wow fadeInUp" data-wow-delay="0.4s">
-                        <!-- Post Thumb -->
-                        <div class="post-thumb">
-                            <img src="img/blog-img/5.jpg" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-meta d-flex">
-                                <div class="post-author-date-area d-flex">
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <a href="#">By Marian</a>
-                                    </div>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
-                                    </div>
-                                </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4 class="post-headline">The 10 Best Brunch Spots In Newcastle, England</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post wow fadeInUp" data-wow-delay="0.5s">
-                        <!-- Post Thumb -->
-                        <div class="post-thumb">
-                            <img src="img/blog-img/2.jpg" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-meta d-flex">
-                                <div class="post-author-date-area d-flex">
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <a href="#">By Marian</a>
-                                    </div>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
-                                    </div>
-                                </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4 class="post-headline">Where To Get The Best Sunday Roast In The Cotswolds</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post wow fadeInUp" data-wow-delay="0.6s">
-                        <!-- Post Thumb -->
-                        <div class="post-thumb">
-                            <img src="img/blog-img/3.jpg" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-meta d-flex">
-                                <div class="post-author-date-area d-flex">
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <a href="#">By Marian</a>
-                                    </div>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
-                                    </div>
-                                </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4 class="post-headline">The Top Breakfast And Brunch Spots In Hove, Brighton</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post wow fadeInUp" data-wow-delay="0.7s">
-                        <!-- Post Thumb -->
-                        <div class="post-thumb">
-                            <img src="img/blog-img/4.jpg" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-meta d-flex">
-                                <div class="post-author-date-area d-flex">
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <a href="#">By Marian</a>
-                                    </div>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
-                                    </div>
-                                </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4 class="post-headline">The 10 Best Pubs In The Lake District, Cumbria</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post wow fadeInUp" data-wow-delay="0.8s">
-                        <!-- Post Thumb -->
-                        <div class="post-thumb">
-                            <img src="img/blog-img/5.jpg" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-meta d-flex">
-                                <div class="post-author-date-area d-flex">
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <a href="#">By Marian</a>
-                                    </div>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
-                                    </div>
-                                </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4 class="post-headline">The 10 Best Brunch Spots In Newcastle, England</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post wow fadeInUp" data-wow-delay="0.9s">
-                        <!-- Post Thumb -->
-                        <div class="post-thumb">
-                            <img src="img/blog-img/2.jpg" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-meta d-flex">
-                                <div class="post-author-date-area d-flex">
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <a href="#">By Marian</a>
-                                    </div>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
-                                    </div>
-                                </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4 class="post-headline">Where To Get The Best Sunday Roast In The Cotswolds</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post wow fadeInUp" data-wow-delay="1s">
-                        <!-- Post Thumb -->
-                        <div class="post-thumb">
-                            <img src="img/blog-img/3.jpg" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-meta d-flex">
-                                <div class="post-author-date-area d-flex">
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <a href="#">By Marian</a>
-                                    </div>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
-                                    </div>
-                                </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4 class="post-headline">The Top Breakfast And Brunch Spots In Hove, Brighton</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post wow fadeInUp" data-wow-delay="1.1s">
-                        <!-- Post Thumb -->
-                        <div class="post-thumb">
-                            <img src="img/blog-img/4.jpg" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-meta d-flex">
-                                <div class="post-author-date-area d-flex">
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <a href="#">By Marian</a>
-                                    </div>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
-                                    </div>
-                                </div>
-                                <!-- Post Comment & Share Area -->
-                                <div class="post-comment-share-area d-flex">
-                                    <!-- Post Favourite -->
-                                    <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
-                                    </div>
-                                    <!-- Post Comments -->
-                                    <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
-                                    </div>
-                                    <!-- Post Share -->
-                                    <div class="post-share">
-                                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <h4 class="post-headline">The 10 Best Pubs In The Lake District, Cumbria</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+              <!--POST LİSTELEME-->
+              <?php
+              $sql_list=dbmyPostList();
+              $sql_list =$con->query($sql_list);
+              if($sql_list->num_rows>0)
+              {
+                while ($row=$sql_list->fetch_assoc()) {
+                  $post_id=$row['post_ID'];
+                  $post_title=$row['post_TITLE'];
+                  $post_date=$row['post_DATE'];
+                  $post_author=$row['post_AUTHOR'];
+                  $post_content=$row['post_CONTENT'];
+                  $post_like_count=$row['post_LIKE_COUNT'];
+                  $post_comment_count=$row['post_COMMENT_COUNT'];
+                  ?>
                 <!-- Single Post -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-post wow fadeInUp" data-wow-delay="1.2s">
@@ -519,22 +61,22 @@
                                 <div class="post-author-date-area d-flex">
                                     <!-- Post Author -->
                                     <div class="post-author">
-                                        <a href="#">By Marian</a>
+                                        <a href="#"><?php echo $post_author; ?></a>
                                     </div>
                                     <!-- Post Date -->
                                     <div class="post-date">
-                                        <a href="#">May 19, 2017</a>
+                                        <a href="#"><?php $date=explode(".",$post_date);echo getMonth($date[1])." ".$date[0].", ".substr($date[2],0,4); ?></a>
                                     </div>
                                 </div>
                                 <!-- Post Comment & Share Area -->
                                 <div class="post-comment-share-area d-flex">
                                     <!-- Post Favourite -->
                                     <div class="post-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
+                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> <?php echo $post_like_count; ?></a>
                                     </div>
                                     <!-- Post Comments -->
                                     <div class="post-comments">
-                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo $post_comment_count; ?></a>
                                     </div>
                                     <!-- Post Share -->
                                     <div class="post-share">
@@ -543,12 +85,23 @@
                                 </div>
                             </div>
                             <a href="#">
-                                <h4 class="post-headline">The 10 Best Brunch Spots In Newcastle, England</h4>
+                              <?php
+                                  if(titleSize($post_title)==18){
+                                    echo "<h2 class='post-headline' style='font-size:20px;'>{$post_title}</h2>";
+                                  }
+                                  elseif (titleSize($post_title)==80) {
+                                    $sub_title=substr($post_title,0,93);
+                                    echo "<h2 class='post-headline' style='font-size:20px;'>{$sub_title}...</h2>";
+                                  }
+                                  else {
+                                    echo "<h2 class='post-headline'>{$post_title}</h2>";
+                                  }
+                              ?>
                             </a>
                         </div>
                     </div>
                 </div>
-
+              <?php }} ?>
                 <div class="col-12">
                     <div class="pagination-area d-sm-flex mt-15">
                         <nav aria-label="#">
