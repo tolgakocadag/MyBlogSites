@@ -17,8 +17,8 @@ function dbmyAdminPagePostsList(){
   return $sql_list;
 }
 function dbmyAdminPagePostsAdd(){
-  $sql_add="INSERT INTO posts (post_AUTHOR,post_AUTHOR_ROLE,post_DATE,post_TITLE,post_CONTENT)
-  VALUES (?,?,?,?,?)";
+  $sql_add="INSERT INTO posts (post_AUTHOR,post_AUTHOR_ROLE,post_DATE,post_TITLE,post_CONTENT,post_IMAGE)
+  VALUES (?,?,?,?,?,?)";
   return $sql_add;
 }
 function dbmyAdminPagePostsDelete(){

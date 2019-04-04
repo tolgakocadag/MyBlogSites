@@ -17,4 +17,6 @@ function titleSize($title){
   if(Strlen($title)>18&&Strlen($title)<71){return "18";}
   elseif (Strlen($title)>70) {return "80";}
 }
+
+
  ?>

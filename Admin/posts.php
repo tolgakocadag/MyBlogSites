@@ -149,7 +149,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="post">
+                        <form action="" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="post_title">Title</label>
                                         <input type="text" autofocus class="form-control" required name="post_title">
@@ -159,6 +159,12 @@
                                         <input type="text" readonly class="form-control" required name="post_author" value="<?php echo $_SESSION['nickname'];?>">
                                     </div>
                                     <div class="form-group">
+                                      <div class="custom-file">
+                                        <input type="file" name="post_image" class="custom-file-input" required id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
+                                        <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
+                                      </div>
+                                    </div>
+                                    <div class="form-group my-4">
                                         <label for="post_content">Content</label>
                                         <textarea type="textarea" class="form-control" rows="10" required name="post_content" ></textarea>
                                     </div>
@@ -183,8 +189,11 @@
         $post_author_role=$_POST["admin_role"];
         $post_date=date("d.m.Y")." ".date("H:i:s");
         $post_content=$_POST["post_content"];
+        $post_image = $_FILES['post_image']['tmp_name'];
+        copy($post_image, '../img/blog-img/' . $_FILES['post_image']['name']);
+        $post_image="../img/blog-img/{$_FILES['post_image']['name']}";
         $sql_add=$con->prepare(dbmyAdminPagePostsAdd());
-        $sql_add->bind_param("sssss",$post_author,$post_author_role,$post_date,$post_title,$post_content);
+        $sql_add->bind_param("ssssss",$post_author,$post_author_role,$post_date,$post_title,$post_content,$post_image);
         $sql_add->execute();
         $sql_add->close();
         header("Location: posts.php");
