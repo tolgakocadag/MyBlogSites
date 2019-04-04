@@ -63,6 +63,11 @@
     .top_header_area .signup-search-area .search_button {
         margin-left: 15px;
     }
+    .sabitle {
+      background-color:#fee2d9;
+      position: fixed;
+      top: 0;
+    }
     .navbar-toggler {
         background-color: #fc6c3f;
         width: 100%;

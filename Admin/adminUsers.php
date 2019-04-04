@@ -198,9 +198,10 @@
            $user_password=$_POST["adminusers_password"];
            $user_nickname=$_POST["adminusers_nickname"];
            $user_role=$_POST["adminusers_role"];
-           $sql_add=dbAdminUserAdd($user_name,$user_password,$user_role,$user_nickname,$user_email);
-           $con->query($sql_add);
-           $con->close();
+           $sql_add=$con->prepare(dbAdminUserAdd());
+           $sql_add->bind_param("sssss",$user_name,$user_password,$user_role,$user_nickname,$user_email);
+           $sql_add->execute();
+           $sql_add->close();
            header("Location: adminUsers.php");
          }
      ?>
@@ -214,9 +215,10 @@
               $user_password=$_POST["adminusers_password"];
               $user_nickname=$_POST["adminusers_nickname"];
               $user_role=$_POST["adminusers_role"];
-              $sql_update=dbAdminUserEdit($user_name,$user_password,$user_role,$user_nickname,$user_email,$_POST['admin_id']);
-              $con->query($sql_update);
-              $con->close();
+              $sql_update=$con->prepare(dbAdminUserEdit());
+              $sql_update->bind_param("sssssi",$user_name,$user_password,$user_role,$user_nickname,$user_email,$_POST['admin_id']);
+              $sql_update->execute();
+              $sql_update->close();
               header("Location: adminUsers.php");
             }
         ?>
@@ -226,9 +228,10 @@
        <?php
        if(isset($_GET["delete"]) && isset($_SESSION['role']) && $_SESSION['role']=='admin' ){
          $del_users_id=$_GET['delete'];
-         $sql_delete=dbAdminUserDelete($del_users_id);
-         $con->query($sql_delete);
-         $con->close();
+         $sql_delete=$con->prepare(dbAdminUserDelete());
+         $sql_delete->bind_param("i",$del_users_id);
+         $sql_delete->execute();
+         $sql_delete->close();
          header("Location: adminUsers.php");
        }
         ?>

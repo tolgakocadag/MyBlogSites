@@ -33,7 +33,7 @@
 
 
     <!-- ****** Top Header Area Start ****** -->
-    <div class="top_header_area">
+    <div class="top_header_area  fixed-top" style="background-color:#fee2d9">
         <div class="container">
             <div class="row">
                 <div class="col-5 col-sm-6">
@@ -48,6 +48,7 @@
                 <!--  Login Register Area -->
                 <div class="col-7 col-sm-6">
                     <div class="signup-search-area d-flex align-items-center justify-content-end">
+                        <!--
                         <div class="login_register_area d-flex">
                             <div class="login">
                                 <a href="register.html">Giriş Yap</a>
@@ -56,17 +57,16 @@
                                 <a href="register.html">Üye ol</a>
                             </div>
                         </div>
+                      -->
                         <!-- Search Button Area -->
-                        <div class="search_button">
-                            <a class="searchBtn" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-                        </div>
                         <!-- Search Form -->
-                        <div class="search-hidden-form">
+                        <div class="form-group my-2">
                             <form action="#" method="get">
-                                <input type="search" name="search" id="search-anything" placeholder="Bir şey ara...">
-                                <input type="submit" value="" class="d-none">
-                                <span class="searchBtn"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                <input class="form-control" type="search" name="search" id="search-anything" placeholder="Bir şey ara...">
                             </form>
+                        </div>
+                        <div class="form-group ml-2 my-2">
+                            <a class="searchBtn" href="#"><i class="fa fa-search fa-2x" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
     <!-- ****** Top Header Area End ****** -->
 
     <!-- ****** Header Area Start ****** -->
-    <header class="header_area">
+    <header class="header_area my-4">
         <div class="container">
             <div class="row">
                 <!-- Logo Area Start -->

@@ -183,9 +183,10 @@
         $post_author_role=$_POST["admin_role"];
         $post_date=date("d.m.Y")." ".date("H:i:s");
         $post_content=$_POST["post_content"];
-        $sql_add=dbmyAdminPagePostsAdd($post_author,$post_author_role,$post_date,$post_title,$post_content);
-        $con->query($sql_add);
-        $con->close();
+        $sql_add=$con->prepare(dbmyAdminPagePostsAdd());
+        $sql_add->bind_param("sssss",$post_author,$post_author_role,$post_date,$post_title,$post_content);
+        $sql_add->execute();
+        $sql_add->close();
         header("Location: posts.php");
       }
        ?>
@@ -194,8 +195,6 @@
        <!--YAZI DÜZENLEME-->
          <?php
             if((isset($_POST['edit_post'])) && (isset($_SESSION['role'])) && ($_SESSION['role']=='admin')){
-              echo "<script>alert('echo $_SESSION[role]');</script>";
-              echo "<script>alert('girdima');</script>";
               $post_title=$_POST["post_title"];
               $post_content=$_POST["post_content"];
               $post_hide=$_POST["post_hide"];
@@ -205,15 +204,14 @@
               header("Location:posts.php");
             }
             if(isset($_POST['edit_post']) && isset($_SESSION['role']) && $_SESSION['role']!='admin'){
-              echo "<script>alert('echo $_SESSION[role]');</script>";
               if($_POST['post_author_role']!='admin'){
-                echo "<script>alert('girdimb');</script>";
                 $post_title=$_POST["post_title"];
                 $post_content=$_POST["post_content"];
                 $post_hide=$_POST["post_hide"];
-                $sql_update=dbmyAdminPagePostsEdit($post_title,$post_content,$post_hide,$_POST['post_id']);
-                $con->query($sql_update);
-                $con->close();
+                $sql_update=$con->prepare(dbmyAdminPagePostsEdit());
+                $sql_update->bind_param("sssi",$post_title,$post_content,$post_hide,$_POST["post_id"]);
+                $sql_update->execute();
+                $sql_update->close();
                 header("Location:posts.php");
               }
             }
@@ -224,9 +222,10 @@
        <?php
        if(isset($_GET["delete"]) && isset($_SESSION['role']) && $_SESSION['role']=='admin' ){
          $del_posts_id=$_GET['delete'];
-         $sql_delete=dbmyAdminPagePostsDelete($del_posts_id);
-         $con->query($sql_delete);
-         $con->close();
+         $sql_delete=$con->prepare(dbmyAdminPagePostsDelete());
+         $sql_delete->bind_param("i",$del_posts_id);
+         $sql_delete->execute();
+         $sql_delete->close();
          header("Location:posts.php");
        }
         ?>
