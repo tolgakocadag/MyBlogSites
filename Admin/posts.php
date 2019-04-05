@@ -4,7 +4,7 @@
     <div class="container-fluid">
        <div class="row">
          <a class="btn btn-large btn-primary p-3 offset-1 my-4 col-1" style="color:white;" data-toggle="modal" data-target="#add_modal">ADD POST</a>
-         <div class="alert alert-warning offset-1 col-2 my-4 alert-dismissible fade show" role="alert">
+         <div class="alert alert-warning offset-1 col-4 my-4 alert-dismissible fade show" role="alert">
            Total number of posts: <strong>
 
              <?php $post_count=dbmyAdminPagePostsList();

@@ -81,6 +81,7 @@
                         $post_author=$row['post_AUTHOR'];
                         $post_like_count=$row['post_LIKE_COUNT'];
                         $post_comment_count=$row['post_COMMENT_COUNT'];
+                        $post_image=$row['post_IMAGE'];
                       ?>
                     <div class="col-12 col-md-6">
                         <div class="single-post wow fadeInUp" data-wow-delay="0s">
@@ -157,6 +158,7 @@
                         $post_content=$row['post_CONTENT'];
                         $post_like_count=$row['post_LIKE_COUNT'];
                         $post_comment_count=$row['post_COMMENT_COUNT'];
+                        $post_image=$row['post_IMAGE'];
                         ?>
                     <div class="col-12">
                         <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay="0.1s">

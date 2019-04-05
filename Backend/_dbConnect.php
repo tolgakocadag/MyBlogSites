@@ -21,6 +21,10 @@ function dbmyAdminPagePostsAdd(){
   VALUES (?,?,?,?,?,?,?)";
   return $sql_add;
 }
+function dbmyAdminPagePostsAddTitleControl($title){
+  $sql_list ="SELECT * FROM posts WHERE post_TITLE='{$title}'";
+  return $sql_list;
+}
 function dbmyAdminPagePostsDelete(){
   $sql_delete="DELETE FROM posts WHERE post_ID=?";
   return $sql_delete;
