@@ -52,7 +52,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="#">
+                                <a href="<?php echo $post_title;?>">
                                     <h2 class="post-headline"><?php echo $post_title.GetIP(); ?></h2>
                                 </a>
                                 <p><?php echo getContent($post_content); ?></p>

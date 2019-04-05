@@ -1,5 +1,4 @@
 <?php
-//$baglanti=mysqli_connect('localhost:3306','tolgakoc_admin','Tlgkcdg1327','tolgakoc_veritabani');
 $server="localhost";
 $user="root";
 $password="root";
