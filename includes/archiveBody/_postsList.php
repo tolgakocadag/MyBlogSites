@@ -5,6 +5,9 @@ $sql_list =$con->query($sql_list);
 if($sql_list->num_rows>0)
 {
   while ($row=$sql_list->fetch_assoc()) {
+    if($row['post_HIDE']=="on"){
+      continue;
+    }
     $post_id=$row['post_ID'];
     $post_title=$row['post_TITLE'];
     $post_date=$row['post_DATE'];
@@ -12,13 +15,14 @@ if($sql_list->num_rows>0)
     $post_content=$row['post_CONTENT'];
     $post_like_count=$row['post_LIKE_COUNT'];
     $post_comment_count=$row['post_COMMENT_COUNT'];
+    $post_image=$row['post_IMAGE'];
     ?>
   <!-- Single Post -->
   <div class="col-12 col-md-6 col-lg-4">
       <div class="single-post wow fadeInUp" data-wow-delay="1.2s">
           <!-- Post Thumb -->
           <div class="post-thumb">
-              <img src="img/blog-img/5.jpg" alt="">
+              <img src="<?php echo substr($post_image,3,500); ?>" alt="">
           </div>
           <!-- Post Content -->
           <div class="post-content">
@@ -54,12 +58,12 @@ if($sql_list->num_rows>0)
                     if(titleSize($post_title)==18){
                       echo "<h2 class='post-headline' style='font-size:20px;'>{$post_title}</h2>";
                     }
-                    elseif (titleSize($post_title)==80) {
+                    elseif (titleSize($post_title)==100) {
                       $sub_title=substr($post_title,0,93);
                       echo "<h2 class='post-headline' style='font-size:20px;'>{$sub_title}...</h2>";
                     }
                     else {
-                      echo "<h2 class='post-headline'>{$post_title}</h2>";
+                      echo "<h2 class='post-headline' style='font-size:20px;'>{$post_title}</h2>";
                     }
                 ?>
               </a>

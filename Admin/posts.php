@@ -29,16 +29,20 @@
                     <th>Date</th>
                     <th>Author</th>
                     <th>Content</th>
+                    <th>Like Count</th>
+                    <th>Comment Count</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
                     <th>ID</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Nickname</th>
-                    <th>Role</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Author</th>
+                    <th>Content</th>
+                    <th>Like Count</th>
+                    <th>Comment Count</th>
                     <th>Actions</th>
                   </tr>
                 </tfoot>
@@ -59,12 +63,16 @@
                   $post_hide=$row["post_HIDE"];
                   $post_content=$row['post_CONTENT'];
                   $post_like_count=$row["post_LIKE_COUNT"];
+                  $post_comment_count=$row["post_COMMENT_COUNT"];
+                  $post_tag=$row["post_TAG"];
                   echo "<tr>
                       <td>{$post_id}</td>
                       <td>{$post_title}</td>
                       <td>{$post_date}</td>
                       <td>{$post_author}</td>
-                      <td>".substr($post_content,0,20)."...</td>
+                      <td>".substr($post_content,0,50)."...</td>
+                      <td>{$post_like_count}</td>
+                      <td>{$post_comment_count}</td>
                       <td  style='width:5%'>
                           <div class='dropdown'>
                               <button class='btn btn-primary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
@@ -117,6 +125,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label for="post_tag">Tags</label>
+                                        <input type="text" value="<?php  echo $post_tag; ?>" class="form-control" required name="post_tag">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="post_content">Content</label>
                                         <textarea type="textarea" class="form-control" rows="10" required name="post_content"><?php echo $post_content; ?></textarea>
                                     </div>
@@ -160,9 +172,13 @@
                                     </div>
                                     <div class="form-group">
                                       <div class="custom-file">
-                                        <input type="file" name="post_image" class="custom-file-input" required id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
-                                        <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
+                                        <input type="file" name="post_image" class="custom-file-input" required  aria-describedby="inputGroupFileAddon03">
+                                        <label class="custom-file-label" for="post_image">Choose file</label>
                                       </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="post_tag">Tags</label>
+                                        <input type="text" class="form-control" required name="post_tag">
                                     </div>
                                     <div class="form-group my-4">
                                         <label for="post_content">Content</label>
@@ -181,64 +197,7 @@
         </div>
       </div>
 
-      <!--YAZI EKLEME-->
-      <?php
-      if(isset($_POST['add_post']) && isset($_SESSION['role'])){
-        $post_title=$_POST["post_title"];
-        $post_author=$_POST["post_author"];
-        $post_author_role=$_POST["admin_role"];
-        $post_date=date("d.m.Y")." ".date("H:i:s");
-        $post_content=$_POST["post_content"];
-        $post_image = $_FILES['post_image']['tmp_name'];
-        copy($post_image, '../img/blog-img/' . $_FILES['post_image']['name']);
-        $post_image="../img/blog-img/{$_FILES['post_image']['name']}";
-        $sql_add=$con->prepare(dbmyAdminPagePostsAdd());
-        $sql_add->bind_param("ssssss",$post_author,$post_author_role,$post_date,$post_title,$post_content,$post_image);
-        $sql_add->execute();
-        $sql_add->close();
-        header("Location: posts.php");
-      }
-       ?>
-       <!--YAZI EKLEME FINISH-->
-
-       <!--YAZI DÜZENLEME-->
-         <?php
-            if((isset($_POST['edit_post'])) && (isset($_SESSION['role'])) && ($_SESSION['role']=='admin')){
-              $post_title=$_POST["post_title"];
-              $post_content=$_POST["post_content"];
-              $post_hide=$_POST["post_hide"];
-              $sql_update="UPDATE posts SET post_TITLE='$post_title',
-              post_CONTENT='$post_content',post_HIDE='$post_hide' WHERE post_ID='$_POST[post_id]'";
-              $edit_post_query=mysqli_query($con,$sql_update);
-              header("Location:posts.php");
-            }
-            if(isset($_POST['edit_post']) && isset($_SESSION['role']) && $_SESSION['role']!='admin'){
-              if($_POST['post_author_role']!='admin'){
-                $post_title=$_POST["post_title"];
-                $post_content=$_POST["post_content"];
-                $post_hide=$_POST["post_hide"];
-                $sql_update=$con->prepare(dbmyAdminPagePostsEdit());
-                $sql_update->bind_param("sssi",$post_title,$post_content,$post_hide,$_POST["post_id"]);
-                $sql_update->execute();
-                $sql_update->close();
-                header("Location:posts.php");
-              }
-            }
-        ?>
-       <!--YAZI DÜZENLEME FINISH-->
-
-       <!--YAZI SİLME-->
-       <?php
-       if(isset($_GET["delete"]) && isset($_SESSION['role']) && $_SESSION['role']=='admin' ){
-         $del_posts_id=$_GET['delete'];
-         $sql_delete=$con->prepare(dbmyAdminPagePostsDelete());
-         $sql_delete->bind_param("i",$del_posts_id);
-         $sql_delete->execute();
-         $sql_delete->close();
-         header("Location:posts.php");
-       }
-        ?>
-       <!--/YAZI SİLME FINISH-->
-
-
+      <?php include "Includes/posts/_postsAdd.php"; ?>
+      <?php include "Includes/posts/_postsEdit.php"; ?>
+      <?php include "Includes/posts/_postsDelete.php"; ?>
 <?php include "Includes/_Footer.php"; ?>
