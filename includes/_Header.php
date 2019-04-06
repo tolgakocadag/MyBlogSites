@@ -1,6 +1,7 @@
 <?php include "backend/_database.php" ; ?>
 <?php include "backend/general_settings.php"; ?>
 <?php include "backend/_dbConnect.php"; ?>
+<?php include "backend/createPage.php"; ?>
 <!DOCTYPE html>
 <html lang="tr">
 

@@ -39,12 +39,41 @@
                                     <!-- Post Comment & Share Area -->
                                     <div class="post-comment-share-area d-flex">
                                         <!-- Post Favourite -->
-                                        <div class="post-favourite">
-                                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> <?php echo $post_like_count; ?></a>
-                                        </div>
+                                        <script type="text/javascript">
+
+                                        /*function unlike(){
+                                            "<?php
+                                            /*$sql_update=$con->prepare(dbHomePostLikeEdit());
+                                            $ip=GetIP();
+                                            $sql_update->bind_param("si",$ip,$post_id);
+                                            $sql_update->execute();
+                                            $sql_update->close();*/
+                                             ?>"
+                                        }*/
+                                        </script>
+                                        <?php
+                                            $ip_list=dbHomePostLikeList();
+                                            $ip_list=$con->query($ip_list);
+                                            if($ip_list->num_rows>0)
+                                            {
+                                              echo "
+                                                <div class='post-favourite'>
+                                                    <a href='#'><i class='fa fa-heart' onclick='unlike()' style='color:red' aria-hidden='true'></i> $post_like_count</a>
+                                                </div>
+                                              ";
+                                            }
+                                            else {
+                                              echo "
+                                                <div class='post-favourite'>
+                                                    <a href='#''><i class='fa fa-heart-o' aria-hidden='true'></i> $post_like_count</a>
+                                                </div>
+                                              ";
+                                            }
+                                         ?>
+
                                         <!-- Post Comments -->
                                         <div class="post-comments">
-                                            <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo $post_comment_count; ?></a>
+                                            <a href="#"><i class="fa fa-comment" aria-hidden="true"></i> <?php echo $post_comment_count; ?></a>
                                         </div>
                                         <!-- Post Share -->
                                         <div class="post-share">
@@ -53,7 +82,7 @@
                                     </div>
                                 </div>
                                 <a href="<?php echo $post_title;?>">
-                                    <h2 class="post-headline"><?php echo $post_title.GetIP(); ?></h2>
+                                    <h2 class="post-headline"><?php echo $post_title." İP ADRESİN : ".GetIP(); ?></h2>
                                 </a>
                                 <p><?php echo getContent($post_content); ?></p>
                                 <a href="#" class="read-more">Okumaya devam et...</a>
