@@ -5,11 +5,11 @@ function dbLoginConnect($username){
 }
 function dbHomePostList($limit)
 {
-  $sql_list ="SELECT * FROM posts ORDER BY post_ID DESC LIMIT $limit";
+  $sql_list ="SELECT * FROM posts WHERE post_HIDE='off' ORDER BY post_ID DESC LIMIT $limit";
   return $sql_list;
 }
 function dbmyPostsList(){
-  $sql_list ="SELECT * FROM posts";
+  $sql_list ="SELECT * FROM posts ORDER BY post_HIT DESC";
   return $sql_list;
 }
 function dbHitPlus(){
@@ -21,8 +21,8 @@ function dbmyAdminPagePostsList(){
   return $sql_list;
 }
 function dbmyAdminPagePostsAdd(){
-  $sql_add="INSERT INTO posts (post_AUTHOR,post_AUTHOR_ROLE,post_DATE,post_TITLE,post_EXPLANATION,post_CONTENT,post_IMAGE,post_TAG)
-  VALUES (?,?,?,?,?,?,?,?)";
+  $sql_add="INSERT INTO posts (post_AUTHOR,post_AUTHOR_ROLE,post_DATE,post_TITLE,post_EXPLANATION,post_CONTENT,post_IMAGE,post_URL,post_TAG)
+  VALUES (?,?,?,?,?,?,?,?,?)";
   return $sql_add;
 }
 function dbmyAdminPagePostsAddTitleControl($title){
@@ -34,7 +34,7 @@ function dbmyAdminPagePostsDelete(){
   return $sql_delete;
 }
 function dbmyAdminPagePostsEdit(){
-  $sql_update="UPDATE posts SET post_TITLE=?,post_EXPLANATION=?,
+  $sql_update="UPDATE posts SET post_EXPLANATION=?,
   post_CONTENT=?,post_HIDE=?,post_TAG=? WHERE post_ID=?";
   return $sql_update;
 }

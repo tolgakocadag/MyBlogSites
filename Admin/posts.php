@@ -65,6 +65,7 @@
                   $post_hit=$row["post_HIT"];
                   $post_comment_count=$row["post_COMMENT_COUNT"];
                   $post_tag=$row["post_TAG"];
+                  $post_explanation=$row["post_EXPLANATION"];
                   echo "<tr>
                       <td>{$post_id}</td>
                       <td>{$post_title}</td>
@@ -103,7 +104,7 @@
                                 <form action="" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="post_title">title</label>
-                                        <input type="text" class="form-control" required name="post_title" value="<?php echo $post_title;?>">
+                                        <input type="text" class="form-control" readonly required name="post_title" value="<?php echo $post_title;?>">
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-6">
@@ -130,11 +131,27 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="post_explanation">explanation</label>
-                                        <input type="text" class="form-control" required name="post_explanation">
+                                        <input type="text" class="form-control" value="<?php echo $post_explanation; ?>" required name="post_explanation">
                                     </div>
+                                    <script>
+                                        tinymce.init({
+                                          selector: '#myTextareaedit<?php echo $k ?>',
+                                          height: 500,
+                                          theme: 'modern',
+                                          plugins: [
+                                            'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                                            'searchreplace wordcount visualblocks visualchars code fullscreen',
+                                            'insertdatetime media nonbreaking save table contextmenu directionality',
+                                            'emoticons template paste textcolor colorpicker textpattern imagetools'
+                                          ],
+                                          toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                                          toolbar2: 'print preview media | forecolor backcolor emoticons',
+                                          image_advtab: true
+                                        });
+                                    </script>
                                     <div class="form-group">
                                         <label for="post_content">Content</label>
-                                        <textarea type="textarea" class="form-control" rows="10" required name="post_content"><?php echo $post_content; ?></textarea>
+                                        <textarea id="myTextareaedit<?php echo $k; ?>" name="post_content"><?php echo $post_content; ?></textarea>
                                     </div>
                                     <div class="form-group">
                                         <input type="hidden" name="post_author_role" value="<?php echo $post_author_role; ?>">

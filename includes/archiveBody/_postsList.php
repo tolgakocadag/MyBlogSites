@@ -16,13 +16,14 @@ if($sql_list->num_rows>0)
     $post_hit=$row['post_HIT'];
     $post_comment_count=$row['post_COMMENT_COUNT'];
     $post_image=$row['post_IMAGE'];
+    $post_url=$row['post_URL'];
     ?>
   <!-- Single Post -->
   <div class="col-12 col-md-6 col-lg-4">
       <div class="single-post wow fadeInUp" data-wow-delay="1.2s">
           <!-- Post Thumb -->
           <div class="post-thumb">
-              <img src="<?php echo substr($post_image,3,500); ?>" alt="">
+              <a href="<?php echo $post_url; ?>"><img src="<?php echo substr($post_image,3,500); ?>" alt=""></a>
           </div>
           <!-- Post Content -->
           <div class="post-content">
@@ -30,7 +31,7 @@ if($sql_list->num_rows>0)
                   <div class="post-author-date-area d-flex">
                       <!-- Post Author -->
                       <div class="post-author">
-                          <a href="#"><?php echo $post_author; ?></a>
+                          <a href="about_me.php"><?php echo $post_author; ?></a>
                       </div>
                       <!-- Post Date -->
                       <div class="post-date">
@@ -39,17 +40,21 @@ if($sql_list->num_rows>0)
                   </div>
                   <!-- Post Comment & Share Area -->
                   <div class="post-comment-share-area d-flex">
+                      <!-- Post Hits -->
+                      <div class='post-comments'>
+                         <a href='<?php echo $post_url; ?>'><i class='fa fa-eye' aria-hidden='true'></i> <?php echo $post_hit; ?></a>
+                      </div>
                       <!-- Post Comments -->
                       <div class="post-comments">
-                          <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo $post_comment_count; ?></a>
+                          <a href="<?php echo $post_url; ?>"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo $post_comment_count; ?></a>
                       </div>
                       <!-- Post Share -->
-                      <div class="post-share">
-                          <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                      <div class="post-share" style="display:none">
+                          <a href="<?php echo $post_url; ?>"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
                       </div>
                   </div>
               </div>
-              <a href="#">
+              <a href="<?php echo $post_url; ?> ">
                 <?php
                     if(titleSize($post_title)==18){
                       echo "<h2 class='post-headline' style='font-size:20px;'>{$post_title}</h2>";

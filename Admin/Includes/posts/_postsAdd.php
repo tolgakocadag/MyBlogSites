@@ -17,18 +17,21 @@ if(isset($_POST['add_post']) && isset($_SESSION['role'])){
     $post_tag=$_POST['post_tag'];
     $post_hit=0;
     $post_comment=0;
-    $text=createTextforPage($post_title,$post_explanation,$post_content,$post_date,$post_author,$post_image,$post_hit,$post_comment);
-    $sql_add=$con->prepare(dbmyAdminPagePostsAdd());
-    $sql_add->bind_param("ssssssss",$post_author,$post_author_role,$post_date,$post_title,$post_explanation,$post_content,$post_image,$post_tag);
-    $sql_add->execute();
-    $sql_add->close();
-    $new_title = multiexplode(array(",",".","|"," ","?"),$post_title);
+    $new_title = multiexplode(array(",","|","{","!","#",">","<","/","*","+","-","=","%","&","*",";","}","[","]","(",")"," ","?"),$post_title);
     foreach ($new_title as $key => $value) {
-      $submit.=$new_title[$key];
+      $submit.=$new_title[$key]."-";
     }
     $submit=replace_tr($submit);
     $submit=strtolower($submit);
+    $submit=rtrim($submit,"-");
+    $submit=rtrim($submit,"-");
+    $post_url="$submit.php";
+    $text=createTextforPage($post_title,$post_date,$post_author,$post_url);
     $page = fopen( "../{$submit}.php" , "w" );
+    $sql_add=$con->prepare(dbmyAdminPagePostsAdd());
+    $sql_add->bind_param("sssssssss",$post_author,$post_author_role,$post_date,$post_title,$post_explanation,$post_content,$post_image,$post_url,$post_tag);
+    $sql_add->execute();
+    $sql_add->close();
 
     fwrite($page, $text);
     fclose($page);

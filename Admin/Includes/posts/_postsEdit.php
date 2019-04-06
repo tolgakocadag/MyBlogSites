@@ -11,7 +11,7 @@
        }
        $post_tag=$_POST["post_tag"];
        $sql_update=$con->prepare(dbmyAdminPagePostsEdit());
-       $sql_update->bind_param("ssssi",$post_title,$post_explanation,$post_content,$post_hide,$post_tag,$_POST["post_id"]);
+       $sql_update->bind_param("ssssi",$post_explanation,$post_content,$post_hide,$post_tag,$_POST["post_id"]);
        $sql_update->execute();
        $sql_update->close();
        header("Location:posts.php");
@@ -28,7 +28,7 @@
          }
          $post_tag=$_POST["post_tag"];
          $sql_update=$con->prepare(dbmyAdminPagePostsEdit());
-         $sql_update->bind_param("sssssi",$post_title,$post_explanation,$post_content,$post_hide,$post_tag,$_POST["post_id"]);
+         $sql_update->bind_param("ssssi",$post_explanation,$post_content,$post_hide,$post_tag,$_POST["post_id"]);
          $sql_update->execute();
          $sql_update->close();
          header("Location:posts.php");

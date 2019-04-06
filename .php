@@ -1,15 +1,21 @@
 
   <?php include 'backend/_database.php' ; ?>
-  <?php include 'backend/general_settings.php'; ?>
+  <?php include 'backend/general_settings.php'; ses_start(); ?>
   <?php include 'backend/_dbConnect.php'; ?>
   <!DOCTYPE html>
   <html lang='tr'>
   <?php
-      $title='hitdeneme7';
-      $hit_update=$con->prepare(dbHitPlus());
-      $hit_update->bind_param('s',$title);
-      $hit_update->execute();
-      $hit_update->close();
+      $title='SEO Nedir, Nasıl Yapılır ?';
+      if(isset($_SESSION['SEO Nedir, Nasıl Yapılır ?']))
+      {
+      }
+      else{
+        $hit_update=$con->prepare(dbHitPlus());
+        $hit_update->bind_param('s',$title);
+        $hit_update->execute();
+        $hit_update->close();
+      }
+      $_SESSION['SEO Nedir, Nasıl Yapılır ?']=GetIP();
       $hit_count=dbmyAdminPagePostsAddTitleControl($title);
       $hit_count=$con->query($hit_count);
       $row=$hit_count->fetch_assoc();
@@ -22,7 +28,7 @@
       <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
 
       <!-- Title -->
-      <title>hitdeneme7 - Tolga Kocadağ Blog</title>
+      <title>SEO Nedir, Nasıl Yapılır ? - Tolga Kocadağ Blog</title>
 
       <!-- Favicon -->
       <link rel='icon' href='img/core-img/TK.ico'>
@@ -141,8 +147,8 @@
                       <nav aria-label='breadcrumb'>
                           <ol class='breadcrumb'>
                               <li class='breadcrumb-item'><a href='index.php'><i class='fa fa-home' aria-hidden='true'></i>Anasayfa</a></li>
-                              <li class='breadcrumb-item'><a href='#'>Archive</a></li>
-                              <li class='breadcrumb-item active' aria-current='page'>Single Post Blog</li>
+                              <li class='breadcrumb-item'><a href='archive.php'>Blog Yazılarım</a></li>
+                              <li class='breadcrumb-item active' aria-current='page'>SEO Nedir, Nasıl Yapılır ?</li>
                           </ol>
                       </nav>
                   </div>
@@ -194,7 +200,7 @@
 
                                               <!-- Post Hits -->
                                               <div class='post-comments'>
-                                                  <a href='#'><i class='fa fa-eye' aria-hidden='true'></i> <php echo $hit; ?></a>
+                                                  <a href='#'><i class='fa fa-eye' aria-hidden='true'></i> <?php echo $hit; ?></a>
                                               </div>
                                               <!-- Post Comments -->
                                               <div class='post-comments'>
@@ -206,40 +212,10 @@
                                               </div>
                                           </div>
                                       </div>
-                                      <a href='#'>
-                                          <h2 class='post-headline'>hitdeneme7</h2>
+                                      <a href='.php'>
+                                          <h2 class='post-headline'>SEO Nedir, Nasıl Yapılır ?</h2>
                                       </a>
-                                      <p>Tiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. Liusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui s nostrud exercitation ullamLorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-
-                                      <blockquote class='yummy-blockquote mt-30 mb-30'>
-                                          <h5 class='mb-30'>“Technology is nothing. What's important is that you have a faith in people, that they're basically good and smart, and if you give them tools, they'll do wonderful things with them.”</h5>
-                                          <h6 class='text-muted'>Steven Jobs</h6>
-                                      </blockquote>
-
-                                      <h4>You Can Buy For Less Than A College Degree</h4>
-                                      <p>Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-
-                                      <img class='br-30 mb-30' src='img/blog-img/11.jpg' alt=''>
-                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-
-                                      <img class='br-30 mb-30' src='img/blog-img/12.jpg' alt=''>
-                                      <p>Liusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui s nostrud exercitation ullamLorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-                                      <img class='br-30 mb-30' src='img/blog-img/13.jpg' alt=''>
-                                      <h4>You Can Buy For Less Than A College Degree</h4>
-                                      <p>Liusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui s nostrud exercitation ullamLorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-
-                                      <ul class='mb-30'>
-                                          <li>1/3 cup Lonsectetur adipisicing elit.Lorem ipsum</li>
-                                          <li>1/2 cup Veniam, quis nostrud exercitation</li>
-                                          <li>Ut labore et dolore magna</li>
-                                          <li>Lonsectetur adipisicing elit.Lorem ipsum</li>
-                                          <li>Lonsectetur adipisicing elit.Lorem ipsum</li>
-                                          <li>Ut labore et dolore magna</li>
-                                          <li>Lonsectetur adipisicing elit.Lorem ipsum</li>
-                                      </ul>
-
-                                      <img class='br-30 mb-15' src='img/blog-img/14.jpg' alt=''>
+                                      <p><p>.</p></p>
                                   </div>
                               </div>
 
