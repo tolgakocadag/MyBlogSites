@@ -14,7 +14,9 @@ if(isset($_POST['add_post']) && isset($_SESSION['role'])){
     copy($post_image, '../img/blog-img/' . $_FILES['post_image']['name']);
     $post_image="../img/blog-img/{$_FILES['post_image']['name']}";
     $post_tag=$_POST['post_tag'];
-    $text=createTextforPage($post_title,$post_content,$post_date,$post_author,$post_image);
+    $post_hit=0;
+    $post_comment=0;
+    $text=createTextforPage($post_title,$post_content,$post_date,$post_author,$post_image,$post_hit,$post_comment);
     $sql_add=$con->prepare(dbmyAdminPagePostsAdd());
     $sql_add->bind_param("sssssss",$post_author,$post_author_role,$post_date,$post_title,$post_content,$post_image,$post_tag);
     $sql_add->execute();

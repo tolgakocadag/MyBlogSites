@@ -1,16 +1,33 @@
 <?php
-function createTextforPage($title,$content,$post_date,$author,$image){
+function createTextforPage($title,$content,$post_date,$author,$image,$hit,$comment){
   $total="";
   $date=explode(".",$post_date);
   $date=getMonth($date[1])." ".$date[0].", ".substr($date[2],0,4);
   $post_image=substr($image,3,500);
+  $hit=$hit+1;
   $total.="
   <?php include 'backend/_database.php' ; ?>
-  <?php include 'backend/general_settings.php'; ?>
+  <?php include 'backend/general_settings.php'; ses_start(); ?>
   <?php include 'backend/_dbConnect.php'; ?>
   <!DOCTYPE html>
   <html lang='tr'>
-
+  <?php
+      $"."title='{$title}';
+      if(isset($"."_SESSION['{$title}']))
+      {
+      }
+      else{
+        $"."hit_update=$"."con->prepare(dbHitPlus());
+        $"."hit_update->bind_param('s',$"."title);
+        $"."hit_update->execute();
+        $"."hit_update->close();
+      }
+      $"."_SESSION['{$title}']=GetIP();
+      $"."hit_count=dbmyAdminPagePostsAddTitleControl($"."title);
+      $"."hit_count=$"."con->query($"."hit_count);
+      $"."row=$"."hit_count->fetch_assoc();
+      $"."hit=$"."row['post_HIT'];
+   ?>
   <head>
       <meta charset='UTF-8'>
       <meta name='description' content=''>
@@ -187,9 +204,14 @@ function createTextforPage($title,$content,$post_date,$author,$image){
                                           </div>
                                           <!-- Post Comment & Share Area -->
                                           <div class='post-comment-share-area d-flex'>
+
+                                              <!-- Post Hits -->
+                                              <div class='post-comments'>
+                                                  <a href='#'><i class='fa fa-eye' aria-hidden='true'></i> <?php echo $"."hit; ?></a>
+                                              </div>
                                               <!-- Post Comments -->
                                               <div class='post-comments'>
-                                                  <a href='#'><i class='fa fa-comment-o' aria-hidden='true'></i> 12</a>
+                                                  <a href='#'><i class='fa fa-comment-o' aria-hidden='true'></i> $comment</a>
                                               </div>
                                               <!-- Post Share -->
                                               <div class='post-share'>

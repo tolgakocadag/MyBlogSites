@@ -4,7 +4,13 @@
   <?php include 'backend/_dbConnect.php'; ?>
   <!DOCTYPE html>
   <html lang='tr'>
-
+  <?php
+      $hit_update=$con->prepare(dbHitPlus());
+      $hit_update=$con->query($hit_update);
+      $hit_update->bind_param('s',hitdeneme4);
+      $hit_update->execute();
+      $hit_update->close();
+   ?>
   <head>
       <meta charset='UTF-8'>
       <meta name='description' content=''>
@@ -12,7 +18,7 @@
       <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
 
       <!-- Title -->
-      <title>hit - Tolga Kocadağ Blog</title>
+      <title>hitdeneme4 - Tolga Kocadağ Blog</title>
 
       <!-- Favicon -->
       <link rel='icon' href='img/core-img/TK.ico'>
@@ -181,13 +187,14 @@
                                           </div>
                                           <!-- Post Comment & Share Area -->
                                           <div class='post-comment-share-area d-flex'>
+
                                               <!-- Post Hits -->
                                               <div class='post-comments'>
-                                                  <a href='#'><i class='fa fa-eye' aria-hidden='true'></i> 12</a>
+                                                  <a href='#'><i class='fa fa-eye' aria-hidden='true'></i> 1</a>
                                               </div>
                                               <!-- Post Comments -->
                                               <div class='post-comments'>
-                                                  <a href='#'><i class='fa fa-comment-o' aria-hidden='true'></i> 12</a>
+                                                  <a href='#'><i class='fa fa-comment-o' aria-hidden='true'></i> 0</a>
                                               </div>
                                               <!-- Post Share -->
                                               <div class='post-share'>
@@ -196,7 +203,7 @@
                                           </div>
                                       </div>
                                       <a href='#'>
-                                          <h2 class='post-headline'>hit</h2>
+                                          <h2 class='post-headline'>hitdeneme4</h2>
                                       </a>
                                       <p>Tiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. Liusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui s nostrud exercitation ullamLorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 

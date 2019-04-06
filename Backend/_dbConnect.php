@@ -12,6 +12,10 @@ function dbmyPostsList(){
   $sql_list ="SELECT * FROM posts";
   return $sql_list;
 }
+function dbHitPlus(){
+  $sql_update="UPDATE posts SET post_HIT=post_HIT+1 WHERE post_TITLE=?";
+  return $sql_update;
+}
 function dbmyAdminPagePostsList(){
   $sql_list ="SELECT * FROM posts";
   return $sql_list;
