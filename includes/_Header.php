@@ -40,7 +40,7 @@
                 <div class="col-5 col-sm-6">
                     <!--  Top Social bar start -->
                     <div class="top_social_bar">
-                        <a href="index.php"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+                        <a href="index.php" style="color:red"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
                         <a href="https://www.facebook.com/tolgakocadag58" target="_blank"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
                         <a href="https://www.instagram.com/tolgakocadag58" target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
                         <a href="#"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>

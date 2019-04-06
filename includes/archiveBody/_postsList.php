@@ -13,7 +13,7 @@ if($sql_list->num_rows>0)
     $post_date=$row['post_DATE'];
     $post_author=$row['post_AUTHOR'];
     $post_content=$row['post_CONTENT'];
-    $post_like_count=$row['post_LIKE_COUNT'];
+    $post_hit=$row['post_HIT'];
     $post_comment_count=$row['post_COMMENT_COUNT'];
     $post_image=$row['post_IMAGE'];
     ?>
@@ -39,10 +39,6 @@ if($sql_list->num_rows>0)
                   </div>
                   <!-- Post Comment & Share Area -->
                   <div class="post-comment-share-area d-flex">
-                      <!-- Post Favourite -->
-                      <div class="post-favourite">
-                          <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> <?php echo $post_like_count; ?></a>
-                      </div>
                       <!-- Post Comments -->
                       <div class="post-comments">
                           <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo $post_comment_count; ?></a>

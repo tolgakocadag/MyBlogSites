@@ -8,16 +8,6 @@ function dbHomePostList($limit)
   $sql_list ="SELECT * FROM posts ORDER BY post_ID DESC LIMIT $limit";
   return $sql_list;
 }
-function dbHomePostLikeList(){
-  $ip=GetIP();
-  $sql_list ="SELECT * FROM posts WHERE post_LIKE_IP LIKE '%{$ip}%'";
-  return $sql_list;
-}
-function dbHomePostLikeEdit(){
-  $sql_update="UPDATE posts SET post_LIKE_COUNT=post_LIKE_COUNT-1,
-  post_LIKE_IP=? WHERE post_ID=?";
-  return $sql_update;
-}
 function dbmyPostsList(){
   $sql_list ="SELECT * FROM posts";
   return $sql_list;

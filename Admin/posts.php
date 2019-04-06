@@ -29,7 +29,7 @@
                     <th>Date</th>
                     <th>Author</th>
                     <th>Content</th>
-                    <th>Like Count</th>
+                    <th>Hit Count</th>
                     <th>Comment Count</th>
                     <th>Actions</th>
                   </tr>
@@ -41,7 +41,7 @@
                     <th>Date</th>
                     <th>Author</th>
                     <th>Content</th>
-                    <th>Like Count</th>
+                    <th>Hit Count</th>
                     <th>Comment Count</th>
                     <th>Actions</th>
                   </tr>
@@ -62,7 +62,7 @@
                   $post_title=$row["post_TITLE"];
                   $post_hide=$row["post_HIDE"];
                   $post_content=$row['post_CONTENT'];
-                  $post_like_count=$row["post_LIKE_COUNT"];
+                  $post_hit=$row["post_HIT"];
                   $post_comment_count=$row["post_COMMENT_COUNT"];
                   $post_tag=$row["post_TAG"];
                   echo "<tr>
@@ -71,7 +71,7 @@
                       <td>{$post_date}</td>
                       <td>{$post_author}</td>
                       <td>".substr($post_content,0,50)."...</td>
-                      <td>{$post_like_count}</td>
+                      <td>{$post_hit}</td>
                       <td>{$post_comment_count}</td>
                       <td  style='width:5%'>
                           <div class='dropdown'>

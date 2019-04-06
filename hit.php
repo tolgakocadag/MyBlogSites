@@ -12,7 +12,7 @@
       <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
 
       <!-- Title -->
-      <title>erdemmm - Tolga Kocadağ Blog</title>
+      <title>hit - Tolga Kocadağ Blog</title>
 
       <!-- Favicon -->
       <link rel='icon' href='img/core-img/TK.ico'>
@@ -181,10 +181,6 @@
                                           </div>
                                           <!-- Post Comment & Share Area -->
                                           <div class='post-comment-share-area d-flex'>
-                                              <!-- Post Favourite -->
-                                              <div class='post-favourite'>
-                                                  <a href='#'><i class='fa fa-heart-o' aria-hidden='true'></i> 10</a>
-                                              </div>
                                               <!-- Post Comments -->
                                               <div class='post-comments'>
                                                   <a href='#'><i class='fa fa-comment-o' aria-hidden='true'></i> 12</a>
@@ -196,7 +192,7 @@
                                           </div>
                                       </div>
                                       <a href='#'>
-                                          <h2 class='post-headline'>erdemmm</h2>
+                                          <h2 class='post-headline'>hit</h2>
                                       </a>
                                       <p>Tiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. Liusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui s nostrud exercitation ullamLorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 
