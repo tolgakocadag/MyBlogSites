@@ -21,8 +21,8 @@ function dbmyAdminPagePostsList(){
   return $sql_list;
 }
 function dbmyAdminPagePostsAdd(){
-  $sql_add="INSERT INTO posts (post_AUTHOR,post_AUTHOR_ROLE,post_DATE,post_TITLE,post_CONTENT,post_IMAGE,post_TAG)
-  VALUES (?,?,?,?,?,?,?)";
+  $sql_add="INSERT INTO posts (post_AUTHOR,post_AUTHOR_ROLE,post_DATE,post_TITLE,post_EXPLANATION,post_CONTENT,post_IMAGE,post_TAG)
+  VALUES (?,?,?,?,?,?,?,?)";
   return $sql_add;
 }
 function dbmyAdminPagePostsAddTitleControl($title){
@@ -34,7 +34,7 @@ function dbmyAdminPagePostsDelete(){
   return $sql_delete;
 }
 function dbmyAdminPagePostsEdit(){
-  $sql_update="UPDATE posts SET post_TITLE=?,
+  $sql_update="UPDATE posts SET post_TITLE=?,post_EXPLANATION=?,
   post_CONTENT=?,post_HIDE=?,post_TAG=? WHERE post_ID=?";
   return $sql_update;
 }

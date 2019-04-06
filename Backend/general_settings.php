@@ -12,12 +12,6 @@ function getMonth($date){
   elseif($date=='07'){return "Temmuz";}elseif($date=='08'){return "Ağustos";}elseif($date=='09'){return "Eylül";}
   elseif($date=='10'){return "Ekim";}elseif($date=='11'){return "Kasım";}else {return "Aralık";}
 }
-//index.php tekli post content sınırı
-function getContent($content){
-  $post_content=explode(".",$content);
-  $post_content=$post_content[0].".".$post_content[1].".".$post_content[2].".".$post_content[3].".";
-  return $post_content;
-}
 //Title uzunluğu büyükse size ayarlama...
 function titleSize($title){
   if(Strlen($title)>18&&Strlen($title)<91){return "18";}

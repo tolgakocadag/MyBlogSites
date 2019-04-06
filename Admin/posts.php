@@ -129,6 +129,10 @@
                                         <input type="text" value="<?php  echo $post_tag; ?>" class="form-control" required name="post_tag">
                                     </div>
                                     <div class="form-group">
+                                        <label for="post_explanation">explanation</label>
+                                        <input type="text" class="form-control" required name="post_explanation">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="post_content">Content</label>
                                         <textarea type="textarea" class="form-control" rows="10" required name="post_content"><?php echo $post_content; ?></textarea>
                                     </div>
@@ -180,9 +184,29 @@
                                         <label for="post_tag">Tags</label>
                                         <input type="text" class="form-control" required name="post_tag">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="post_explanation">explanation</label>
+                                        <input type="text" class="form-control" required name="post_explanation">
+                                    </div>
+                                    <script>
+                                        tinymce.init({
+                                          selector: '#myTextarea',
+                                          height: 500,
+                                          theme: 'modern',
+                                          plugins: [
+                                            'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                                            'searchreplace wordcount visualblocks visualchars code fullscreen',
+                                            'insertdatetime media nonbreaking save table contextmenu directionality',
+                                            'emoticons template paste textcolor colorpicker textpattern imagetools'
+                                          ],
+                                          toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                                          toolbar2: 'print preview media | forecolor backcolor emoticons',
+                                          image_advtab: true
+                                        });
+                                    </script>
                                     <div class="form-group my-4">
                                         <label for="post_content">Content</label>
-                                        <textarea type="textarea" class="form-control" rows="10" required name="post_content" ></textarea>
+                                        <textarea id="myTextarea" name="post_content" ></textarea>
                                     </div>
                             <div class="form-group">
                                 <input type="hidden" name="admin_role" value="<?php echo $_SESSION['role']; ?>">
