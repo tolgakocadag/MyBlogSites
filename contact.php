@@ -35,25 +35,52 @@
             <div class="contact-form-area">
                 <div class="row">
                     <div class="col-12 col-md-5">
-                        <div class="contact-form-sidebar item wow fadeInUpBig" data-wow-delay="0.3s" style="background-image: url(img/bg-img/contact.jpg);">
+                        <div class="contact-form-sidebar item wow fadeInUpBig" data-wow-delay="0.3s">
+                          <div class="single-widget-area about-me-widget text-center">
+                              <div class="about-me-widget-thumb">
+                                  <img src="img/about-img/pp.jpg" alt="">
+                              </div>
+                              <h4 class="font-shadow-into-light">Tolga Kocadağ</h4>
+                              <p>Web Developer</p>
+                          </div>
+
+                          <!-- Single Widget Area -->
+                          <div class="single-widget-area subscribe_widget text-center">
+                              <div class="widget-title">
+                                  <h6>Abone ol &amp; Takip et</h6>
+                              </div>
+                              <div class="subscribe-link">
+                                  <a href="https://www.facebook.com/tolgakocadag58"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
+                                  <a href="https://www.instagram.com/tolgakocadag58"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+                                  <a href="#"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+                                  <a href="https://www.github.com/tolgakocadag"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+                              </div>
+                          </div>
+
+                          <!-- Single Widget Area -->
                         </div>
                     </div>
                     <div class="col-12 col-md-7 item">
                         <div class="contact-form wow fadeInUpBig" data-wow-delay="0.6s">
-                            <h2 class="contact-form-title mb-30">Herhangi bir sorunuz varsa bana bu iletişim formundan veya sosyal medya hesaplarımdan ulaşabilirsiniz !</h2>
+                            <h2 style="font-size:20px" class="contact-form-title mb-30">Herhangi bir sorunuz varsa bana bu iletişim formundan veya sosyal medya hesaplarımdan ulaşabilirsiniz !</h2>
                             <!-- Contact Form -->
                             <form action="#" method="post">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="contact-name" placeholder="Name">
+                                <div class="row">
+                                  <div class="form-group col-6">
+                                      <input type="text" class="form-control" required id="contact-name" placeholder="Adınız...">
+                                  </div>
+                                  <div class="form-group col-6">
+                                      <input type="text" class="form-control" required id="contact-name" placeholder="Soyadınız...">
+                                  </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" id="contact-email" placeholder="Email">
+                                    <input type="email" class="form-control" required id="contact-email" placeholder="Email adresiniz...">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="contact-website" placeholder="Website">
+                                    <input type="text" class="form-control" required id="contact-website" placeholder="Mesajınızın Konusu...">
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                    <textarea class="form-control" name="message" required id="message" cols="30" rows="10" placeholder="Mesajınız..."></textarea>
                                 </div>
                                 <center><button type="submit" class="btn contact-btn">Mesajı Gönder</button></center>
                             </form>

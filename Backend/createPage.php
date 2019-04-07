@@ -26,15 +26,28 @@ function createTextforPage($title,$post_date,$author,$url){
       $"."sql_list=dbmyAdminPagePostsAddTitleControl($"."title);
       $"."sql_list=$"."con->query($"."sql_list);
       $"."row=$"."sql_list->fetch_assoc();
+      $"."ip=$"."row['post_ID'];
       $"."title=$"."row['post_TITLE'];
       $"."content=$"."row['post_CONTENT'];
       $"."hit=$"."row['post_HIT'];
       $"."image=$"."row['post_IMAGE'];
+      $"."explanation=$"."row['post_EXPLANATION'];
+      $"."tag=$"."row['post_TAG'];
       $"."comment_count=$"."row['post_COMMENT_COUNT'];
    ?>
   <head>
       <meta charset='UTF-8'>
-      <meta name='description' content=''>
+      <meta name='title' content='<?php echo $"."title; ?> - Tolga Kocadağ Blog'>
+      <meta name='abstract' content='En güncel konuların olduğu blog sitemi siz hâlâ ziyaret etmediniz mi? - Tolga Kocadağ Blog' />
+      <meta name='description' content='<?php echo $"."explanation; ?> - Tolga Kocadağ Blog' />
+      <meta name='keywords' content='<?php echo $"."tag; ?>,Tolga Kocadağ Blog'>
+      <meta name='robots' content='index,follow'>
+      <meta name='Author' content='{$author}, tolgakocadag@outlook.com'>
+      <meta name='designer' content='{$author}, tolgakocadag@outlook.com' />
+      <meta name='distribution' content='global' />
+      <meta name='revisit-after' content='7 days'>
+      <meta name='language' content='Turkish' />
+      <meta name='reply-to' content='tolgakocadag@outlook.com' />
       <meta http-equiv='X-UA-Compatible' content='IE=edge'>
       <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
 
@@ -232,118 +245,61 @@ function createTextforPage($title,$post_date,$author,$url){
 
                               <!-- Tags Area -->
                               <div class='tags-area'>
-                                  <a href='#'>Multipurpose</a>
-                                  <a href='#'>Design</a>
-                                  <a href='#'>Ideas</a>
+                              <?php
+                              $"."tags=explode(',',$"."tag);
+                                  foreach ($"."tags as $"."key => $"."value) {
+                                    echo '<a href=&#39;&#39;>'."."$"."tags[$"."key]".".'</a>&nbsp;';
+                                  }
+                               ?>
                               </div>
 
                               <!-- Related Post Area -->
                               <div class='related-post-area section_padding_50'>
-                                  <h4 class='mb-30'>Related post</h4>
-
+                              <h4 class='mb-30'>Benzer Yazılar</h4>
                                   <div class='related-post-slider owl-carousel'>
-                                      <!-- Single Related Post-->
-                                      <div class='single-post'>
-                                          <!-- Post Thumb -->
-                                          <div class='post-thumb'>
-                                              <img src='img/blog-img/15.jpg' alt=''>
-                                          </div>
-                                          <!-- Post Content -->
-                                          <div class='post-content'>
-                                              <div class='post-meta d-flex'>
-                                                  <div class='post-author-date-area d-flex'>
-                                                      <!-- Post Author -->
-                                                      <div class='post-author'>
-                                                          <a href='#'>By Marian</a>
-                                                      </div>
-                                                      <!-- Post Date -->
-                                                      <div class='post-date'>
-                                                          <a href='#'>May 19, 2017</a>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <a href='#'>
-                                                  <h6>The Top Breakfast And Brunch Spots In Hove</h6>
-                                              </a>
-                                          </div>
-                                      </div>
-                                      <!-- Single Related Post-->
-                                      <div class='single-post'>
-                                          <!-- Post Thumb -->
-                                          <div class='post-thumb'>
-                                              <img src='img/blog-img/5.jpg' alt=''>
-                                          </div>
-                                          <!-- Post Content -->
-                                          <div class='post-content'>
-                                              <div class='post-meta d-flex'>
-                                                  <div class='post-author-date-area d-flex'>
-                                                      <!-- Post Author -->
-                                                      <div class='post-author'>
-                                                          <a href='#'>By Marian</a>
-                                                      </div>
-                                                      <!-- Post Date -->
-                                                      <div class='post-date'>
-                                                          <a href='#'>May 19, 2017</a>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <a href='#'>
-                                                  <h6>The Top Breakfast And Brunch Spots In Hove</h6>
-                                              </a>
-                                          </div>
-                                      </div>
-                                      <!-- Single Related Post-->
-                                      <div class='single-post'>
-                                          <!-- Post Thumb -->
-                                          <div class='post-thumb'>
-                                              <img src='img/blog-img/16.jpg' alt=''>
-                                          </div>
-                                          <!-- Post Content -->
-                                          <div class='post-content'>
-                                              <div class='post-meta d-flex'>
-                                                  <div class='post-author-date-area d-flex'>
-                                                      <!-- Post Author -->
-                                                      <div class='post-author'>
-                                                          <a href='#'>By Marian</a>
-                                                      </div>
-                                                      <!-- Post Date -->
-                                                      <div class='post-date'>
-                                                          <a href='#'>May 19, 2017</a>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <a href='#'>
-                                                  <h6>The Top Breakfast And Brunch Spots In Hove</h6>
-                                              </a>
-                                          </div>
-                                      </div>
-                                      <!-- Single Related Post-->
-                                      <div class='single-post'>
-                                          <!-- Post Thumb -->
-                                          <div class='post-thumb'>
-                                              <img src='img/blog-img/5.jpg' alt=''>
-                                          </div>
-                                          <!-- Post Content -->
-                                          <div class='post-content'>
-                                              <div class='post-meta d-flex'>
-                                                  <div class='post-author-date-area d-flex'>
-                                                      <!-- Post Author -->
-                                                      <div class='post-author'>
-                                                          <a href='#'>By Marian</a>
-                                                      </div>
-                                                      <!-- Post Date -->
-                                                      <div class='post-date'>
-                                                          <a href='#'>May 19, 2017</a>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <a href='#'>
-                                                  <h6>The Top Breakfast And Brunch Spots In Hove</h6>
-                                              </a>
-                                          </div>
-                                      </div>
+                                  <?php
+
+                                  $"."related= multiexplode(array(',','|','{','!','#','>','<','/','*','+','-','=','%','&','*',';','}','[',']','(',')',' ','?'),$"."title);
+                                  $"."isAdd=array($"."ip);
+                                  foreach ($"."related as $"."key => $"."value) {
+                                    $"."related_list=dbrelatedPostsList($"."related[$"."key]);
+                                    $"."related_list=$"."con->query($"."related_list);
+                                    if($"."related_list->num_rows>0)
+                                    {
+                                        while ($"."row=$"."related_list->fetch_assoc()) {
+                                          $"."post_id=$"."row['post_ID'];
+                                          $"."post_title=$"."row['post_TITLE'];
+                                          $"."post_date=$"."row['post_DATE'];
+                                          $"."post_url=$"."row['post_URL'];
+                                          $"."post_image=$"."row['post_IMAGE'];
+                                          if(array_search($"."post_id, $"."isAdd)===FALSE)
+                                          {
+                                               $"."isAdd[]=$"."post_id;?>
+
+                                               <!-- Single Related Post-->
+                                               <div class='single-post'>
+                                                   <!-- Post Thumb -->
+                                                   <div class='post-thumb'>
+                                                       <img src='<?php echo substr($"."image,3,500); ?>' alt=''>
+                                                   </div>
+                                                   <!-- Post Content -->
+                                                   <div class='post-content'>
+                                                       <div class='post-meta d-flex'>
+                                                           <div class='post-author-date-area d-flex'>
+                                                               <!-- Post Date -->
+                                                               <div class='post-date'>
+                                                                   <a href='#'><?php $"."date=explode('.',$"."post_date);echo getMonth($"."date[1]).' '.$"."date[0].', '.substr($"."date[2],0,4); ?></a>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                       <a href='<?php echo $"."post_url; ?>'>
+                                                           <h3 style='font-size:15px'><?php echo $"."post_title; ?></h3>
+                                                       </a>
+                                                   </div>
+                                               </div>
+                                               <?php }}}}?>
+                                    </div>
                                   </div>
-                              </div>
 
                               <!-- Comment Area Start -->
                               <div class='comment_area section_padding_50 clearfix'>
@@ -465,56 +421,31 @@ function createTextforPage($title,$post_date,$author,$url){
                               <div class='widget-title text-center'>
                                   <h6>Popüler Yazılar</h6>
                               </div>
+                              <?php
+                                $"."pop_list=dbmyPopulerPostsList();
+                                $"."pop_list =$"."con->query($"."pop_list);
+                                if($"."pop_list->num_rows>0)
+                                {
+                                  while ($"."row=$"."pop_list->fetch_assoc()) {
+                                    if($"."row['post_HIDE']=='on'){
+                                      continue;
+                                    }
+                                    $"."post_title=$"."row['post_TITLE'];
+                                    $"."post_date=$"."row['post_DATE'];
+                                    $"."post_url=$"."row['post_URL'];
+                                    $"."post_image=$"."row['post_IMAGE'];
+                               ?>
                               <!-- Single Popular Post -->
                               <div class='single-populer-post d-flex'>
-                                  <img src='img/sidebar-img/1.jpg' alt=''>
+                                  <img src='<?php echo substr($"."post_image,3,500); ?>' alt=''>
                                   <div class='post-content'>
-                                      <a href='#'>
-                                          <h6>Top Wineries To Visit In England</h6>
+                                      <a href='<?php echo $"."post_url; ?>'>
+                                          <h3 style='font-size:15px'><?php echo $"."post_title; ?></h3>
                                       </a>
-                                      <p>Tuesday, October 3, 2017</p>
+                                      <p><?php $"."date=explode('.',$"."post_date);echo getMonth($"."date[1]).' '.$"."date[0].', '.substr($"."date[2],0,4); ?></p>
                                   </div>
                               </div>
-                              <!-- Single Popular Post -->
-                              <div class='single-populer-post d-flex'>
-                                  <img src='img/sidebar-img/2.jpg' alt=''>
-                                  <div class='post-content'>
-                                      <a href='#'>
-                                          <h6>The 8 Best Gastro Pubs In Bath</h6>
-                                      </a>
-                                      <p>Tuesday, October 3, 2017</p>
-                                  </div>
-                              </div>
-                              <!-- Single Popular Post -->
-                              <div class='single-populer-post d-flex'>
-                                  <img src='img/sidebar-img/3.jpg' alt=''>
-                                  <div class='post-content'>
-                                      <a href='#'>
-                                          <h6>Zermatt Unplugged the best festival</h6>
-                                      </a>
-                                      <p>Tuesday, October 3, 2017</p>
-                                  </div>
-                              </div>
-                              <!-- Single Popular Post -->
-                              <div class='single-populer-post d-flex'>
-                                  <img src='img/sidebar-img/4.jpg' alt=''>
-                                  <div class='post-content'>
-                                      <a href='#'>
-                                          <h6>Harrogate's Top 10 Independent Eats</h6>
-                                      </a>
-                                      <p>Tuesday, October 3, 2017</p>
-                                  </div>
-                              </div>
-                              <!-- Single Popular Post -->
-                              <div class='single-populer-post d-flex'>
-                                  <img src='img/sidebar-img/5.jpg' alt=''>
-                                  <div class='post-content'>
-                                      <a href='#'>
-                                          <h6>Eating Out On A Budget In Oxford</h6>
-                                      </a>
-                                      <p>Tuesday, October 3, 2017</p>
-                                  </div>
-                              </div>
+                            <?php }} ?>
                           </div>
 
                           <!-- Single Widget Area -->

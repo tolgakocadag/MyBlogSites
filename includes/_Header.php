@@ -7,8 +7,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="">
+    <meta name="title" content="Tolga Kocadağ Blog">
+    <meta name="abstract" content="En güncel konuların olduğu blog sitemi siz hâlâ ziyaret etmediniz mi? - Tolga Kocadağ Blog" />
+    <meta name="description" content="En güncel konuların olduğu blog sitemi siz hâlâ ziyaret etmediniz mi? - Tolga Kocadağ Blog" />
+    <meta name="keywords" content="Tolga Kocadağ,Tolga Kocadağ Blog,PHP Tolga Kocadağ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Author" content="Tolga Kocadağ, tolgakocadag@outlook.com">
+    <meta name="designer" content="Tolga Kocadağ, tolgakocadag@outlook.com" />
+    <meta name="distribution" content="global" />
+    <meta name="revisit-after" content="7 days">
+    <meta name="language" content="Turkish" />
+    <meta name="reply-to" content="tolgakocadag@outlook.com" />
+    <meta name="robots" content="index,follow">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
@@ -62,14 +72,12 @@
                       -->
                         <!-- Search Button Area -->
                         <!-- Search Form -->
-                        <div class="form-group my-2">
-                            <form action="#" method="get">
-                                <input class="form-control" type="search" name="search" id="search-anything" placeholder="Bir şey ara...">
-                            </form>
-                        </div>
-                        <div class="form-group ml-2 my-2">
-                            <a class="searchBtn" href="#"><i class="fa fa-search fa-2x" aria-hidden="true"></i></a>
-                        </div>
+                        <form action="search.php" method="post">
+                          <div class="form-group row my-2">
+                              <input class="form-control col-10" type="search" name="search" id="search-anything" placeholder="Bir şey ara...">
+                              <button class="form-control col-2 fa fa-search" type="submit" style="background:none;border:none" name="searchBtn" href="#"></button>
+                          </div>
+                        </form>
                     </div>
                 </div>
             </div>

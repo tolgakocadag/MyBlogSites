@@ -164,6 +164,7 @@
             <div class="col-12">
                 <!-- Copywrite Text -->
                 <div class="copy_right_text text-center">
+                    <meta name="Copyright" content="© 2019 Tüm hakları saklıdır. ">
                     <p>Copyright @2019 Tüm Hakları Saklıdır</p>
                 </div>
             </div>

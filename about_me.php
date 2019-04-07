@@ -35,7 +35,7 @@
             <div class="contact-form-area">
                 <div class="row">
                     <div class="col-12 col-md-5">
-                        <div class="contact-form-sidebar item wow fadeInUpBig" data-wow-delay="0.3s"">
+                        <div class="contact-form-sidebar item wow fadeInUpBig" data-wow-delay="0.3s">
                           <div class="single-widget-area about-me-widget text-center">
                               <div class="about-me-widget-thumb">
                                   <img src="img/about-img/pp.jpg" alt="">
@@ -61,25 +61,15 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-7 item">
-                        <div class="contact-form wow fadeInUpBig" data-wow-delay="0.6s">
-                            <h2 class="contact-form-title mb-30">Herhangi bir sorunuz varsa bana bu iletişim formundan veya sosyal medya hesaplarımdan ulaşabilirsiniz !</h2>
-                            <!-- Contact Form -->
-                            <form action="#" method="post">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="contact-name" placeholder="Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" id="contact-email" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="contact-website" placeholder="Website">
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                                </div>
-                                <center><button type="submit" class="btn contact-btn">Mesajı Gönder</button></center>
-                            </form>
-                        </div>
+                        <p>
+                          &emsp;1997 yılının Ekim ayında ailenin ilk çocuğu olarak İstanbul'da gözlerimi dünyaya açtım. Anne ve baba tarafından tam bir Sivas'lıyım.<br />
+                          &emsp;İlköğretim eğitimimi İstanbul'un Bahçelievler ilçesindeki <b>Emir Sultan İlköğretim Okulu</b>'nda tamamladım. Bir hevesle lise hayatıma bilişim üzerine olan
+                          İstanbul Bahçelievler'deki <b>Bahçelievler Türk Telekom Teknik ve Endüstri Meslek Lisesi</b>'nde başladım. Burada yazılımla tanıştım ve hayatımı değiştirecek bir yola atıldım.
+                          2015 yılında Bilişim Teknolojileri/Veri tabanı dalından mezun oldum.
+                          <br />&emsp;Mezun olduğum lisedeki yazılım sevdası beni üniversitede de yanlız bırakmayıp tercihlerimi yazılım üzerine hazırladım ve Edirne'nin Keşan ilçesinde bulunan <b>Trakya Üniversitesi - Keşan Yusuf
+                          Çapraz Uygulamalı Bilimler Yüksekokulu - Bilgisayar Teknolojileri ve Bilişim Sistemleri (CTIS)</b> bölümünü kazandım. Üniversitede öğrendiğim yazılım dilleriyle beraber
+                          kendimi boş zamanlarımda HTML5, CSS3, JS ve PHP dilleriyle meşgul ediyorum.<br />&emsp;Şuan Trakya Üniversitesi'nde 4.sınıfım ve bu siteyi kurmamın temel amacı, siz değerli okuyanlarımla bildiğim bilgileri paylaşmaktır.
+                        </p>
                     </div>
                 </div>
             </div>

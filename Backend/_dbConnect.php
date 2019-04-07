@@ -12,6 +12,10 @@ function dbmyPostsList(){
   $sql_list ="SELECT * FROM posts ORDER BY post_HIT DESC";
   return $sql_list;
 }
+function dbmyPopulerPostsList(){
+  $sql_list ="SELECT * FROM posts ORDER BY post_HIT DESC LIMIT 4";
+  return $sql_list;
+}
 function dbHitPlus(){
   $sql_update="UPDATE posts SET post_HIT=post_HIT+1 WHERE post_TITLE=?";
   return $sql_update;
@@ -27,6 +31,14 @@ function dbmyAdminPagePostsAdd(){
 }
 function dbmyAdminPagePostsAddTitleControl($title){
   $sql_list ="SELECT * FROM posts WHERE post_TITLE='{$title}'";
+  return $sql_list;
+}
+function dbsearchPostsList($search){
+  $sql_list ="SELECT * FROM posts WHERE post_TITLE LIKE '%{$search}%'";
+  return $sql_list;
+}
+function dbrelatedPostsList($search){
+  $sql_list ="SELECT * FROM posts WHERE post_TITLE LIKE '%{$search}%'";
   return $sql_list;
 }
 function dbmyAdminPagePostsDelete(){

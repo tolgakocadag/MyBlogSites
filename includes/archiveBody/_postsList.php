@@ -20,7 +20,7 @@ if($sql_list->num_rows>0)
     ?>
   <!-- Single Post -->
   <div class="col-12 col-md-6 col-lg-4">
-      <div class="single-post wow fadeInUp" data-wow-delay="1.2s">
+      <div class="single-post wow fadeInUp" data-wow-delay="0.5s">
           <!-- Post Thumb -->
           <div class="post-thumb">
               <a href="<?php echo $post_url; ?>"><img src="<?php echo substr($post_image,3,500); ?>" alt=""></a>
