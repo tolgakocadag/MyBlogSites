@@ -1,49 +1,42 @@
-<?php
-function createTextforPage($title,$post_date,$author,$url){
-  $total="";
-  $date=explode(".",$post_date);
-  $date=getMonth($date[1])." ".$date[0].", ".substr($date[2],0,4);
-  $post_image=substr($image,3,500);
-  $hit=$hit+1;
-  $total.="
+
   <?php include 'backend/_database.php' ; ?>
   <?php include 'backend/general_settings.php'; ses_start(); ?>
   <?php include 'backend/_dbConnect.php'; ?>
   <!DOCTYPE html>
   <html lang='tr'>
   <?php
-      $"."title='{$title}';
-      if(isset($"."_SESSION['{$title}']))
+      $title='tag2';
+      if(isset($_SESSION['tag2']))
       {
       }
       else{
-        $"."hit_update=$"."con->prepare(dbHitPlus());
-        $"."hit_update->bind_param('s',$"."title);
-        $"."hit_update->execute();
-        $"."hit_update->close();
+        $hit_update=$con->prepare(dbHitPlus());
+        $hit_update->bind_param('s',$title);
+        $hit_update->execute();
+        $hit_update->close();
       }
-      $"."_SESSION['{$title}']=GetIP();
-      $"."sql_list=dbmyAdminPagePostsAddTitleControl($"."title);
-      $"."sql_list=$"."con->query($"."sql_list);
-      $"."row=$"."sql_list->fetch_assoc();
-      $"."ip=$"."row['post_ID'];
-      $"."title=$"."row['post_TITLE'];
-      $"."content=$"."row['post_CONTENT'];
-      $"."hit=$"."row['post_HIT'];
-      $"."image=$"."row['post_IMAGE'];
-      $"."explanation=$"."row['post_EXPLANATION'];
-      $"."tag=$"."row['post_TAG'];
-      $"."comment_count=$"."row['post_COMMENT_COUNT'];
+      $_SESSION['tag2']=GetIP();
+      $sql_list=dbmyAdminPagePostsAddTitleControl($title);
+      $sql_list=$con->query($sql_list);
+      $row=$sql_list->fetch_assoc();
+      $ip=$row['post_ID'];
+      $title=$row['post_TITLE'];
+      $content=$row['post_CONTENT'];
+      $hit=$row['post_HIT'];
+      $image=$row['post_IMAGE'];
+      $explanation=$row['post_EXPLANATION'];
+      $tag=$row['post_TAG'];
+      $comment_count=$row['post_COMMENT_COUNT'];
    ?>
   <head>
       <meta charset='UTF-8'>
-      <meta name='title' content='<?php echo $"."title; ?> - Tolga Kocadağ Blog'>
+      <meta name='title' content='<?php echo $title; ?> - Tolga Kocadağ Blog'>
       <meta name='abstract' content='En güncel konuların olduğu blog sitemi siz hâlâ ziyaret etmediniz mi? - Tolga Kocadağ Blog' />
-      <meta name='description' content='<?php echo $"."explanation; ?> - Tolga Kocadağ Blog' />
-      <meta name='keywords' content='<?php echo $"."tag; ?>,Tolga Kocadağ Blog'>
+      <meta name='description' content='<?php echo $explanation; ?> - Tolga Kocadağ Blog' />
+      <meta name='keywords' content='<?php echo $tag; ?>,Tolga Kocadağ Blog'>
       <meta name='robots' content='index,follow'>
-      <meta name='Author' content='{$author}, tolgakocadag@outlook.com'>
-      <meta name='designer' content='{$author}, tolgakocadag@outlook.com' />
+      <meta name='Author' content='Tolga Kocadağ, tolgakocadag@outlook.com'>
+      <meta name='designer' content='Tolga Kocadağ, tolgakocadag@outlook.com' />
       <meta name='distribution' content='global' />
       <meta name='revisit-after' content='7 days'>
       <meta name='language' content='Turkish' />
@@ -52,7 +45,7 @@ function createTextforPage($title,$post_date,$author,$url){
       <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
 
       <!-- Title -->
-      <title><?php echo $"."title; ?> - Tolga Kocadağ Blog</title>
+      <title><?php echo $title; ?> - Tolga Kocadağ Blog</title>
 
       <!-- Favicon -->
       <link rel='icon' href='img/core-img/TK.ico'>
@@ -170,7 +163,7 @@ function createTextforPage($title,$post_date,$author,$url){
                           <ol class='breadcrumb'>
                               <li class='breadcrumb-item'><a href='index.php'><i class='fa fa-home' aria-hidden='true'></i>Anasayfa</a></li>
                               <li class='breadcrumb-item'><a href='archive.php'>Blog Yazılarım</a></li>
-                              <li class='breadcrumb-item active' aria-current='page'><?php echo $"."title; ?></li>
+                              <li class='breadcrumb-item active' aria-current='page'><?php echo $title; ?></li>
                           </ol>
                       </nav>
                   </div>
@@ -189,10 +182,11 @@ function createTextforPage($title,$post_date,$author,$url){
                           <!-- Single Post Share Info -->
                           <div class='col-2 col-sm-1'>
                               <div class='single-post-share-info mt-100'>
-                                  <a href='https://www.facebook.com/tolgakocadag58' class='facebook'><i class='fa fa-facebook' aria-hidden='true'></i></a>
-                                  <a href='https://www.instagram.com/tolgakocadag58' class='instagram'><i class='fa fa-instagram' aria-hidden='true'></i></a>
-                                  <a href='#' style='background-color:#0077B5' class='linkedin'><i class='fa fa-linkedin' aria-hidden='true'></i></a>
-                                  <a href='https://www.github.com/tolgakocadag' style='background-color:#24292e' class='github'><i class='fa fa-github' aria-hidden='true'></i></a>
+                                  <a href='#' class='facebook'><i class='fa fa-facebook' aria-hidden='true'></i></a>
+                                  <a href='#' class='twitter'><i class='fa fa-twitter' aria-hidden='true'></i></a>
+                                  <a href='#' class='googleplus'><i class='fa fa-google-plus' aria-hidden='true'></i></a>
+                                  <a href='#' class='instagram'><i class='fa fa-instagram' aria-hidden='true'></i></a>
+                                  <a href='#' class='pinterest'><i class='fa fa-pinterest' aria-hidden='true'></i></a>
                               </div>
                           </div>
 
@@ -201,7 +195,7 @@ function createTextforPage($title,$post_date,$author,$url){
                               <div class='single-post'>
                                   <!-- Post Thumb -->
                                   <div class='post-thumb'>
-                                      <img src='<?php echo substr($"."image,3,500); ?>' alt='<?php echo $"."title; ?>'>
+                                      <img src='<?php echo substr($image,3,500); ?>' alt=''>
                                   </div>
                                   <!-- Post Content -->
                                   <div class='post-content'>
@@ -209,11 +203,11 @@ function createTextforPage($title,$post_date,$author,$url){
                                           <div class='post-author-date-area d-flex'>
                                               <!-- Post Author -->
                                               <div class='post-author'>
-                                                  <a href='about_me.php'>{$author}</a>
+                                                  <a href='about_me.php'>Tolga Kocadağ</a>
                                               </div>
                                               <!-- Post Date -->
                                               <div class='post-date'>
-                                                  <a href='#'>{$date}</a>
+                                                  <a href='#'>Nisan 07, 2019</a>
                                               </div>
                                           </div>
                                           <!-- Post Comment & Share Area -->
@@ -221,11 +215,11 @@ function createTextforPage($title,$post_date,$author,$url){
 
                                               <!-- Post Hits -->
                                               <div class='post-comments'>
-                                                  <a href='#'><i class='fa fa-eye' aria-hidden='true'></i> <?php echo $"."hit; ?></a>
+                                                  <a href='#'><i class='fa fa-eye' aria-hidden='true'></i> <?php echo $hit; ?></a>
                                               </div>
                                               <!-- Post Comments -->
                                               <div class='post-comments'>
-                                                  <a href='#'><i class='fa fa-comment-o' aria-hidden='true'></i> <?php echo $"."comment_count; ?></a>
+                                                  <a href='#'><i class='fa fa-comment-o' aria-hidden='true'></i> <?php echo $comment_count; ?></a>
                                               </div>
                                               <!-- Post Share -->
                                               <div class='post-share'>
@@ -233,19 +227,24 @@ function createTextforPage($title,$post_date,$author,$url){
                                               </div>
                                           </div>
                                       </div>
-                                      <a href='{$url}'>
-                                          <h2 class='post-headline'><?php echo $"."title; ?></h2>
+                                      <a href='tag2.php'>
+                                          <h2 class='post-headline'><?php echo $title; ?></h2>
                                       </a>
-                                      <p><?php echo $"."content; ?></p>
+                                      <p><?php echo $content; ?></p>
                                   </div>
                               </div>
 
                               <!-- Tags Area -->
                               <div class='tags-area'>
                               <?php
-                              $"."tags=explode(',',$"."tag);
-                                  foreach ($"."tags as $"."key => $"."value) {
-                                    echo '<a href=&#39;&#39;>'."."$"."tags[$"."key]".".'</a>&nbsp;';
+                              $tags=explode(',',$tag);
+                                  foreach ($tags as $key => $value) {
+                                    $t_url=explode(" ",$tags[$key]);
+                                    $tag_url="";
+                                    foreach ($t_url as $k => $v) {
+                                      $tag_url.=$v."+";
+                                    }
+                                    echo '<a href=search.php?search='.$tag_url.'>'.$tags[$key].'</a>&nbsp;';
                                   }
                                ?>
                               </div>
@@ -256,28 +255,28 @@ function createTextforPage($title,$post_date,$author,$url){
                                   <div class='related-post-slider owl-carousel'>
                                   <?php
 
-                                  $"."related= multiexplode(array(',','|','{','!','#','>','<','/','*','+','-','=','%','&','*',';','}','[',']','(',')',' ','?'),$"."title);
-                                  $"."isAdd=array($"."ip);
-                                  foreach ($"."related as $"."key => $"."value) {
-                                    $"."related_list=dbrelatedPostsList($"."related[$"."key]);
-                                    $"."related_list=$"."con->query($"."related_list);
-                                    if($"."related_list->num_rows>0)
+                                  $related= multiexplode(array(',','|','{','!','#','>','<','/','*','+','-','=','%','&','*',';','}','[',']','(',')',' ','?'),$title);
+                                  $isAdd=array($ip);
+                                  foreach ($related as $key => $value) {
+                                    $related_list=dbrelatedPostsList($related[$key]);
+                                    $related_list=$con->query($related_list);
+                                    if($related_list->num_rows>0)
                                     {
-                                        while ($"."row=$"."related_list->fetch_assoc()) {
-                                          $"."post_id=$"."row['post_ID'];
-                                          $"."post_title=$"."row['post_TITLE'];
-                                          $"."post_date=$"."row['post_DATE'];
-                                          $"."post_url=$"."row['post_URL'];
-                                          $"."post_image=$"."row['post_IMAGE'];
-                                          if(array_search($"."post_id, $"."isAdd)===FALSE)
+                                        while ($row=$related_list->fetch_assoc()) {
+                                          $post_id=$row['post_ID'];
+                                          $post_title=$row['post_TITLE'];
+                                          $post_date=$row['post_DATE'];
+                                          $post_url=$row['post_URL'];
+                                          $post_image=$row['post_IMAGE'];
+                                          if(array_search($post_id, $isAdd)===FALSE)
                                           {
-                                               $"."isAdd[]=$"."post_id;?>
+                                               $isAdd[]=$post_id;?>
 
                                                <!-- Single Related Post-->
                                                <div class='single-post'>
                                                    <!-- Post Thumb -->
                                                    <div class='post-thumb'>
-                                                       <img src='<?php echo substr($"."image,3,500); ?>' alt='<?php echo $"."title; ?>'>
+                                                       <img src='<?php echo substr($image,3,500); ?>' alt=''>
                                                    </div>
                                                    <!-- Post Content -->
                                                    <div class='post-content'>
@@ -285,12 +284,12 @@ function createTextforPage($title,$post_date,$author,$url){
                                                            <div class='post-author-date-area d-flex'>
                                                                <!-- Post Date -->
                                                                <div class='post-date'>
-                                                                   <a href='#'><?php $"."date=explode('.',$"."post_date);echo getMonth($"."date[1]).' '.$"."date[0].', '.substr($"."date[2],0,4); ?></a>
+                                                                   <a href='#'><?php $date=explode('.',$post_date);echo getMonth($date[1]).' '.$date[0].', '.substr($date[2],0,4); ?></a>
                                                                </div>
                                                            </div>
                                                        </div>
-                                                       <a href='<?php echo $"."post_url; ?>'>
-                                                           <h3 style='font-size:15px'><?php echo $"."post_title; ?></h3>
+                                                       <a href='<?php echo $post_url; ?>'>
+                                                           <h3 style='font-size:15px'><?php echo $post_title; ?></h3>
                                                        </a>
                                                    </div>
                                                </div>
@@ -394,7 +393,7 @@ function createTextforPage($title,$post_date,$author,$url){
                                   <h6>Hakkımda</h6>
                               </div>
                               <div class='about-me-widget-thumb'>
-                                  <img src='img/about-img/pp.jpg' alt='Tolga Kocadağ'>
+                                  <img src='img/about-img/pp.jpg' alt=''>
                               </div>
                               <h4 class='font-shadow-into-light'>Tolga Kocadağ</h4>
                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
@@ -419,27 +418,27 @@ function createTextforPage($title,$post_date,$author,$url){
                                   <h6>Popüler Yazılar</h6>
                               </div>
                               <?php
-                                $"."pop_list=dbmyPopulerPostsList();
-                                $"."pop_list =$"."con->query($"."pop_list);
-                                if($"."pop_list->num_rows>0)
+                                $pop_list=dbmyPopulerPostsList();
+                                $pop_list =$con->query($pop_list);
+                                if($pop_list->num_rows>0)
                                 {
-                                  while ($"."row=$"."pop_list->fetch_assoc()) {
-                                    if($"."row['post_HIDE']=='on'){
+                                  while ($row=$pop_list->fetch_assoc()) {
+                                    if($row['post_HIDE']=='on'){
                                       continue;
                                     }
-                                    $"."post_title=$"."row['post_TITLE'];
-                                    $"."post_date=$"."row['post_DATE'];
-                                    $"."post_url=$"."row['post_URL'];
-                                    $"."post_image=$"."row['post_IMAGE'];
+                                    $post_title=$row['post_TITLE'];
+                                    $post_date=$row['post_DATE'];
+                                    $post_url=$row['post_URL'];
+                                    $post_image=$row['post_IMAGE'];
                                ?>
                               <!-- Single Popular Post -->
                               <div class='single-populer-post d-flex'>
-                                  <img src='<?php echo substr($"."post_image,3,500); ?>' alt='<?php echo $"."title; ?>'>
+                                  <img src='<?php echo substr($post_image,3,500); ?>' alt=''>
                                   <div class='post-content'>
-                                      <a href='<?php echo $"."post_url; ?>'>
-                                          <h3 style='font-size:15px'><?php echo $"."post_title; ?></h3>
+                                      <a href='<?php echo $post_url; ?>'>
+                                          <h3 style='font-size:15px'><?php echo $post_title; ?></h3>
                                       </a>
-                                      <p><?php $"."date=explode('.',$"."post_date);echo getMonth($"."date[1]).' '.$"."date[0].', '.substr($"."date[2],0,4); ?></p>
+                                      <p><?php $date=explode('.',$post_date);echo getMonth($date[1]).' '.$date[0].', '.substr($date[2],0,4); ?></p>
                                   </div>
                               </div>
                             <?php }} ?>
@@ -667,7 +666,4 @@ function createTextforPage($title,$post_date,$author,$url){
       <!-- Active JS -->
       <script src='js/active.js'></script>
       </body>
-      </html>";
-  return $total;
-}
-?>
+      </html>

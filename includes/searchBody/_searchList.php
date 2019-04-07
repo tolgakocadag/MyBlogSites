@@ -1,7 +1,7 @@
 <!--POST LİSTELEME-->
 <?php
-if (isset($_POST['searchBtn'])) {
-  $search=mysqli_real_escape_string($con,$_POST['search']);
+if (isset($_GET['search'])) {
+  $search=mysqli_real_escape_string($con,$_GET['search']);
   $sql_list=dbsearchPostsList($search);
   $sql_list =$con->query($sql_list);
   if($sql_list->num_rows>0)

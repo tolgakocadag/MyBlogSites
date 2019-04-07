@@ -62,12 +62,12 @@
                     </div>
                     <div class="col-12 col-md-7 item">
                         <p>
-                          &emsp;1997 yılının Ekim ayında ailenin ilk çocuğu olarak İstanbul'da gözlerimi dünyaya açtım. Anne ve baba tarafından tam bir Sivas'lıyım.<br />
+                          &emsp;1997 yılının Ekim ayında ailenin ilk çocuğu olarak İstanbul'da gözlerimi dünyaya açtım.<br />
                           &emsp;İlköğretim eğitimimi İstanbul'un Bahçelievler ilçesindeki <b>Emir Sultan İlköğretim Okulu</b>'nda tamamladım. Bir hevesle lise hayatıma bilişim üzerine olan
                           İstanbul Bahçelievler'deki <b>Bahçelievler Türk Telekom Teknik ve Endüstri Meslek Lisesi</b>'nde başladım. Burada yazılımla tanıştım ve hayatımı değiştirecek bir yola atıldım.
-                          2015 yılında Bilişim Teknolojileri/Veri tabanı dalından mezun oldum.
-                          <br />&emsp;Mezun olduğum lisedeki yazılım sevdası beni üniversitede de yanlız bırakmayıp tercihlerimi yazılım üzerine hazırladım ve Edirne'nin Keşan ilçesinde bulunan <b>Trakya Üniversitesi - Keşan Yusuf
-                          Çapraz Uygulamalı Bilimler Yüksekokulu - Bilgisayar Teknolojileri ve Bilişim Sistemleri (CTIS)</b> bölümünü kazandım. Üniversitede öğrendiğim yazılım dilleriyle beraber
+                          2015 yılında Bilişim Teknolojileri/Veri tabanı dalından birincilikle mezun oldum.
+                          <br />&emsp;Mezun olduğum lisedeki yazılım sevdası beni üniversitede de yanlız bırakmayıp tercihlerimi yazılım üzerine hazırlamama sebep oldu ve Edirne'nin Keşan ilçesinde bulunan <b>Trakya Üniversitesi - Keşan Yusuf
+                          Çapraz Uygulamalı Bilimler Yüksekokulu - Bilgisayar Teknolojileri ve Bilişim Sistemleri (CTIS)</b> bölümünü kazandım. Üniversitede ve lisede öğrendiğim yazılım dilleriyle beraber
                           kendimi boş zamanlarımda HTML5, CSS3, JS ve PHP dilleriyle meşgul ediyorum.<br />&emsp;Şuan Trakya Üniversitesi'nde 4.sınıfım ve bu siteyi kurmamın temel amacı, siz değerli okuyanlarımla bildiğim bilgileri paylaşmaktır.
                         </p>
                     </div>
