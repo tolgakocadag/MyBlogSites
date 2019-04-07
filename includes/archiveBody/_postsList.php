@@ -1,6 +1,23 @@
 <!--POST LİSTELEME-->
 <?php
-$sql_list=dbmyPostsList();
+if(isset($_GET['page'])){
+  $page=$_GET['page'];
+}
+else {
+  $page="";
+}
+if($page==""||$page==1){
+  $starter_post=0;
+}
+else{
+  $starter_post=($page*9)-9;
+}
+//postları sayfalama
+$count_post=dbmyAdminPagePostsList();
+$count_post=$con->query($count_post);
+$count_post=mysqli_num_rows($count_post);
+$count=ceil($count_post/9);
+$sql_list=dbmyPostsList($starter_post);
 $sql_list =$con->query($sql_list);
 if($sql_list->num_rows>0)
 {
@@ -76,18 +93,54 @@ if($sql_list->num_rows>0)
       <div class="pagination-area d-sm-flex mt-15">
           <nav aria-label="#">
               <ul class="pagination">
-                  <li class="page-item active">
-                      <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
                   <li class="page-item">
-                      <a class="page-link" href="#">Next <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                      <a class="page-link" href="archive.php?page=1"> <i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+                  </li>
+                  <li class="page-item">
+                      <a class="page-link" href="archive.php?page=<?php
+                        if($page>1){
+                          echo $page-1;
+                        }
+                        else {
+                          echo 1;
+                        }
+                        ?>"> Önceki Sayfa</a>
+                  </li>
+                  <?php
+                    for($i=1;$i<=$count;$i++){
+                      if($page==$i){
+                        echo "
+                              <li class='page-item active'>
+                                  <a class='page-link' href='archive.php?page={$i}'> {$i}</a>
+                              </li>";
+                      }
+                      else {
+                        echo "
+                              <li class='page-item'>
+                                  <a class='page-link' href='archive.php?page={$i}'> {$i}</a>
+                              </li>";
+                      }
+                    }
+                    ?>
+                  <li class="page-item">
+                      <a class="page-link" href="archive.php?page=<?php
+                        if($count>$page){
+                          echo $page+1;
+                        }
+                        else {
+                          echo $page;
+                        }
+                        ?>"> Sonraki Sayfa</a>
+                  </li>
+                  <li class="page-item">
+                      <a class="page-link" href="archive.php?page=<?php echo $count; ?>"> <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                   </li>
               </ul>
           </nav>
+          <!--
           <div class="page-status">
               <p>Page 1 of 60 results</p>
           </div>
+        -->
       </div>
   </div>

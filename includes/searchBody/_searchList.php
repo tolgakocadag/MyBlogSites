@@ -75,6 +75,7 @@ if (isset($_GET['search'])) {
     </div>
       <?php }?>
     <div class="col-12">
+      <!--
         <div class="pagination-area d-sm-flex mt-15">
             <nav aria-label="#">
                 <ul class="pagination">
@@ -91,6 +92,7 @@ if (isset($_GET['search'])) {
             <div class="page-status">
                 <p>Page 1 of 60 results</p>
             </div>
+          -->
         </div>
     </div>
   <?php }?>

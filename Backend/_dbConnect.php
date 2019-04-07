@@ -8,8 +8,8 @@ function dbHomePostList($limit)
   $sql_list ="SELECT * FROM posts WHERE post_HIDE='off' ORDER BY post_ID DESC LIMIT $limit";
   return $sql_list;
 }
-function dbmyPostsList(){
-  $sql_list ="SELECT * FROM posts ORDER BY post_HIT DESC";
+function dbmyPostsList($count){
+  $sql_list ="SELECT * FROM posts ORDER BY post_HIT DESC LIMIT $count,9";
   return $sql_list;
 }
 function dbmyPopulerPostsList(){
