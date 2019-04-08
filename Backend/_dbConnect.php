@@ -20,6 +20,10 @@ function dbHitPlus(){
   $sql_update="UPDATE posts SET post_HIT=post_HIT+1 WHERE post_TITLE=?";
   return $sql_update;
 }
+function dbSingleCommentList($title){
+  $sql_list ="SELECT * FROM comments WHERE comment_TITLE='{$title}' and comment_VISIBLE='on' ORDER BY comment_ID DESC";
+  return $sql_list;
+}
 function dbmyAdminPagePostsList(){
   $sql_list ="SELECT * FROM posts";
   return $sql_list;
@@ -38,8 +42,8 @@ function dbmyAdminPagePostsAdd(){
   return $sql_add;
 }
 function dbcommentAdd(){
-  $sql_add="INSERT INTO comments (comment_DATE,comment_AUTHOR,comment_IP,comment_EMAIL,comment_TEXT)
-  VALUES (?,?,?,?,?)";
+  $sql_add="INSERT INTO comments (comment_DATE,comment_AUTHOR,comment_IP,comment_EMAIL,comment_TEXT,comment_TITLE)
+  VALUES (?,?,?,?,?,?)";
   return $sql_add;
 }
 function dbCommentDelete(){

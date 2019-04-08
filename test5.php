@@ -1,12 +1,12 @@
 
   <?php include 'backend/_database.php' ; ?>
-  <?php include 'backend/general_settings.php'; ses_start(); ob_st();?>
+  <?php include 'backend/general_settings.php'; ses_start(); ob_st(); ?>
   <?php include 'backend/_dbConnect.php'; ?>
   <!DOCTYPE html>
   <html lang='tr'>
   <?php
-      $title='test2';
-      if(isset($_SESSION['test2']))
+      $title='test5';
+      if(isset($_SESSION['test5']))
       {
       }
       else{
@@ -15,7 +15,7 @@
         $hit_update->execute();
         $hit_update->close();
       }
-      $_SESSION['test2']=GetIP();
+      $_SESSION['test5']=GetIP();
       $sql_list=dbmyAdminPagePostsAddTitleControl($title);
       $sql_list=$con->query($sql_list);
       $row=$sql_list->fetch_assoc();
@@ -207,7 +207,7 @@
                                               </div>
                                               <!-- Post Date -->
                                               <div class='post-date'>
-                                                  <a href='#'>Nisan 08, 2019</a>
+                                                  <a href='#'>Nisan 09, 2019</a>
                                               </div>
                                           </div>
                                           <!-- Post Comment & Share Area -->
@@ -227,7 +227,7 @@
                                               </div>
                                           </div>
                                       </div>
-                                      <a href='test2.php'>
+                                      <a href='test5.php'>
                                           <h2 class='post-headline'><?php echo $title; ?></h2>
                                       </a>
                                       <p><?php echo $content; ?></p>
@@ -298,30 +298,39 @@
                                     </div>
                                   </div>
 
-                              <!-- Comment Area Start -->
-                              <div class='comment_area section_padding_50 clearfix'>
-                                  <h4 class='mb-30'>2 Comments</h4>
+                                  <?php
+                                  $comment_list=dbSingleCommentList($title);
+                                  $comment_list=$con->query($comment_list);
+                                  if($comment_list->num_rows>0)
+                                  {?>
+                                    <div class='comment_area section_padding_50 clearfix'>
+                                        <b class='mb-30'><?php echo 'Bu başlığa ait '.$comment_list->num_rows.' yorum mevcuttur.'; ?></b>
+                                        <ol>
+                                  <!-- Comment Area Start -->
 
-                                  <ol>
-                                      <!-- Single Comment Area -->
-                                      <li class='single_comment_area'>
-                                          <div class='comment-wrapper d-flex'>
-                                              <!-- Comment Meta -->
-                                              <div class='comment-author'>
-                                                  <img src='img/blog-img/17.jpg' alt=''>
+                                        <?php
+
+                                          while ($row=$comment_list->fetch_assoc()) {
+                                            $comment_author=$row['comment_AUTHOR'];
+                                            $comment_date=$row['comment_DATE'];
+                                            $comment_message=$row['comment_TEXT'];
+                                         ?>
+                                          <!-- Single Comment Area -->
+                                          <li>
+                                              <div class='comment-wrapper d-flex my-4'>
+                                                  <!-- Comment Content -->
+                                                  <div class='comment-content'>
+                                                      <span class='comment-date text-muted'><?php $date=explode('.',$comment_date);echo getMonth($date[1]).' '.$date[0].', '.substr($date[2],0,4); ?></span>
+                                                      <p class='my-2'><b><?php echo $comment_author; ?></b></p>
+                                                      <p><?php echo $comment_message; ?></p>
+                                                      <a href='#'>Like</a>
+                                                      <a class='active' href='#'>Reply</a>
+                                                  </div>
                                               </div>
-                                              <!-- Comment Content -->
-                                              <div class='comment-content'>
-                                                  <span class='comment-date text-muted'>27 Aug 2018</span>
-                                                  <h5>Brandon Kelley</h5>
-                                                  <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                                                  <a href='#'>Like</a>
-                                                  <a class='active' href='#'>Reply</a>
-                                              </div>
-                                          </div>
-                                      </li>
-                                  </ol>
-                              </div>
+                                          </li>
+                                        <?php } ?>
+                                      </ol>
+                                  </div><?php } ?>
 
                               <!-- Leave A Comment -->
                               <div class='leave-comment-area section_padding_50 clearfix'>
@@ -371,14 +380,15 @@
                                 $comment_message=$_POST['content_text'];
                                 $comment_date=date('d.m.Y').' '.date('H:i:s');
                                 $comment_ip=GetIP();
+                                $comment_title=$title;
                                 $namesurname=mysqli_real_escape_string($con,$comment_author);//kullanıcı adını güvenlik kontrolünden geçiriyoruz.
                                 $email=mysqli_real_escape_string($con,$comment_email);
                                 $message=mysqli_real_escape_string($con,$comment_message);
                                 $sql_add=$con->prepare(dbcommentAdd());
-                                $sql_add->bind_param('sssss',$comment_date,$comment_author,$comment_ip,$comment_email,$comment_message);
+                                $sql_add->bind_param('ssssss',$comment_date,$comment_author,$comment_ip,$comment_email,$comment_message,$comment_title);
                                 $sql_add->execute();
                                 $sql_add->close();
-                                header('Location: test2.php');
+                                header('Location: test5.php');
                               }
                               ?>
                           </div>

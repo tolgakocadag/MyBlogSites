@@ -32,6 +32,11 @@
       <span>Comments</span></a>
   </li>
   <li class="nav-item">
+    <a class="nav-link" href="socialmedia.php">
+      <i class="fas fa-fw fa-share-alt-square"></i>
+      <span>social media addresses</span></a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link" href="#">
       <i class="fas fa-fw fa-exclamation"></i>
       <span>404 PAGE</span></a>

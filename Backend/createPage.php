@@ -305,30 +305,39 @@ function createTextforPage($title,$post_date,$author,$url){
                                     </div>
                                   </div>
 
-                              <!-- Comment Area Start -->
-                              <div class='comment_area section_padding_50 clearfix'>
-                                  <h4 class='mb-30'>2 Comments</h4>
+                                  <?php
+                                  $"."comment_list=dbSingleCommentList($"."title);
+                                  $"."comment_list=$"."con->query($"."comment_list);
+                                  if($"."comment_list->num_rows>0)
+                                  {?>
+                                    <div class='comment_area section_padding_50 clearfix'>
+                                        <b class='mb-30'><?php echo 'Bu başlığa ait '.$"."comment_list->num_rows.' yorum mevcuttur.'; ?></b>
+                                        <ol>
+                                  <!-- Comment Area Start -->
 
-                                  <ol>
-                                      <!-- Single Comment Area -->
-                                      <li class='single_comment_area'>
-                                          <div class='comment-wrapper d-flex'>
-                                              <!-- Comment Meta -->
-                                              <div class='comment-author'>
-                                                  <img src='img/blog-img/17.jpg' alt=''>
+                                        <?php
+
+                                          while ($"."row=$"."comment_list->fetch_assoc()) {
+                                            $"."comment_author=$"."row['comment_AUTHOR'];
+                                            $"."comment_date=$"."row['comment_DATE'];
+                                            $"."comment_message=$"."row['comment_TEXT'];
+                                         ?>
+                                          <!-- Single Comment Area -->
+                                          <li>
+                                              <div class='comment-wrapper d-flex my-4'>
+                                                  <!-- Comment Content -->
+                                                  <div class='comment-content'>
+                                                      <span class='comment-date text-muted'><?php $"."date=explode('.',$"."comment_date);echo getMonth($"."date[1]).' '.$"."date[0].', '.substr($"."date[2],0,4); ?></span>
+                                                      <p class='my-2'><b><?php echo $"."comment_author; ?></b></p>
+                                                      <p><?php echo $"."comment_message; ?></p>
+                                                      <a href='#'>Like</a>
+                                                      <a class='active' href='#'>Reply</a>
+                                                  </div>
                                               </div>
-                                              <!-- Comment Content -->
-                                              <div class='comment-content'>
-                                                  <span class='comment-date text-muted'>27 Aug 2018</span>
-                                                  <h5>Brandon Kelley</h5>
-                                                  <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                                                  <a href='#'>Like</a>
-                                                  <a class='active' href='#'>Reply</a>
-                                              </div>
-                                          </div>
-                                      </li>
-                                  </ol>
-                              </div>
+                                          </li>
+                                        <?php } ?>
+                                      </ol>
+                                  </div><?php } ?>
 
                               <!-- Leave A Comment -->
                               <div class='leave-comment-area section_padding_50 clearfix'>
@@ -378,11 +387,12 @@ function createTextforPage($title,$post_date,$author,$url){
                                 $"."comment_message=$"."_POST['content_text'];
                                 $"."comment_date=date('d.m.Y').' '.date('H:i:s');
                                 $"."comment_ip=GetIP();
+                                $"."comment_title=$"."title;
                                 $"."namesurname=mysqli_real_escape_string($"."con,$"."comment_author);//kullanıcı adını güvenlik kontrolünden geçiriyoruz.
                                 $"."email=mysqli_real_escape_string($"."con,$"."comment_email);
                                 $"."message=mysqli_real_escape_string($"."con,$"."comment_message);
                                 $"."sql_add=$"."con->prepare(dbcommentAdd());
-                                $"."sql_add->bind_param('sssss',$"."comment_date,$"."comment_author,$"."comment_ip,$"."comment_email,$"."comment_message);
+                                $"."sql_add->bind_param('ssssss',$"."comment_date,$"."comment_author,$"."comment_ip,$"."comment_email,$"."comment_message,$"."comment_title);
                                 $"."sql_add->execute();
                                 $"."sql_add->close();
                                 header('Location: {$url}');
@@ -473,7 +483,7 @@ function createTextforPage($title,$post_date,$author,$url){
                               <div class='widget-title text-center'>
                                   <h6>Bülten</h6>
                               </div>
-                              <p>Bültenimize abone olun; yeni güncellemeler, indirimler, vb. hakkında bildirim alın.</p>
+                              <p>Bültenimize abone olun; yeni yazılar vb. hakkında bildirim alın.</p>
                               <div class='newsletter-form'>
                                   <form action='#' method='post'>
                                       <input type='email' name='newsletter-email' id='email' placeholder='Email adresiniz'>
