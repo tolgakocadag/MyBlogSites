@@ -7,7 +7,7 @@ function createTextforPage($title,$post_date,$author,$url){
   $hit=$hit+1;
   $total.="
   <?php include 'backend/_database.php' ; ?>
-  <?php include 'backend/general_settings.php'; ses_start(); ?>
+  <?php include 'backend/general_settings.php'; ses_start(); ob_st(); ?>
   <?php include 'backend/_dbConnect.php'; ?>
   <!DOCTYPE html>
   <html lang='tr'>
@@ -33,6 +33,7 @@ function createTextforPage($title,$post_date,$author,$url){
       $"."image=$"."row['post_IMAGE'];
       $"."explanation=$"."row['post_EXPLANATION'];
       $"."tag=$"."row['post_TAG'];
+      $"."visiblelabels=$"."row['post_TAG_VISIBLE'];
       $"."comment_count=$"."row['post_COMMENT_COUNT'];
    ?>
   <head>
@@ -243,9 +244,15 @@ function createTextforPage($title,$post_date,$author,$url){
                               <!-- Tags Area -->
                               <div class='tags-area'>
                               <?php
-                              $"."tags=explode(',',$"."tag);
+                              $"."tags=explode(',',$"."visiblelabels);
                                   foreach ($"."tags as $"."key => $"."value) {
-                                    echo '<a href=&#39;&#39;>'."."$"."tags[$"."key]".".'</a>&nbsp;';
+                                    $"."t_url=explode(' ',$"."tags[$"."key]);
+                                    $"."tag_url='';
+                                    foreach ($"."t_url as $"."k => $"."v) {
+                                      $"."tag_url.=$"."v.'+';
+                                    }
+                                    $"."tag_url=rtrim($"."tag_url,'+');
+                                    echo '<a href=search.php?search='.$"."tag_url.'>'.$"."tags[$"."key].'</a>&nbsp;';
                                   }
                                ?>
                               </div>
@@ -319,40 +326,6 @@ function createTextforPage($title,$post_date,$author,$url){
                                                   <a class='active' href='#'>Reply</a>
                                               </div>
                                           </div>
-                                          <ol class='children'>
-                                              <li class='single_comment_area'>
-                                                  <div class='comment-wrapper d-flex'>
-                                                      <!-- Comment Meta -->
-                                                      <div class='comment-author'>
-                                                          <img src='img/blog-img/18.jpg' alt=''>
-                                                      </div>
-                                                      <!-- Comment Content -->
-                                                      <div class='comment-content'>
-                                                          <span class='comment-date text-muted'>27 Aug 2018</span>
-                                                          <h5>Brandon Kelley</h5>
-                                                          <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                                                          <a href='#'>Like</a>
-                                                          <a class='active' href='#'>Reply</a>
-                                                      </div>
-                                                  </div>
-                                              </li>
-                                          </ol>
-                                      </li>
-                                      <li class='single_comment_area'>
-                                          <div class='comment-wrapper d-flex'>
-                                              <!-- Comment Meta -->
-                                              <div class='comment-author'>
-                                                  <img src='img/blog-img/19.jpg' alt=''>
-                                              </div>
-                                              <!-- Comment Content -->
-                                              <div class='comment-content'>
-                                                  <span class='comment-date text-muted'>27 Aug 2018</span>
-                                                  <h5>Brandon Kelley</h5>
-                                                  <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                                                  <a href='#'>Like</a>
-                                                  <a class='active' href='#'>Reply</a>
-                                              </div>
-                                          </div>
                                       </li>
                                   </ol>
                               </div>
@@ -363,24 +336,58 @@ function createTextforPage($title,$post_date,$author,$url){
                                       <h4 class='mb-30'>Leave A Comment</h4>
 
                                       <!-- Comment Form -->
-                                      <form action='#' method='post'>
-                                          <div class='form-group'>
-                                              <input type='text' class='form-control' id='contact-name' placeholder='Name'>
+                                      <!-- Comment Form -->
+                                      <form action='' method='post'>
+                                        <div class='row'>
+                                          <div class='form-group col-10'>
+                                              <input type='text' class='form-control' required name='content_name' id='contact-name' placeholder='Adınız ve Soyadınız'>
                                           </div>
-                                          <div class='form-group'>
-                                              <input type='email' class='form-control' id='contact-email' placeholder='Email'>
+                                          <div class='form-group col-2'>
+                                              <label class='mt-2' for='contact-name' id='kalanKarakter' style='color:#fee2d9'>0/75</label>
                                           </div>
-                                          <div class='form-group'>
-                                              <input type='text' class='form-control' id='contact-website' placeholder='Website'>
+                                        </div>
+                                        <div class='row'>
+                                          <div class='form-group col-10'>
+                                              <input type='email' class='form-control' required name='content_email' id='contact-email' placeholder='Email adresiniz'>
                                           </div>
-                                          <div class='form-group'>
-                                              <textarea class='form-control' name='message' id='message' cols='30' rows='10' placeholder='Message'></textarea>
+                                          <div class='form-group col-2'>
+                                              <label class='mt-2' for='contact-email' id='emailkalanKarakter' style='color:#fee2d9'>0/125</label>
                                           </div>
-                                          <button type='submit' class='btn contact-btn'>Post Comment</button>
+                                        </div>
+
+                                          <div class='row'>
+                                            <div class='form-group col-10'>
+                                                <textarea class='form-control' required name='content_text' id='message' cols='30' rows='10' placeholder='Yorumunuzu yazınız...'></textarea>
+                                            </div>
+                                            <div class='form-group col-2'>
+                                                <label class='mt-2' for='message' id='mesajkalanKarakter' style='color:#fee2d9'>0/150</label>
+                                            </div>
+                                          </div>
+                                          <div class='span'>
+                                            <span>* Yorumunuz onaylandıktan sonra yayınlanacaktır!</span>
+                                          </div>
+                                          <button type='submit' name='post_comment' class='btn contact-btn'>Yorum yap</button>
                                       </form>
                                   </div>
                               </div>
-
+                              <?php
+                              //YORUM EKLEME
+                              if(isset($"."_POST['post_comment'])){
+                                $"."comment_author=$"."_POST['content_name'];
+                                $"."comment_email=$"."_POST['content_email'];
+                                $"."comment_message=$"."_POST['content_text'];
+                                $"."comment_date=date('d.m.Y').' '.date('H:i:s');
+                                $"."comment_ip=GetIP();
+                                $"."namesurname=mysqli_real_escape_string($"."con,$"."comment_author);//kullanıcı adını güvenlik kontrolünden geçiriyoruz.
+                                $"."email=mysqli_real_escape_string($"."con,$"."comment_email);
+                                $"."message=mysqli_real_escape_string($"."con,$"."comment_message);
+                                $"."sql_add=$"."con->prepare(dbcommentAdd());
+                                $"."sql_add->bind_param('sssss',$"."comment_date,$"."comment_author,$"."comment_ip,$"."comment_email,$"."comment_message);
+                                $"."sql_add->execute();
+                                $"."sql_add->close();
+                                header('Location: {$url}');
+                              }
+                              ?>
                           </div>
                       </div>
                   </div>
@@ -647,6 +654,7 @@ function createTextforPage($title,$post_date,$author,$url){
                   <div class='col-12'>
                       <!-- Copywrite Text -->
                       <div class='copy_right_text text-center'>
+                          <meta name='Copyright' content='© 2019 Tüm hakları saklıdır. '>
                           <p>Copyright @2019 Tüm Hakları Saklıdır</p>
                       </div>
                   </div>
@@ -665,6 +673,7 @@ function createTextforPage($title,$post_date,$author,$url){
       <!-- All Plugins JS -->
       <script src='js/others/plugins.js'></script>
       <!-- Active JS -->
+      <script src='js/my.js'></script>
       <script src='js/active.js'></script>
       </body>
       </html>";

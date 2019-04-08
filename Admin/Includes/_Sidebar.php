@@ -27,6 +27,11 @@
       <span>Posts</span></a>
   </li>
   <li class="nav-item">
+    <a class="nav-link" href="comments.php">
+      <i class="fas fa-fw fa-comments"></i>
+      <span>Comments</span></a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link" href="#">
       <i class="fas fa-fw fa-exclamation"></i>
       <span>404 PAGE</span></a>

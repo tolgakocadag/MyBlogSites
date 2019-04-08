@@ -1,12 +1,12 @@
 
   <?php include 'backend/_database.php' ; ?>
-  <?php include 'backend/general_settings.php'; ses_start(); ?>
+  <?php include 'backend/general_settings.php'; ses_start();ob_st(); ?>
   <?php include 'backend/_dbConnect.php'; ?>
   <!DOCTYPE html>
   <html lang='tr'>
   <?php
-      $title='tag1';
-      if(isset($_SESSION['tag1']))
+      $title='test';
+      if(isset($_SESSION['test']))
       {
       }
       else{
@@ -15,7 +15,7 @@
         $hit_update->execute();
         $hit_update->close();
       }
-      $_SESSION['tag1']=GetIP();
+      $_SESSION['test']=GetIP();
       $sql_list=dbmyAdminPagePostsAddTitleControl($title);
       $sql_list=$con->query($sql_list);
       $row=$sql_list->fetch_assoc();
@@ -26,6 +26,7 @@
       $image=$row['post_IMAGE'];
       $explanation=$row['post_EXPLANATION'];
       $tag=$row['post_TAG'];
+      $visiblelabels=$row['post_TAG_VISIBLE'];
       $comment_count=$row['post_COMMENT_COUNT'];
    ?>
   <head>
@@ -95,14 +96,12 @@
                         -->
                           <!-- Search Button Area -->
                           <!-- Search Form -->
-                          <div class='form-group my-2'>
-                              <form action='#' method='get'>
-                                  <input class='form-control' type='search' name='search' id='search-anything' placeholder='Bir şey ara...'>
-                              </form>
-                          </div>
-                          <div class='form-group ml-2 my-2'>
-                              <a class='searchBtn' href='#'><i class='fa fa-search fa-2x' aria-hidden='true'></i></a>
-                          </div>
+                          <form action='search.php' method='get'>
+                            <div class='form-group row my-2'>
+                                <input class='form-control col-10' type='search' name='search' id='search-anything' placeholder='Bir şey ara...'>
+                                <button class='form-control col-2 fa fa-search' type='submit' style='background:none;border:none' name='searchBtn' href='#'></button>
+                            </div>
+                          </form>
                       </div>
                   </div>
               </div>
@@ -184,11 +183,10 @@
                           <!-- Single Post Share Info -->
                           <div class='col-2 col-sm-1'>
                               <div class='single-post-share-info mt-100'>
-                                  <a href='#' class='facebook'><i class='fa fa-facebook' aria-hidden='true'></i></a>
-                                  <a href='#' class='twitter'><i class='fa fa-twitter' aria-hidden='true'></i></a>
-                                  <a href='#' class='googleplus'><i class='fa fa-google-plus' aria-hidden='true'></i></a>
-                                  <a href='#' class='instagram'><i class='fa fa-instagram' aria-hidden='true'></i></a>
-                                  <a href='#' class='pinterest'><i class='fa fa-pinterest' aria-hidden='true'></i></a>
+                                  <a href='https://www.facebook.com/tolgakocadag58' class='facebook'><i class='fa fa-facebook' aria-hidden='true'></i></a>
+                                  <a href='https://www.instagram.com/tolgakocadag58' class='instagram'><i class='fa fa-instagram' aria-hidden='true'></i></a>
+                                  <a href='#' style='background-color:#0077B5' class='linkedin'><i class='fa fa-linkedin' aria-hidden='true'></i></a>
+                                  <a href='https://www.github.com/tolgakocadag' style='background-color:#24292e' class='github'><i class='fa fa-github' aria-hidden='true'></i></a>
                               </div>
                           </div>
 
@@ -197,7 +195,7 @@
                               <div class='single-post'>
                                   <!-- Post Thumb -->
                                   <div class='post-thumb'>
-                                      <img src='<?php echo substr($image,3,500); ?>' alt=''>
+                                      <img src='<?php echo substr($image,3,500); ?>' alt='<?php echo $title; ?>'>
                                   </div>
                                   <!-- Post Content -->
                                   <div class='post-content'>
@@ -209,7 +207,7 @@
                                               </div>
                                               <!-- Post Date -->
                                               <div class='post-date'>
-                                                  <a href='#'>Nisan 07, 2019</a>
+                                                  <a href='#'>Nisan 08, 2019</a>
                                               </div>
                                           </div>
                                           <!-- Post Comment & Share Area -->
@@ -229,7 +227,7 @@
                                               </div>
                                           </div>
                                       </div>
-                                      <a href='tag1.php'>
+                                      <a href='test.php'>
                                           <h2 class='post-headline'><?php echo $title; ?></h2>
                                       </a>
                                       <p><?php echo $content; ?></p>
@@ -239,9 +237,15 @@
                               <!-- Tags Area -->
                               <div class='tags-area'>
                               <?php
-                              $tags=explode(',',$tag);
+                              $tags=explode(',',$visiblelabels);
                                   foreach ($tags as $key => $value) {
-                                    echo '<a href=search.php?search='.$tags[$key].'&searchBtn=>'.$tags[$key].'</a>&nbsp;';
+                                    $t_url=explode(' ',$tags[$key]);
+                                    $tag_url='';
+                                    foreach ($t_url as $k => $v) {
+                                      $tag_url.=$v.'+';
+                                    }
+                                    $tag_url=rtrim($tag_url,'+');
+                                    echo '<a href=search.php?search='.$tag_url.'>'.$tags[$key].'</a>&nbsp;';
                                   }
                                ?>
                               </div>
@@ -273,7 +277,7 @@
                                                <div class='single-post'>
                                                    <!-- Post Thumb -->
                                                    <div class='post-thumb'>
-                                                       <img src='<?php echo substr($image,3,500); ?>' alt=''>
+                                                       <img src='<?php echo substr($image,3,500); ?>' alt='<?php echo $title; ?>'>
                                                    </div>
                                                    <!-- Post Content -->
                                                    <div class='post-content'>
@@ -315,40 +319,6 @@
                                                   <a class='active' href='#'>Reply</a>
                                               </div>
                                           </div>
-                                          <ol class='children'>
-                                              <li class='single_comment_area'>
-                                                  <div class='comment-wrapper d-flex'>
-                                                      <!-- Comment Meta -->
-                                                      <div class='comment-author'>
-                                                          <img src='img/blog-img/18.jpg' alt=''>
-                                                      </div>
-                                                      <!-- Comment Content -->
-                                                      <div class='comment-content'>
-                                                          <span class='comment-date text-muted'>27 Aug 2018</span>
-                                                          <h5>Brandon Kelley</h5>
-                                                          <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                                                          <a href='#'>Like</a>
-                                                          <a class='active' href='#'>Reply</a>
-                                                      </div>
-                                                  </div>
-                                              </li>
-                                          </ol>
-                                      </li>
-                                      <li class='single_comment_area'>
-                                          <div class='comment-wrapper d-flex'>
-                                              <!-- Comment Meta -->
-                                              <div class='comment-author'>
-                                                  <img src='img/blog-img/19.jpg' alt=''>
-                                              </div>
-                                              <!-- Comment Content -->
-                                              <div class='comment-content'>
-                                                  <span class='comment-date text-muted'>27 Aug 2018</span>
-                                                  <h5>Brandon Kelley</h5>
-                                                  <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                                                  <a href='#'>Like</a>
-                                                  <a class='active' href='#'>Reply</a>
-                                              </div>
-                                          </div>
                                       </li>
                                   </ol>
                               </div>
@@ -359,24 +329,58 @@
                                       <h4 class='mb-30'>Leave A Comment</h4>
 
                                       <!-- Comment Form -->
-                                      <form action='#' method='post'>
-                                          <div class='form-group'>
-                                              <input type='text' class='form-control' id='contact-name' placeholder='Name'>
+                                      <!-- Comment Form -->
+                                      <form action='' method='post'>
+                                        <div class='row'>
+                                          <div class='form-group col-10'>
+                                              <input type='text' class='form-control' required name='content_name' id='contact-name' placeholder='Adınız ve Soyadınız'>
                                           </div>
-                                          <div class='form-group'>
-                                              <input type='email' class='form-control' id='contact-email' placeholder='Email'>
+                                          <div class='form-group col-2'>
+                                              <label class='mt-2' for='contact-name' id='kalanKarakter' style='color:#fee2d9'>0/75</label>
                                           </div>
-                                          <div class='form-group'>
-                                              <input type='text' class='form-control' id='contact-website' placeholder='Website'>
+                                        </div>
+                                        <div class='row'>
+                                          <div class='form-group col-10'>
+                                              <input type='email' class='form-control' required name='content_email' id='contact-email' placeholder='Email adresiniz'>
                                           </div>
-                                          <div class='form-group'>
-                                              <textarea class='form-control' name='message' id='message' cols='30' rows='10' placeholder='Message'></textarea>
+                                          <div class='form-group col-2'>
+                                              <label class='mt-2' for='contact-email' id='emailkalanKarakter' style='color:#fee2d9'>0/125</label>
                                           </div>
-                                          <button type='submit' class='btn contact-btn'>Post Comment</button>
+                                        </div>
+
+                                          <div class='row'>
+                                            <div class='form-group col-10'>
+                                                <textarea class='form-control' required name='content_text' id='message' cols='30' rows='10' placeholder='Yorumunuzu yazınız...'></textarea>
+                                            </div>
+                                            <div class='form-group col-2'>
+                                                <label class='mt-2' for='message' id='mesajkalanKarakter' style='color:#fee2d9'>0/150</label>
+                                            </div>
+                                          </div>
+                                          <div class='span'>
+                                            <span>* Yorumunuz onaylandıktan sonra yayınlanacaktır!</span>
+                                          </div>
+                                          <button type='submit' name='post_comment' class='btn contact-btn'>Yorum yap</button>
                                       </form>
                                   </div>
                               </div>
-
+                              <?php
+                              //YORUM EKLEME
+                              if(isset($_POST['post_comment'])){
+                                $comment_author=$_POST['content_name'];
+                                $comment_email=$_POST['content_email'];
+                                $comment_message=$_POST['content_text'];
+                                $comment_date=date('d.m.Y').' '.date('H:i:s');
+                                $comment_ip=GetIP();
+                                $namesurname=mysqli_real_escape_string($con,$comment_author);//kullanıcı adını güvenlik kontrolünden geçiriyoruz.
+                                $email=mysqli_real_escape_string($con,$comment_email);
+                                $message=mysqli_real_escape_string($con,$comment_message);
+                                $sql_add=$con->prepare(dbcommentAdd());
+                                $sql_add->bind_param('sssss',$comment_date,$comment_author,$comment_ip,$comment_email,$comment_message);
+                                $sql_add->execute();
+                                $sql_add->close();
+                                header("Location: test.php");
+                              }
+                              ?>
                           </div>
                       </div>
                   </div>
@@ -390,7 +394,7 @@
                                   <h6>Hakkımda</h6>
                               </div>
                               <div class='about-me-widget-thumb'>
-                                  <img src='img/about-img/pp.jpg' alt=''>
+                                  <img src='img/about-img/pp.jpg' alt='Tolga Kocadağ'>
                               </div>
                               <h4 class='font-shadow-into-light'>Tolga Kocadağ</h4>
                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
@@ -430,7 +434,7 @@
                                ?>
                               <!-- Single Popular Post -->
                               <div class='single-populer-post d-flex'>
-                                  <img src='<?php echo substr($post_image,3,500); ?>' alt=''>
+                                  <img src='<?php echo substr($post_image,3,500); ?>' alt='<?php echo $title; ?>'>
                                   <div class='post-content'>
                                       <a href='<?php echo $post_url; ?>'>
                                           <h3 style='font-size:15px'><?php echo $post_title; ?></h3>
@@ -643,6 +647,7 @@
                   <div class='col-12'>
                       <!-- Copywrite Text -->
                       <div class='copy_right_text text-center'>
+                          <meta name='Copyright' content='© 2019 Tüm hakları saklıdır. '>
                           <p>Copyright @2019 Tüm Hakları Saklıdır</p>
                       </div>
                   </div>
@@ -661,6 +666,7 @@
       <!-- All Plugins JS -->
       <script src='js/others/plugins.js'></script>
       <!-- Active JS -->
+      <script src='js/my.js'></script>
       <script src='js/active.js'></script>
       </body>
       </html>

@@ -202,6 +202,10 @@
                                         <input type="text" class="form-control" required name="post_tag">
                                     </div>
                                     <div class="form-group">
+                                        <label for="post_visiblelabels">Visible labels</label>
+                                        <input type="text" class="form-control" required name="post_visiblelabels">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="post_explanation">explanation</label>
                                         <input type="text" class="form-control" required name="post_explanation">
                                     </div>
