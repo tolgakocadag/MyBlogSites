@@ -1,28 +1,20 @@
 <?php include "Includes/_Header.php"; ?>
 <?php include "Includes/_Sidebar.php"; ?>
-<div id="content-wrapper">
-    <div class="container-fluid">
-       <div class="row">
-         <a class="btn btn-large btn-primary p-3 offset-1 my-4 col-1" style="color:white;" data-toggle="modal" data-target="#add_modal">ADD POST</a>
-         <div class="alert alert-warning offset-1 col-4 my-4 alert-dismissible fade show" role="alert">
-           Total number of posts: <strong>
-
-             <?php $post_count=dbmyAdminPagePostsList();
-              $post_count=$con->query($post_count);
-              echo $post_count->num_rows;
-            ?></strong>
-         </div>
-       </div>
-
-        <!-- DataTables -->
-        <div class="card ">
-          <div class="card-header">
-            <i class="fas fa-table"></i>
-            Posts Table</div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
+<?php include "Includes/_Topbar.php"; ?>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <div class="row">
+      <h6 class="m-0 font-weight-bold text-primary my-2">Posts Table</h6>
+      <a class='btn btn-success btn-circle ml-4' data-toggle='modal' data-target='#add_modal' href='#'><i class='fas fa-plus'></i></a>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
                   <tr>
                     <th>ID</th>
                     <th>Title</th>
@@ -74,18 +66,9 @@
                       <td>".substr($post_content,0,50)."...</td>
                       <td>{$post_hit}</td>
                       <td>{$post_comment_count}</td>
-                      <td  style='width:5%'>
-                          <div class='dropdown'>
-                              <button class='btn btn-primary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                  Actions
-                              </button>
-                              <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
-                                  <a class='dropdown-item' data-toggle='modal' data-target='#edit_modal$k' href='#'>Edit</a>
-                                  <div class='dropdown-divider'></div>
-                                  <a class='dropdown-item' href='posts.php?delete={$post_id}'>Delete</a>
-
-                              </div>
-                          </div>
+                      <td>
+                      <a class='btn btn-primary btn-circle' data-toggle='modal' data-target='#edit_modal$k' href='#'><i class='fas fa-edit'></i></a>
+                      <a class='btn btn-danger btn-circle' href='posts.php?delete={$post_id}'><i class='fas fa-trash'></i></a>
                       </td>
                   </tr>";
                   ?>
@@ -161,7 +144,6 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                     </div>
                 </div>
 
@@ -238,7 +220,6 @@
                 </div>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
       </div>
 

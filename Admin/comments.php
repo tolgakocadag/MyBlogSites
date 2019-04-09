@@ -1,17 +1,19 @@
 <?php include "Includes/_Header.php"; ?>
 <?php include "Includes/_Sidebar.php"; ?>
-<div id="content-wrapper">
-    <div class="container-fluid">
-
-        <!-- DataTables -->
-        <div class="card ">
-          <div class="card-header">
-            <i class="fas fa-table"></i>
-            Comments Table</div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
+<?php include "Includes/_Topbar.php"; ?>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <div class="row">
+      <h6 class="m-0 font-weight-bold text-primary my-2">Comments Table</h6>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
                   <tr>
                     <th>ID</th>
                     <th>Name and Surname</th>
@@ -61,17 +63,8 @@
                       <td>{$comment_date}</td>
                       <td>{$comment_isvisible}</td>
                       <td>
-                          <div class='dropdown'>
-                              <button class='btn btn-primary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                  Actions
-                              </button>
-                              <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
-                                  <a class='dropdown-item' data-toggle='modal' data-target='#edit_modal$k' href='#'>Edit</a>
-                                  <div class='dropdown-divider'></div>
-                                  <a class='dropdown-item' href='comments.php?delete={$comment_id}'>Delete</a>
-
-                              </div>
-                          </div>
+                      <a class='btn btn-primary btn-circle' data-toggle='modal' data-target='#edit_modal$k' href='#'><i class='fas fa-edit'></i></a>
+                      <a class='btn btn-danger btn-circle' href='comments.php?delete={$comment_id}'><i class='fas fa-trash'></i></a>
                       </td>
                   </tr>";
               }
@@ -131,7 +124,6 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                     </div>
                 </div>
 
