@@ -340,8 +340,6 @@ function createTextforPage($title,$post_date,$author,$url){
                                                       <span class='comment-date text-muted'><?php $"."date=explode('.',$"."comment_date);echo getMonth($"."date[1]).' '.$"."date[0].', '.substr($"."date[2],0,4); ?></span>
                                                       <p class='my-2'><b><?php echo $"."comment_author; ?></b></p>
                                                       <p><?php echo $"."comment_message; ?></p>
-                                                      <a href='#'>Like</a>
-                                                      <a class='active' href='#'>Reply</a>
                                                   </div>
                                               </div>
                                           </li>

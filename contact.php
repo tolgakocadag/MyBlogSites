@@ -1,5 +1,33 @@
 <?php include "includes/_Header.php"; ?>
-
+<?php include "backend/PHPMailer.php";
+  if(isset($_POST['submit'])){
+    $ip=GetIp();
+    $name=$_POST['name'];
+    $surname=$_POST['surname'];
+    $email=$_POST['email'];
+    $subject=$_POST['subject'];
+    $message=$_POST['message'];
+    $mail = new PHPMailer();
+    $mail->IsSMTP();
+    $mail->SMTPAuth = true;
+    $mail->Host = 'smtp.office365.com';
+    $mail->Port = 587;
+    $mail->SMTPSecure = 'STARTTLS';
+    $mail->Username = 'tolgakocadag@outlook.com';
+    $mail->Password = 'Tlgkcdg1997+';
+    $mail->SetFrom($mail->Username, 'Tolga Kocadağ');
+    $mail->AddAddress($email, $name." ".$surname);
+    $mail->CharSet = 'UTF-8';
+    $mail->Subject = $subject;
+    $mail->MsgHTML($message);
+    if($mail->Send()) {
+      // e-posta başarılı ile gönderildi
+    } else {
+      // bir sorun var, sorunu ekrana bastıralım
+      echo $mail->ErrorInfo;
+    }
+  }
+?>
     <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url(img/bg-img/breadcumb.jpg);">
         <div class="container h-100">
@@ -86,22 +114,22 @@
                             <form action="#" method="post">
                                 <div class="row">
                                   <div class="form-group col-6">
-                                      <input type="text" class="form-control" required id="contact-name" placeholder="Adınız...">
+                                      <input type="text" class="form-control" name="name" required id="contact-name" placeholder="Adınız...">
                                   </div>
                                   <div class="form-group col-6">
-                                      <input type="text" class="form-control" required id="contact-name" placeholder="Soyadınız...">
+                                      <input type="text" class="form-control" name="surname" required id="contact-name" placeholder="Soyadınız...">
                                   </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" required id="contact-email" placeholder="Email adresiniz...">
+                                    <input type="email" class="form-control" name="email" required id="contact-email" placeholder="Email adresiniz...">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" required id="contact-website" placeholder="Mesajınızın Konusu...">
+                                    <input type="text" class="form-control" name="subject" required id="contact-website" placeholder="Mesajınızın Konusu...">
                                 </div>
                                 <div class="form-group">
                                     <textarea class="form-control" name="message" required id="message" cols="30" rows="10" placeholder="Mesajınız..."></textarea>
                                 </div>
-                                <center><button type="submit" class="btn contact-btn">Mesajı Gönder</button></center>
+                                <center><button type="submit" name="submit" class="btn contact-btn">Mesajı Gönder</button></center>
                             </form>
                         </div>
                     </div>
