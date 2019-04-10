@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
   <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.php">
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="fas fa-laugh-wink"></i>
     </div>
@@ -26,7 +26,36 @@
   <div class="sidebar-heading">
     Interface
   </div>
-
+  <li class="nav-item">
+    <a class="nav-link" href="socialmedias.php">
+      <i class="fas fa-fw fa-share-alt-square"></i>
+      <span>Social Media Accounts</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="abouts.php">
+      <i class="fab fa-fw fa-adn"></i>
+      <span>About</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="menus.php">
+      <i class="fas fa-fw fa-th-list"></i>
+      <span>Menus</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="metaTags.php">
+      <i class="fas fa-fw fa-tags"></i>
+      <span>Meta Tags</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="copyright.php">
+      <i class="fas fa-fw fa-copyright"></i>
+      <span>Copyright</span>
+    </a>
+  </li>
   <hr class="sidebar-divider">
   <!-- Heading -->
   <div class="sidebar-heading">
@@ -69,6 +98,7 @@
         <div class="collapse-divider"></div>
         <h6 class="collapse-header">Other Pages:</h6>
         <a class="collapse-item" href="404.html">404 Page</a>
+        <a class="collapse-item" href="socialmedias.php">Social Media</a>
       </div>
     </div>
   </li>
@@ -83,7 +113,7 @@
 </ul>
 <!-- End of Sidebar -->
 <!-- Content Wrapper -->
-<div id="content-wrapper" class="d-flex flex-column">
+  <div id="content-wrapper" class="d-flex flex-column">
 
   <!-- Main Content -->
-  <div id="content">
+    <div id="content">

@@ -6,23 +6,28 @@
 <html lang="tr">
 
 <head>
+  <?php
+  $sql_list=dbMetaTagsList();
+  $sql_list=$con->query($sql_list);
+  if($sql_list->num_rows>0)
+  {
+    while ($row=$sql_list->fetch_assoc()) {
+      $metatag_name=$row['metatag_NAME'];
+      $metatag_content=$row['metatag_CONTENT'];
+      if($metatag_name=='title'){
+        $sitetitle=$metatag_content;
+      }
+      if($metatag_name!='copyright'){
+        CreateMetaTag($metatag_name,$metatag_content);
+      }
+    }
+  }
+   ?>
     <meta charset="UTF-8">
-    <meta name="title" content="Tolga Kocadağ Blog">
-    <meta name="abstract" content="En güncel konuların olduğu blog sitemi siz hâlâ ziyaret etmediniz mi? - Tolga Kocadağ Blog" />
-    <meta name="description" content="En güncel konuların olduğu blog sitemi siz hâlâ ziyaret etmediniz mi? - Tolga Kocadağ Blog" />
-    <meta name="keywords" content="Tolga Kocadağ,Tolga Kocadağ Blog,PHP Tolga Kocadağ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="Author" content="Tolga Kocadağ, tolgakocadag@outlook.com">
-    <meta name="designer" content="Tolga Kocadağ, tolgakocadag@outlook.com" />
-    <meta name="distribution" content="global" />
-    <meta name="revisit-after" content="7 days">
-    <meta name="language" content="Turkish" />
-    <meta name="reply-to" content="tolgakocadag@outlook.com" />
-    <meta name="robots" content="index,follow">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Title -->
-    <title>Tolga Kocadağ Blog</title>
+    <title><?php echo $sitetitle; ?></title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/TK.ico">
@@ -50,11 +55,18 @@
                 <div class="col-5 col-sm-6">
                     <!--  Top Social bar start -->
                     <div class="top_social_bar">
-                        <a href="index.php" style="color:red"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
-                        <a href="https://www.facebook.com/tolgakocadag58" target="_blank"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
-                        <a href="https://www.instagram.com/tolgakocadag58" target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
-                        <a href="https://www.github.com/tolgakocadag"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+                      <a href="index.php"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+                      <?php
+                      $sql_list=dbmyAdminSocialMediaList();
+                      $sql_list=$con->query($sql_list);
+                      if($sql_list->num_rows>0)
+                      {
+                        while ($row=$sql_list->fetch_assoc()) {
+                          $socialmedia_name=$row['socialmedia_NAME'];
+                          $socialmedia_url=$row['socialmedia_URL'];
+                       ?>
+                        <a href="<?php echo $socialmedia_url ?>" target="_blank"><i class="fa fa-<?php echo $socialmedia_name; ?> fa-2x" aria-hidden="true"></i></a>
+                      <?php }} ?>
                     </div>
                 </div>
                 <!--  Login Register Area -->
@@ -92,7 +104,7 @@
                 <!-- Logo Area Start -->
                 <div class="col-12">
                     <div class="logo_area text-center">
-                        <a href="index.php" class="yummy-logo">Tolga Kocadağ Blog</a>
+                        <a href="index.php" class="yummy-logo"><?php echo $sitetitle; ?></a>
                     </div>
                 </div>
             </div>
@@ -104,25 +116,29 @@
                         <!-- Menu Area Start -->
                         <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul class="navbar-nav" id="yummy-nav">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="index.php">Anasayfa <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item dropdown" style="display:none">
-                                    <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategoriler</a>
-                                    <div class="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a class="dropdown-item" href="single.php">Single Blog</a>
-                                        <a class="dropdown-item" href="static.html">Static Page</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="archive.php">Blog Yazılarım</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="about_me.php">Hakkımda</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.php">bana ulaşın</a>
-                                </li>
+                              <?php
+                              $sql_list=dbMenuList();
+                              $sql_list=$con->query($sql_list);
+                              if($sql_list->num_rows>0)
+                              {
+                                while ($row=$sql_list->fetch_assoc()) {
+                                  $menu_name=$row['menu_NAME'];
+                                  $menu_url=$row['menu_URL'];
+                                  $uri = $_SERVER["REQUEST_URI"];
+                                  $pos = stripos($uri,$menu_url);
+                                  if ($pos > 1){
+                                    echo "<li class='nav-item active'>
+                                        <a class='nav-link' href='{$menu_url}'>{$menu_name} <span class='sr-only'>(current)</span></a>
+                                    </li>";
+                                  }
+                                  else {
+                                    echo "<li class='nav-item'>
+                                        <a class='nav-link' href='{$menu_url}'>{$menu_name}</a>
+                                    </li>";
+                                  }
+                                }
+                              }
+                                ?>
                             </ul>
                         </div>
                     </nav>

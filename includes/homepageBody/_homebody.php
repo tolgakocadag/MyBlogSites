@@ -14,14 +14,27 @@
                 <div class="blog-sidebar mt-5 mt-lg-0">
                     <!-- Single Widget Area -->
                     <div class="single-widget-area about-me-widget text-center">
+
                         <div class="widget-title">
                             <h6>Hakkımda</h6>
                         </div>
+                        <?php
+                        $sql_list=dbAboutList();
+                        $sql_list=$con->query($sql_list);
+                        if($sql_list->num_rows>0)
+                        {
+                          while ($row=$sql_list->fetch_assoc()) {
+                            $about_name=$row['about_NAME'];
+                            $about_job=$row['about_JOB'];
+                            $about_image=$row['about_IMAGE'];
+                            $about_short=$row['about_SHORT'];
+                         ?>
                         <div class="about-me-widget-thumb">
-                            <img src="img/about-img/pp.jpg" alt="">
+                            <img src="<?php echo $about_image; ?>" alt="">
                         </div>
-                        <h4 class="font-shadow-into-light">Tolga Kocadağ</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                        <h4 class="font-shadow-into-light"><?php echo $about_name ?></h4>
+                        <p><?php echo $about_short; ?></p>
+                      <?php }} ?>
                     </div>
 
                     <!-- Single Widget Area -->
@@ -30,84 +43,53 @@
                             <h6>Abone ol &amp; Takip et</h6>
                         </div>
                         <div class="subscribe-link">
-                            <a href="https://www.facebook.com/tolgakocadag58"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
-                            <a href="https://www.instagram.com/tolgakocadag58"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
-                            <a href="https://www.github.com/tolgakocadag"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+                          <?php
+                          $sql_list=dbmyAdminSocialMediaList();
+                          $sql_list=$con->query($sql_list);
+                          if($sql_list->num_rows>0)
+                          {
+                            while ($row=$sql_list->fetch_assoc()) {
+                              $socialmedia_name=$row['socialmedia_NAME'];
+                              $socialmedia_url=$row['socialmedia_URL'];
+                           ?>
+                            <a href="<?php echo $socialmedia_url; ?>"><i class="fa fa-<?php echo $socialmedia_name;?> fa-2x" aria-hidden="true"></i></a>
+                          <?php }} ?>
                         </div>
                     </div>
 
                     <!-- Single Widget Area -->
-                    <div class="single-widget-area popular-post-widget">
-                        <div class="widget-title text-center">
+                    <div class='single-widget-area popular-post-widget'>
+                        <div class='widget-title text-center'>
                             <h6>Popüler Yazılar</h6>
                         </div>
+                        <?php
+                          $pop_list=dbmyPopulerPostsList();
+                          $pop_list =$con->query($pop_list);
+                          if($pop_list->num_rows>0)
+                          {
+                            while ($row=$pop_list->fetch_assoc()) {
+                              if($row['post_HIDE']=='on'){
+                                continue;
+                              }
+                              $post_title=$row['post_TITLE'];
+                              $post_date=$row['post_DATE'];
+                              $post_url=$row['post_URL'];
+                              $post_image=$row['post_IMAGE'];
+                         ?>
                         <!-- Single Popular Post -->
-                        <div class="single-populer-post d-flex">
-                            <img src="img/sidebar-img/1.jpg" alt="">
-                            <div class="post-content">
-                                <a href="#">
-                                    <h6>Top Wineries To Visit In England</h6>
+                        <div class='single-populer-post d-flex'>
+                            <img style=height:50px src='<?php echo substr($post_image,3,500); ?>' alt='<?php echo $title; ?>'>
+                            <div class='post-content'>
+                                <a href='<?php echo $post_url; ?>'>
+                                    <h3 style='font-size:15px'><?php echo $post_title; ?></h3>
                                 </a>
-                                <p>Tuesday, October 3, 2017</p>
+                                <p><?php $date=explode('.',$post_date);echo getMonth($date[1]).' '.$date[0].', '.substr($date[2],0,4); ?></p>
                             </div>
                         </div>
-                        <!-- Single Popular Post -->
-                        <div class="single-populer-post d-flex">
-                            <img src="img/sidebar-img/2.jpg" alt="">
-                            <div class="post-content">
-                                <a href="#">
-                                    <h6>The 8 Best Gastro Pubs In Bath</h6>
-                                </a>
-                                <p>Tuesday, October 3, 2017</p>
-                            </div>
-                        </div>
-                        <!-- Single Popular Post -->
-                        <div class="single-populer-post d-flex">
-                            <img src="img/sidebar-img/3.jpg" alt="">
-                            <div class="post-content">
-                                <a href="#">
-                                    <h6>Zermatt Unplugged the best festival</h6>
-                                </a>
-                                <p>Tuesday, October 3, 2017</p>
-                            </div>
-                        </div>
-                        <!-- Single Popular Post -->
-                        <div class="single-populer-post d-flex">
-                            <img src="img/sidebar-img/4.jpg" alt="">
-                            <div class="post-content">
-                                <a href="#">
-                                    <h6>Harrogate's Top 10 Independent Eats</h6>
-                                </a>
-                                <p>Tuesday, October 3, 2017</p>
-                            </div>
-                        </div>
-                        <!-- Single Popular Post -->
-                        <div class="single-populer-post d-flex">
-                            <img src="img/sidebar-img/5.jpg" alt="">
-                            <div class="post-content">
-                                <a href="#">
-                                    <h6>Eating Out On A Budget In Oxford</h6>
-                                </a>
-                                <p>Tuesday, October 3, 2017</p>
-                            </div>
-                        </div>
-                    </div>
-
+                      <?php }} ?>
                     <!-- Single Widget Area -->
-                    <div class="single-widget-area add-widget text-center">
-                        <div class="add-widget-area">
-                            <img src="img/sidebar-img/6.jpg" alt="">
-                            <div class="add-text">
-                                <div class="yummy-table">
-                                    <div class="yummy-table-cell">
-                                        <h2>Cooking Book</h2>
-                                        <p>Buy Book Online Now!</p>
-                                        <a href="#" class="add-btn">Buy Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="single-widget-area add-widget text-center" style="height:200px">
+
                     </div>
 
                     <!-- Single Widget Area -->

@@ -22,7 +22,7 @@
                         <div class="single-post wow fadeInUp" data-wow-delay=".0s">
                             <!-- Post Thumb -->
                             <div class="post-thumb">
-                                <a href="<?php echo $post_url; ?>"><img src="<?php echo substr($post_image,3,500); ?>" alt=""></a>
+                                <a href="<?php echo $post_url; ?>"><img style="height:300px;width:100%" src="<?php echo substr($post_image,3,500); ?>" alt=""></a>
                             </div>
                             <!-- Post Content -->
                             <div class="post-content">
@@ -64,6 +64,9 @@
                     </div>
                   <?php }} ?>
 <!--TEKLİ SİNGLE POST FINISH-->
+    <div class="col-12 mb-4" style="height:100px;">
+
+    </div>
 <!--4 LÜ GRUP -->
                     <!-- Single Post -->
                     <!--POST LİSTELEME-->
@@ -90,7 +93,7 @@
                         <div class="single-post wow fadeInUp" data-wow-delay="0s">
                             <!-- Post Thumb -->
                             <div class="post-thumb">
-                                <a href="<?php echo $post_url; ?>"><img src="<?php echo substr($post_image,3,500); ?>" alt=""></a>
+                                <a href="<?php echo $post_url; ?>"><img style="height:150px;width:100%" src="<?php echo substr($post_image,3,500); ?>" alt=""></a>
                             </div>
                             <!-- Post Content -->
                             <div class="post-content">
@@ -141,6 +144,9 @@
                   <?php }} ?>;
 <!--4LÜ GRUP FINISH-->
                     <!-- ******* List Blog Area Start ******* -->
+                    <div class="col-12 mb-4" style="height:100px;">
+
+                    </div>
 <!--4LÜ COLOMN  GRUP-->
                     <!-- Single Post -->
                     <!--POST LİSTELEME-->
@@ -168,7 +174,7 @@
                         <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay="0.1s">
                             <!-- Post Thumb -->
                             <div class="post-thumb">
-                                <a href="about_me.php"><img src="<?php echo substr($post_image,3,500); ?>" alt=""></a>
+                                <a href="about_me.php"><img style="height:150px;width:100%" src="<?php echo substr($post_image,3,500); ?>" alt=""></a>
                             </div>
                             <!-- Post Content -->
                             <div class="post-content">

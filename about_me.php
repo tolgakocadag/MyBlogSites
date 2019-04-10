@@ -37,11 +37,23 @@
                     <div class="col-12 col-md-5">
                         <div class="contact-form-sidebar item wow fadeInUpBig" data-wow-delay="0.3s">
                           <div class="single-widget-area about-me-widget text-center">
+                            <?php
+                            $sql_list=dbAboutList();
+                            $sql_list=$con->query($sql_list);
+                            if($sql_list->num_rows>0)
+                            {
+                              while ($row=$sql_list->fetch_assoc()) {
+                                $about_name=$row['about_NAME'];
+                                $about_job=$row['about_JOB'];
+                                $about_image=$row['about_IMAGE'];
+                                $about_long=$row['about_LONG'];
+                             ?>
                               <div class="about-me-widget-thumb">
-                                  <img src="img/about-img/pp.jpg" alt="">
+                                  <img src="<?php echo $about_image; ?>" alt="">
                               </div>
-                              <h4 class="font-shadow-into-light">Tolga Kocadağ</h4>
-                              <p>Web Developer</p>
+                              <h4 class="font-shadow-into-light"><?php echo $about_name; ?></h4>
+                              <p><?php echo $about_job; ?></p>
+                            <?php }} ?>
                           </div>
 
                           <!-- Single Widget Area -->
@@ -50,10 +62,17 @@
                                   <h6>Abone ol &amp; Takip et</h6>
                               </div>
                               <div class="subscribe-link">
-                                  <a href="https://www.facebook.com/tolgakocadag58"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
-                                  <a href="https://www.instagram.com/tolgakocadag58"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
-                                  <a href="#"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
-                                  <a href="https://www.github.com/tolgakocadag"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+                                <?php
+                                $sql_list=dbmyAdminSocialMediaList();
+                                $sql_list=$con->query($sql_list);
+                                if($sql_list->num_rows>0)
+                                {
+                                  while ($row=$sql_list->fetch_assoc()) {
+                                    $socialmedia_name=$row['socialmedia_NAME'];
+                                    $socialmedia_url=$row['socialmedia_URL'];
+                                 ?>
+                                  <a href="<?php echo $socialmedia_url; ?>"><i class="fa fa-<?php echo $socialmedia_name;?> fa-2x" aria-hidden="true"></i></a>
+                                <?php }} ?>
                               </div>
                           </div>
 
@@ -62,13 +81,7 @@
                     </div>
                     <div class="col-12 col-md-7 item">
                         <p>
-                          &emsp;1997 yılının Ekim ayında ailenin ilk çocuğu olarak İstanbul'da gözlerimi dünyaya açtım.<br />
-                          &emsp;İlköğretim eğitimimi İstanbul'un Bahçelievler ilçesindeki <b>Emir Sultan İlköğretim Okulu</b>'nda tamamladım. Bir hevesle lise hayatıma bilişim üzerine olan
-                          İstanbul Bahçelievler'deki <b>Bahçelievler Türk Telekom Teknik ve Endüstri Meslek Lisesi</b>'nde başladım. Burada yazılımla tanıştım ve hayatımı değiştirecek bir yola atıldım.
-                          2015 yılında Bilişim Teknolojileri/Veri tabanı dalından birincilikle mezun oldum.
-                          <br />&emsp;Mezun olduğum lisedeki yazılım sevdası beni üniversitede de yanlız bırakmayıp tercihlerimi yazılım üzerine hazırlamama sebep oldu ve Edirne'nin Keşan ilçesinde bulunan <b>Trakya Üniversitesi - Keşan Yusuf
-                          Çapraz Uygulamalı Bilimler Yüksekokulu - Bilgisayar Teknolojileri ve Bilişim Sistemleri (CTIS)</b> bölümünü kazandım. Üniversitede ve lisede öğrendiğim yazılım dilleriyle beraber
-                          kendimi boş zamanlarımda HTML5, CSS3, JS ve PHP dilleriyle meşgul ediyorum.<br />&emsp;Şuan Trakya Üniversitesi'nde 4.sınıfım ve bu siteyi kurmamın temel amacı, siz değerli okuyanlarımla bildiğim bilgileri paylaşmaktır.
+                          <?php echo $about_long; ?>
                         </p>
                     </div>
                 </div>

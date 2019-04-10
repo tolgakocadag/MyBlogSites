@@ -17,6 +17,60 @@ function titleSize($title){
   if(Strlen($title)>18&&Strlen($title)<91){return "18";}
   elseif (Strlen($title)>90) {return "100";}
 }
+function CreateMetaTag($name,$content){
+  if($name=='title'){
+    echo "<meta name='{$name}' content='{$content}'>";
+    return;
+  }
+  elseif ($name=='abstract') {
+    echo "<meta name='{$name}' content='{$content}'>";
+    return;
+  }
+  elseif ($name=='robots') {
+    echo "<meta name='{$name}' content='{$content}'>";
+    return;
+  }
+  elseif ($name=='author') {
+    echo "<meta name='{$name}' content='{$content}'>";
+    return;
+  }
+  elseif ($name=='owner') {
+    echo "<meta name='{$name}' content='{$content}'>";
+    return;
+  }
+  elseif ($name=='designer') {
+    echo "<meta name='{$name}' content='{$content}'>";
+    return;
+  }
+  elseif ($name=='distribution') {
+    echo "<meta name='{$name}' content='{$content}'>";
+    return;
+  }
+  elseif ($name=='revisit-after') {
+    echo "<meta name='{$name}' content='{$content}'>";
+    return;
+  }
+  elseif ($name=='language') {
+    echo "<meta name='{$name}' content='{$content}'>";
+    return;
+  }
+  elseif ($name=='reply-to') {
+    echo "<meta name='{$name}' content='{$content}'>";
+    return;
+  }
+  elseif ($name=='description') {
+    echo "<meta name='{$name}' content='{$content}'>";
+    return;
+  }
+  elseif ($name=='keywords') {
+    echo "<meta name='{$name}' content='{$content}'>";
+    return;
+  }
+  elseif ($name=='copyright') {
+    echo "<meta name='{$name}' content='{$content}'>";
+    return;
+  }
+}
 function multiexplode ($delimiters,$string) {
 
     $ready = str_replace($delimiters, $delimiters[0], $string);

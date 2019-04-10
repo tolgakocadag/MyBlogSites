@@ -40,7 +40,7 @@ if($sql_list->num_rows>0)
       <div class="single-post wow fadeInUp" data-wow-delay="0.5s">
           <!-- Post Thumb -->
           <div class="post-thumb">
-              <a href="<?php echo $post_url; ?>"><img src="<?php echo substr($post_image,3,500); ?>" alt=""></a>
+              <a href="<?php echo $post_url; ?>"><img style="height:200px;width:100%" src="<?php echo substr($post_image,3,500); ?>" alt=""></a>
           </div>
           <!-- Post Content -->
           <div class="post-content">

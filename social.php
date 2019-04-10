@@ -5,8 +5,8 @@
   <!DOCTYPE html>
   <html lang='tr'>
   <?php
-      $title='test5';
-      if(isset($_SESSION['test5']))
+      $title='social';
+      if(isset($_SESSION['social']))
       {
       }
       else{
@@ -15,7 +15,7 @@
         $hit_update->execute();
         $hit_update->close();
       }
-      $_SESSION['test5']=GetIP();
+      $_SESSION['social']=GetIP();
       $sql_list=dbmyAdminPagePostsAddTitleControl($title);
       $sql_list=$con->query($sql_list);
       $row=$sql_list->fetch_assoc();
@@ -74,11 +74,18 @@
                   <div class='col-5 col-sm-6'>
                       <!--  Top Social bar start -->
                       <div class='top_social_bar'>
-                          <a href='index.php'><i class='fa fa-home fa-2x' aria-hidden='true'></i></a>
-                          <a href='https://www.facebook.com/tolgakocadag58' target='_blank'><i class='fa fa-facebook fa-2x' aria-hidden='true'></i></a>
-                          <a href='https://www.instagram.com/tolgakocadag58' target='_blank'><i class='fa fa-instagram fa-2x' aria-hidden='true'></i></a>
-                          <a href='#'><i class='fa fa-linkedin fa-2x' aria-hidden='true'></i></a>
-                          <a href='https://www.github.com/tolgakocadag'><i class='fa fa-github fa-2x' aria-hidden='true'></i></a>
+                      <a href='index.php'><i class='fa fa-home fa-2x' aria-hidden='true'></i></a>
+                      <?php
+                      $sql_list=dbmyAdminSocialMediaList();
+                      $sql_list=$con->query($sql_list);
+                      if($sql_list->num_rows>0)
+                      {
+                        while ($row=$sql_list->fetch_assoc()) {
+                          $socialmedia_name=$row['socialmedia_NAME'];
+                          $socialmedia_url=$row['socialmedia_URL'];
+                       ?>
+                        <a href=<?php echo $socialmedia_url ?> target=_blank><i class='fa fa-<?php echo $socialmedia_name; ?> fa-2x' aria-hidden=true></i></a>
+                      <?php }} ?>
                       </div>
                   </div>
                   <!--  Login Register Area -->
@@ -163,7 +170,6 @@
                       <nav aria-label='breadcrumb'>
                           <ol class='breadcrumb'>
                               <li class='breadcrumb-item'><a href='index.php'><i class='fa fa-home' aria-hidden='true'></i>Anasayfa</a></li>
-                              <li class='breadcrumb-item'><a href='archive.php'>Blog Yazılarım</a></li>
                               <li class='breadcrumb-item active' aria-current='page'><?php echo $title; ?></li>
                           </ol>
                       </nav>
@@ -180,22 +186,12 @@
                   <div class='col-12 col-lg-8'>
                       <div class='row no-gutters'>
 
-                          <!-- Single Post Share Info -->
-                          <div class='col-2 col-sm-1'>
-                              <div class='single-post-share-info mt-100'>
-                                  <a href='https://www.facebook.com/tolgakocadag58' class='facebook'><i class='fa fa-facebook' aria-hidden='true'></i></a>
-                                  <a href='https://www.instagram.com/tolgakocadag58' class='instagram'><i class='fa fa-instagram' aria-hidden='true'></i></a>
-                                  <a href='#' style='background-color:#0077B5' class='linkedin'><i class='fa fa-linkedin' aria-hidden='true'></i></a>
-                                  <a href='https://www.github.com/tolgakocadag' style='background-color:#24292e' class='github'><i class='fa fa-github' aria-hidden='true'></i></a>
-                              </div>
-                          </div>
-
                           <!-- Single Post -->
                           <div class='col-10 col-sm-11'>
                               <div class='single-post'>
                                   <!-- Post Thumb -->
                                   <div class='post-thumb'>
-                                      <img src='<?php echo substr($image,3,500); ?>' alt='<?php echo $title; ?>'>
+                                      <img style=width:100% src='<?php echo substr($image,3,500); ?>' alt='<?php echo $title; ?>'>
                                   </div>
                                   <!-- Post Content -->
                                   <div class='post-content'>
@@ -207,7 +203,7 @@
                                               </div>
                                               <!-- Post Date -->
                                               <div class='post-date'>
-                                                  <a href='#'>Nisan 09, 2019</a>
+                                                  <a href='#'>Nisan 10, 2019</a>
                                               </div>
                                           </div>
                                           <!-- Post Comment & Share Area -->
@@ -227,7 +223,7 @@
                                               </div>
                                           </div>
                                       </div>
-                                      <a href='test5.php'>
+                                      <a href='social.php'>
                                           <h2 class='post-headline'><?php echo $title; ?></h2>
                                       </a>
                                       <p><?php echo $content; ?></p>
@@ -277,7 +273,7 @@
                                                <div class='single-post'>
                                                    <!-- Post Thumb -->
                                                    <div class='post-thumb'>
-                                                       <img src='<?php echo substr($image,3,500); ?>' alt='<?php echo $title; ?>'>
+                                                       <img style=height:50px src='<?php echo substr($image,3,500); ?>' alt='<?php echo $title; ?>'>
                                                    </div>
                                                    <!-- Post Content -->
                                                    <div class='post-content'>
@@ -388,7 +384,7 @@
                                 $sql_add->bind_param('ssssss',$comment_date,$comment_author,$comment_ip,$comment_email,$comment_message,$comment_title);
                                 $sql_add->execute();
                                 $sql_add->close();
-                                header('Location: test5.php');
+                                header('Location: social.php');
                               }
                               ?>
                           </div>
@@ -403,11 +399,23 @@
                               <div class='widget-title'>
                                   <h6>Hakkımda</h6>
                               </div>
+                              <?php
+                              $sql_list=dbAboutList();
+                              $sql_list=$con->query($sql_list);
+                              if($sql_list->num_rows>0)
+                              {
+                                while ($row=$sql_list->fetch_assoc()) {
+                                  $about_name=$row['about_NAME'];
+                                  $about_job=$row['about_JOB'];
+                                  $about_image=$row['about_IMAGE'];
+                                  $about_short=$row['about_SHORT'];
+                               ?>
                               <div class='about-me-widget-thumb'>
-                                  <img src='img/about-img/pp.jpg' alt='Tolga Kocadağ'>
+                                  <img src=<?php echo $about_image;?> alt=<?php echo $about_name;?>>
                               </div>
-                              <h4 class='font-shadow-into-light'>Tolga Kocadağ</h4>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                              <h4 class='font-shadow-into-light'><?php echo $about_name;?></h4>
+                              <p><?php echo $about_short;?></p>
+                              <?php }}?>
                           </div>
 
                           <!-- Single Widget Area -->
@@ -416,10 +424,17 @@
                                   <h6>Abone ol &amp; Takip et</h6>
                               </div>
                               <div class='subscribe-link'>
-                                  <a href='#'><i class='fa fa-facebook fa-2x' aria-hidden='true'></i></a>
-                                  <a href='#'><i class='fa fa-instagram fa-2x' aria-hidden='true'></i></a>
-                                  <a href='#'><i class='fa fa-github fa-2x' aria-hidden='true'></i></a>
-                                  <a href='#'><i class='fa fa-linkedin-square fa-2x' aria-hidden='true'></i></a>
+                              <?php
+                              $sql_list=dbmyAdminSocialMediaList();
+                              $sql_list=$con->query($sql_list);
+                              if($sql_list->num_rows>0)
+                              {
+                                while ($row=$sql_list->fetch_assoc()) {
+                                  $socialmedia_name=$row['socialmedia_NAME'];
+                                  $socialmedia_url=$row['socialmedia_URL'];
+                               ?>
+                                <a href='<?php echo $socialmedia_url; ?>'><i class='fa fa-<?php echo $socialmedia_name;?> fa-2x' aria-hidden='true'></i></a>
+                              <?php }} ?>
                               </div>
                           </div>
 
@@ -444,7 +459,7 @@
                                ?>
                               <!-- Single Popular Post -->
                               <div class='single-populer-post d-flex'>
-                                  <img src='<?php echo substr($post_image,3,500); ?>' alt='<?php echo $title; ?>'>
+                                  <img style=height:50px src='<?php echo substr($post_image,3,500); ?>' alt='<?php echo $title; ?>'>
                                   <div class='post-content'>
                                       <a href='<?php echo $post_url; ?>'>
                                           <h3 style='font-size:15px'><?php echo $post_title; ?></h3>
@@ -476,7 +491,7 @@
                               <div class='widget-title text-center'>
                                   <h6>Bülten</h6>
                               </div>
-                              <p>Bültenimize abone olun; yeni güncellemeler, indirimler, vb. hakkında bildirim alın.</p>
+                              <p>Bültenimize abone olun; yeni yazılar vb. hakkında bildirim alın.</p>
                               <div class='newsletter-form'>
                                   <form action='#' method='post'>
                                       <input type='email' name='newsletter-email' id='email' placeholder='Email adresiniz'>
@@ -631,18 +646,19 @@
               <div class='row'>
                   <div class='col-12'>
                       <div class='footer-social-area d-flex'>
+                      <?php
+                      $sql_list=dbmyAdminSocialMediaList();
+                      $sql_list=$con->query($sql_list);
+                      if($sql_list->num_rows>0)
+                      {
+                        while ($row=$sql_list->fetch_assoc()) {
+                          $socialmedia_name=$row['socialmedia_NAME'];
+                          $socialmedia_url=$row['socialmedia_URL'];
+                       ?>
                           <div class='single-icon'>
-                              <a href='https://www.facebook.com/tolgakocadag58'><i class='fa fa-facebook' aria-hidden='true'></i><span>facebook</span></a>
+                              <a href=<?php echo $socialmedia_url;?>><i class='fa fa-<?php echo $socialmedia_name;?>' aria-hidden=true></i><span><?php echo $socialmedia_name;?></span></a>
                           </div>
-                          <div class='single-icon'>
-                              <a href='https://www.instagram.com/tolgakocadag58'><i class='fa fa-instagram' aria-hidden='true'></i><span>instagram</span></a>
-                          </div>
-                          <div class='single-icon'>
-                            <a href='#'><i class='fa fa-linkedin-square' aria-hidden='true'></i><span>linkedin</span></a>
-                          </div>
-                          <div class='single-icon'>
-                              <a href='https://www.github.com/tolgakocadag'><i class='fa fa-github' aria-hidden='true'></i><span>GitHub</span></a>
-                          </div>
+                          <?php }} ?>
                       </div>
                   </div>
               </div>

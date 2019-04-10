@@ -8,13 +8,72 @@ function dbHomePostList($limit)
   $sql_list ="SELECT * FROM posts WHERE post_HIDE='off' ORDER BY post_ID DESC LIMIT $limit";
   return $sql_list;
 }
+function dbAboutList()
+{
+  $sql_list ="SELECT * FROM abouts";
+  return $sql_list;
+}
+function dbAboutEdit(){
+  $sql_update="UPDATE abouts SET about_NAME=?,about_JOB=?,about_IMAGE=?,about_SHORT=?,about_LONG=? WHERE about_ID=?";
+  return $sql_update;
+}
 function dbmyPostsList($count){
   $sql_list ="SELECT * FROM posts ORDER BY post_HIT DESC LIMIT $count,9";
   return $sql_list;
 }
 function dbmyPopulerPostsList(){
-  $sql_list ="SELECT * FROM posts ORDER BY post_HIT DESC LIMIT 4";
+  $sql_list ="SELECT * FROM posts ORDER BY post_HIT DESC LIMIT 6";
   return $sql_list;
+}
+function dbCopyright(){
+  $sql_list ="SELECT * FROM copyright";
+  return $sql_list;
+}
+function dbCopyrightEdit(){
+  $sql_update="UPDATE copyright SET copyright_NAME=? WHERE copyright_ID=1";
+  return $sql_update;
+}
+function dbmyAdminSocialMediaList(){
+  $sql_list ="SELECT * FROM socialmedias";
+  return $sql_list;
+}
+function dbmyAdminSocialMediaDelete(){
+  $sql_delete="DELETE FROM socialmedias WHERE socialmedia_ID=?";
+  return $sql_delete;
+}
+function dbmyAdminSocialMediaAdd(){
+  $sql_add="INSERT INTO socialmedias (socialmedia_NAME,socialmedia_URL)
+  VALUES (?,?)";
+  return $sql_add;
+}
+function dbmyAdminSocialMediaEdit(){
+  $sql_update="UPDATE socialmedias SET socialmedia_NAME=?,socialmedia_URL=? WHERE socialmedia_ID=?";
+  return $sql_update;
+}
+function dbMetaTagsList(){
+  $sql_list ="SELECT * FROM metaTags";
+  return $sql_list;
+}
+function dbMetaTagsEdit(){
+  $sql_update="UPDATE metaTags SET metatag_NAME=?,metatag_CONTENT=? WHERE metatag_ID=?";
+  return $sql_update;
+}
+function dbMenuList(){
+  $sql_list ="SELECT * FROM menus";
+  return $sql_list;
+}
+function dbMenuAdd(){
+  $sql_add="INSERT INTO menus (menu_NAME,menu_URL)
+  VALUES (?,?)";
+  return $sql_add;
+}
+function dbMenuEdit(){
+  $sql_update="UPDATE menus SET menu_NAME=?,menu_URL=? WHERE menu_ID=?";
+  return $sql_update;
+}
+function dbMenuDelete(){
+  $sql_delete="DELETE FROM menus WHERE menu_ID=?";
+  return $sql_delete;
 }
 function dbHitPlus(){
   $sql_update="UPDATE posts SET post_HIT=post_HIT+1 WHERE post_TITLE=?";

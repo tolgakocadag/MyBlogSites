@@ -20,7 +20,6 @@
                     <th>Title</th>
                     <th>Date</th>
                     <th>Author</th>
-                    <th>Content</th>
                     <th>Hit Count</th>
                     <th>Comment Count</th>
                     <th>Actions</th>
@@ -32,7 +31,6 @@
                     <th>Title</th>
                     <th>Date</th>
                     <th>Author</th>
-                    <th>Content</th>
                     <th>Hit Count</th>
                     <th>Comment Count</th>
                     <th>Actions</th>
@@ -63,7 +61,6 @@
                       <td>{$post_title}</td>
                       <td>{$post_date}</td>
                       <td>{$post_author}</td>
-                      <td>".substr($post_content,0,50)."...</td>
                       <td>{$post_hit}</td>
                       <td>{$post_comment_count}</td>
                       <td>
