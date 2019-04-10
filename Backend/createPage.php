@@ -700,7 +700,7 @@ function createTextforPage($title,$post_date,$author,$url){
                             $"."sql_list=$"."con->query($"."sql_list);
                             $"."row=$"."sql_list->fetch_assoc();
                        ?>
-                     <p><?php echo $row['copyright_NAME']; ?></p>
+                     <p><?php echo $"."row['copyright_NAME']; ?></p>
                       </div>
                   </div>
               </div>
