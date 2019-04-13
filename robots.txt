@@ -1,2 +1,5 @@
 User-Agent: *
-Disallow: /
+Allow:
+Disallow: /Admin
+
+Sitemap: https://tolgakocadag.xyz/sitemap.xml

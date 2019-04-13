@@ -89,7 +89,13 @@
                       <?php }} ?>
                     <!-- Single Widget Area -->
                     <div class="single-widget-area add-widget text-center" style="height:200px">
-
+                      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                      <script>
+                          (adsbygoogle = window.adsbygoogle || []).push({
+                            google_ad_client: "ca-pub-3620138050695153",
+                            enable_page_level_ads: true
+                          });
+                      </script>
                     </div>
 
                     <!-- Single Widget Area -->

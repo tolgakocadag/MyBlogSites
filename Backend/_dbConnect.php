@@ -51,11 +51,11 @@ function dbmyAdminSocialMediaEdit(){
   return $sql_update;
 }
 function dbMetaTagsList(){
-  $sql_list ="SELECT * FROM metaTags";
+  $sql_list ="SELECT * FROM metatags";
   return $sql_list;
 }
 function dbMetaTagsEdit(){
-  $sql_update="UPDATE metaTags SET metatag_NAME=?,metatag_CONTENT=? WHERE metatag_ID=?";
+  $sql_update="UPDATE metatags SET metatag_NAME=?,metatag_CONTENT=? WHERE metatag_ID=?";
   return $sql_update;
 }
 function dbMenuList(){

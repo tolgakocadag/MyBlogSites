@@ -20,6 +20,7 @@
                     <th>Title</th>
                     <th>Date</th>
                     <th>Author</th>
+                    <th>URL</th>
                     <th>Hit Count</th>
                     <th>Comment Count</th>
                     <th>Actions</th>
@@ -31,6 +32,7 @@
                     <th>Title</th>
                     <th>Date</th>
                     <th>Author</th>
+                    <th>URL</th>
                     <th>Hit Count</th>
                     <th>Comment Count</th>
                     <th>Actions</th>
@@ -53,6 +55,7 @@
                   $post_hide=$row["post_HIDE"];
                   $post_content=$row['post_CONTENT'];
                   $post_hit=$row["post_HIT"];
+                  $post_url=$row["post_URL"];
                   $post_comment_count=$row["post_COMMENT_COUNT"];
                   $post_tag=$row["post_TAG"];
                   $post_explanation=$row["post_EXPLANATION"];
@@ -61,6 +64,7 @@
                       <td>{$post_title}</td>
                       <td>{$post_date}</td>
                       <td>{$post_author}</td>
+                      <td>{$post_url}</td>
                       <td>{$post_hit}</td>
                       <td>{$post_comment_count}</td>
                       <td>

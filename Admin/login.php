@@ -1,7 +1,7 @@
 <?php
-  include "../backend/_database.php";
-  include "../backend/general_settings.php";
-  include "../backend/_dbConnect.php";
+  include "../Backend/_database.php";
+  include "../Backend/general_settings.php";
+  include "../Backend/_dbConnect.php";
   ses_start();ob_st();isLogin();
 
   if(isset($_POST["login"])){
