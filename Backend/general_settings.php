@@ -12,6 +12,16 @@ function getMonth($date){
   elseif($date=='07'){return "Temmuz";}elseif($date=='08'){return "Ağustos";}elseif($date=='09'){return "Eylül";}
   elseif($date=='10'){return "Ekim";}elseif($date=='11'){return "Kasım";}else {return "Aralık";}
 }
+function curlKullan($url) {
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_TIMEOUT, 10);
+    curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16");
+    $curlData = curl_exec($curl);
+    curl_close($curl);
+    return $curlData;
+}
 //Title uzunluğu büyükse size ayarlama...
 function titleSize($title){
   if(Strlen($title)>18&&Strlen($title)<91){return "18";}

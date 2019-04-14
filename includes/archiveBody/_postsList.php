@@ -34,6 +34,9 @@ if($sql_list->num_rows>0)
     $post_comment_count=$row['post_COMMENT_COUNT'];
     $post_image=$row['post_IMAGE'];
     $post_url=$row['post_URL'];
+    $post_url=explode(".",$post_url);
+    $post_url=$post_url[0];
+    $post_url.=".html";
     ?>
   <!-- Single Post -->
   <div class="col-12 col-md-6 col-lg-4">
@@ -48,7 +51,7 @@ if($sql_list->num_rows>0)
                   <div class="post-author-date-area d-flex">
                       <!-- Post Author -->
                       <div class="post-author">
-                          <a href="about_me.php"><?php echo $post_author; ?></a>
+                          <a href="about_me.html"><?php echo $post_author; ?></a>
                       </div>
                       <!-- Post Date -->
                       <div class="post-date">
@@ -94,10 +97,10 @@ if($sql_list->num_rows>0)
           <nav aria-label="#">
               <ul class="pagination">
                   <li class="page-item">
-                      <a class="page-link" href="archive.php?page=1"> <i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+                      <a class="page-link" href="archive.html?page=1"> <i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
                   </li>
                   <li class="page-item">
-                      <a class="page-link" href="archive.php?page=<?php
+                      <a class="page-link" href="archive.html?page=<?php
                         if($page>1){
                           echo $page-1;
                         }
@@ -111,19 +114,19 @@ if($sql_list->num_rows>0)
                       if($page==$i){
                         echo "
                               <li class='page-item active'>
-                                  <a class='page-link' href='archive.php?page={$i}'> {$i}</a>
+                                  <a class='page-link' href='archive.html?page={$i}'> {$i}</a>
                               </li>";
                       }
                       else {
                         echo "
                               <li class='page-item'>
-                                  <a class='page-link' href='archive.php?page={$i}'> {$i}</a>
+                                  <a class='page-link' href='archive.html?page={$i}'> {$i}</a>
                               </li>";
                       }
                     }
                     ?>
                   <li class="page-item">
-                      <a class="page-link" href="archive.php?page=<?php
+                      <a class="page-link" href="archive.html?page=<?php
                         if($count>$page){
                           echo $page+1;
                         }
@@ -133,7 +136,7 @@ if($sql_list->num_rows>0)
                         ?>"> Sonraki Sayfa</a>
                   </li>
                   <li class="page-item">
-                      <a class="page-link" href="archive.php?page=<?php echo $count; ?>"> <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                      <a class="page-link" href="archive.html?page=<?php echo $count; ?>"> <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                   </li>
               </ul>
           </nav>

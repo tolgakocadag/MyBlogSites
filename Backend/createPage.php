@@ -12,6 +12,23 @@ function createTextforPage($title,$post_date,$author,$url){
   <!DOCTYPE html>
   <html lang='tr'>
   <?php
+  $"."sql_list=dbMenuList();
+  $"."sql_list=$"."con->query($"."sql_list);
+  if($"."sql_list->num_rows>0)
+  {
+    while ($"."row=$"."sql_list->fetch_assoc()) {
+      $"."menu_name=$"."row['menu_NAME'];
+      $"."menu_url=$"."row['menu_URL'];
+      if($"."menu_name=='ANASAYFA'){
+        $"."index=$"."menu_url;
+      }
+      if($"."menu_name=='HAKKIMDA'){
+        $"."archive=$"."menu_url;
+      }
+    }
+  }
+  ?>
+  <?php
       $"."title='{$title}';
       if(isset($"."_SESSION['{$title}']))
       {
@@ -90,7 +107,7 @@ function createTextforPage($title,$post_date,$author,$url){
                   <div class='col-5 col-sm-6'>
                       <!--  Top Social bar start -->
                       <div class='top_social_bar'>
-                      <a href='index.php'><i class='fa fa-home fa-2x' aria-hidden='true'></i></a>
+                      <a href='<?php echo $"."index;?>'><i class='fa fa-home fa-2x' aria-hidden='true'></i></a>
                       <?php
                       $"."sql_list=dbmyAdminSocialMediaList();
                       $"."sql_list=$"."con->query($"."sql_list);
@@ -119,7 +136,7 @@ function createTextforPage($title,$post_date,$author,$url){
                         -->
                           <!-- Search Button Area -->
                           <!-- Search Form -->
-                          <form action='search.php' method='get'>
+                          <form action='search.html' method='get'>
                             <div class='form-group row my-2'>
                                 <input class='form-control col-10' type='search' name='search' id='search-anything' placeholder='Bir şey ara...'>
                                 <button class='form-control col-2 fa fa-search' type='submit' style='background:none;border:none' name='searchBtn' href='#'></button>
@@ -139,7 +156,7 @@ function createTextforPage($title,$post_date,$author,$url){
                   <!-- Logo Area Start -->
                   <div class='col-12'>
                       <div class='logo_area text-center'>
-                          <a href='index.php' class='yummy-logo'><?php echo $"."sitetitle;?></a>
+                          <a href='<?php echo $"."index;?>' class='yummy-logo'><?php echo $"."sitetitle;?></a>
                       </div>
                   </div>
               </div>
@@ -190,7 +207,7 @@ function createTextforPage($title,$post_date,$author,$url){
                   <div class='col-12'>
                       <nav aria-label='breadcrumb'>
                           <ol class='breadcrumb'>
-                              <li class='breadcrumb-item'><a href='index.php'><i class='fa fa-home' aria-hidden='true'></i>Anasayfa</a></li>
+                              <li class='breadcrumb-item'><a href='<?php echo $"."index;?>'><i class='fa fa-home' aria-hidden='true'></i>Anasayfa</a></li>
                               <li class='breadcrumb-item active' aria-current='page'><?php echo $"."title; ?></li>
                           </ol>
                       </nav>
@@ -220,7 +237,7 @@ function createTextforPage($title,$post_date,$author,$url){
                                           <div class='post-author-date-area d-flex'>
                                               <!-- Post Author -->
                                               <div class='post-author'>
-                                                  <a href='about_me.php'>{$author}</a>
+                                                  <a href='<?php echo $"."archive; ?>'>{$author}</a>
                                               </div>
                                               <!-- Post Date -->
                                               <div class='post-date'>
@@ -262,7 +279,7 @@ function createTextforPage($title,$post_date,$author,$url){
                                       $"."tag_url.=$"."v.'+';
                                     }
                                     $"."tag_url=rtrim($"."tag_url,'+');
-                                    echo '<a href=search.php?search='.$"."tag_url.'>'.$"."tags[$"."key].'</a>&nbsp;';
+                                    echo '<a href=search.html?search='.$"."tag_url.'>'.$"."tags[$"."key].'</a>&nbsp;';
                                   }
                                ?>
                               </div>
@@ -285,6 +302,9 @@ function createTextforPage($title,$post_date,$author,$url){
                                           $"."post_title=$"."row['post_TITLE'];
                                           $"."post_date=$"."row['post_DATE'];
                                           $"."post_url=$"."row['post_URL'];
+                                          $"."post_url=explode('.',$"."post_url);
+                                          $"."post_url=$"."post_url[0];
+                                          $"."post_url.='.html';
                                           $"."post_image=$"."row['post_IMAGE'];
                                           if(array_search($"."post_id, $"."isAdd)===FALSE)
                                           {
@@ -350,7 +370,7 @@ function createTextforPage($title,$post_date,$author,$url){
                               <!-- Leave A Comment -->
                               <div class='leave-comment-area section_padding_50 clearfix'>
                                   <div class='comment-form'>
-                                      <h4 class='mb-30'>Leave A Comment</h4>
+                                      <h4 class='mb-30'>Bir Yorum Yap</h4>
 
                                       <!-- Comment Form -->
                                       <!-- Comment Form -->
@@ -474,6 +494,9 @@ function createTextforPage($title,$post_date,$author,$url){
                                     $"."post_title=$"."row['post_TITLE'];
                                     $"."post_date=$"."row['post_DATE'];
                                     $"."post_url=$"."row['post_URL'];
+                                    $"."post_url=explode('.',$"."post_url);
+                                    $"."post_url=$"."post_url[0];
+                                    $"."post_url.='.html';
                                     $"."post_image=$"."row['post_IMAGE'];
                                ?>
                               <!-- Single Popular Post -->

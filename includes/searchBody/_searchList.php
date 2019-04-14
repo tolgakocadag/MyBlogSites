@@ -19,6 +19,9 @@ if (isset($_GET['search'])) {
       $post_comment_count=$row['post_COMMENT_COUNT'];
       $post_image=$row['post_IMAGE'];
       $post_url=$row['post_URL'];
+      $post_url=explode(".",$post_url);
+      $post_url=$post_url[0];
+      $post_url.=".html";
       ?>
     <!-- Single Post -->
     <div class="col-12 col-md-6 col-lg-4">
@@ -33,7 +36,7 @@ if (isset($_GET['search'])) {
                     <div class="post-author-date-area d-flex">
                         <!-- Post Author -->
                         <div class="post-author">
-                            <a href="about_me.php"><?php echo $post_author; ?></a>
+                            <a href="about_me.html"><?php echo $post_author; ?></a>
                         </div>
                         <!-- Post Date -->
                         <div class="post-date">

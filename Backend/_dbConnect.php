@@ -125,9 +125,13 @@ function dbmyAdminPagePostsDelete(){
   $sql_delete="DELETE FROM posts WHERE post_ID=?";
   return $sql_delete;
 }
+function dbmyAdminPagePostsFileDelete($id){
+  $sql_delete="SELECT * FROM posts WHERE post_ID=$id";
+  return $sql_delete;
+}
 function dbmyAdminPagePostsEdit(){
   $sql_update="UPDATE posts SET post_EXPLANATION=?,
-  post_CONTENT=?,post_HIDE=?,post_TAG=? WHERE post_ID=?";
+  post_CONTENT=?,post_HIDE=?,post_TAG=?,post_TAG_VISIBLE=? WHERE post_ID=?";
   return $sql_update;
 }
 function dbAdminUserList(){

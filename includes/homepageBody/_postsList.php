@@ -17,6 +17,9 @@
                         $post_comment_count=$row['post_COMMENT_COUNT'];
                         $post_image=$row['post_IMAGE'];
                         $post_url=$row['post_URL'];
+                        $post_url=explode(".",$post_url);
+                        $post_url=$post_url[0];
+                        $post_url.=".html";
                         ?>
                     <div class="col-12">
                         <div class="single-post wow fadeInUp" data-wow-delay=".0s">
@@ -31,7 +34,7 @@
                                     <div class="post-author-date-area d-flex">
                                         <!-- Post Author -->
                                         <div class="post-author">
-                                            <a href="about_me.php"><?php echo $post_author;?></a>
+                                            <a href="about_me.html"><?php echo $post_author;?></a>
                                         </div>
                                         <!-- Post Date -->
                                         <div class="post-date">
@@ -88,6 +91,9 @@
                         $post_comment_count=$row['post_COMMENT_COUNT'];
                         $post_image=$row['post_IMAGE'];
                         $post_url=$row['post_URL'];
+                        $post_url=explode(".",$post_url);
+                        $post_url=$post_url[0];
+                        $post_url.=".html";
                       ?>
                     <div class="col-12 col-md-6">
                         <div class="single-post wow fadeInUp" data-wow-delay="0s">
@@ -101,7 +107,7 @@
                                     <div class="post-author-date-area d-flex">
                                         <!-- Post Author -->
                                         <div class="post-author">
-                                            <a href="about_me.php"><?php echo $post_author; ?></a>
+                                            <a href="about_me.html"><?php echo $post_author; ?></a>
                                         </div>
                                         <!-- Post Date -->
                                         <div class="post-date">
@@ -169,12 +175,15 @@
                         $post_comment_count=$row['post_COMMENT_COUNT'];
                         $post_image=$row['post_IMAGE'];
                         $post_url=$row['post_URL'];
+                        $post_url=explode(".",$post_url);
+                        $post_url=$post_url[0];
+                        $post_url.=".html";
                         ?>
                     <div class="col-12">
                         <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay="0.1s">
                             <!-- Post Thumb -->
                             <div class="post-thumb">
-                                <a href="about_me.php"><img style="height:150px;width:100%" src="<?php echo substr($post_image,3,500); ?>" alt=""></a>
+                                <a href="about_me.html"><img style="height:150px;width:100%" src="<?php echo substr($post_image,3,500); ?>" alt=""></a>
                             </div>
                             <!-- Post Content -->
                             <div class="post-content">
@@ -182,7 +191,7 @@
                                     <div class="post-author-date-area d-flex">
                                         <!-- Post Author -->
                                         <div class="post-author">
-                                            <a href="about_me.php"><?php echo $post_author; ?></a>
+                                            <a href="about_me.html"><?php echo $post_author; ?></a>
                                         </div>
                                         <!-- Post Date -->
                                         <div class="post-date">

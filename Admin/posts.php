@@ -58,6 +58,7 @@
                   $post_url=$row["post_URL"];
                   $post_comment_count=$row["post_COMMENT_COUNT"];
                   $post_tag=$row["post_TAG"];
+                  $post_vtag=$row["post_TAG_VISIBLE"];
                   $post_explanation=$row["post_EXPLANATION"];
                   echo "<tr>
                       <td>{$post_id}</td>
@@ -112,6 +113,10 @@
                                     <div class="form-group">
                                         <label for="post_tag">Tags</label>
                                         <input type="text" value="<?php  echo $post_tag; ?>" class="form-control" required name="post_tag">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="post_vtag">Visible Tags</label>
+                                        <input type="text" value="<?php  echo $post_vtag; ?>" class="form-control" required name="post_vtag">
                                     </div>
                                     <div class="form-group">
                                         <label for="post_explanation">explanation</label>

@@ -37,6 +37,16 @@
 
     <!-- Responsive CSS -->
     <link href="css/responsive/responsive.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86060213-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-86060213-2');
+    </script>
+
 
 </head>
 
@@ -55,7 +65,7 @@
                 <div class="col-5 col-sm-6">
                     <!--  Top Social bar start -->
                     <div class="top_social_bar">
-                      <a href="index.php"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+                      <a href="index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
                       <?php
                       $sql_list=dbmyAdminSocialMediaList();
                       $sql_list=$con->query($sql_list);
@@ -84,7 +94,7 @@
                       -->
                         <!-- Search Button Area -->
                         <!-- Search Form -->
-                        <form action="search.php" method="get">
+                        <form action="search.html" method="get">
                           <div class="form-group row my-2">
                               <input class="form-control col-10" type="search" name="search" id="search-anything" placeholder="Bir şey ara...">
                               <button class="form-control col-2 fa fa-search" type="submit" style="background:none;border:none" name="searchBtn" href="#"></button>
@@ -104,7 +114,7 @@
                 <!-- Logo Area Start -->
                 <div class="col-12">
                     <div class="logo_area text-center">
-                        <a href="index.php" class="yummy-logo"><?php echo $sitetitle; ?></a>
+                        <a href="index.html" class="yummy-logo"><?php echo $sitetitle; ?></a>
                     </div>
                 </div>
             </div>

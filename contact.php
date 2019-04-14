@@ -1,33 +1,4 @@
 <?php include "includes/_Header.php"; ?>
-<?php include "backend/PHPMailer.php";
-  if(isset($_POST['submit'])){
-    $ip=GetIp();
-    $name=$_POST['name'];
-    $surname=$_POST['surname'];
-    $email=$_POST['email'];
-    $subject=$_POST['subject'];
-    $message=$_POST['message'];
-    $mail = new PHPMailer();
-    $mail->IsSMTP();
-    $mail->SMTPAuth = true;
-    $mail->Host = 'smtp.office365.com';
-    $mail->Port = 587;
-    $mail->SMTPSecure = 'STARTTLS';
-    $mail->Username = 'tolgakocadag@outlook.com';
-    $mail->Password = 'Tlgkcdg1997+';
-    $mail->SetFrom($mail->Username, 'Tolga Kocadağ');
-    $mail->AddAddress($email, $name." ".$surname);
-    $mail->CharSet = 'UTF-8';
-    $mail->Subject = $subject;
-    $mail->MsgHTML($message);
-    if($mail->Send()) {
-      // e-posta başarılı ile gönderildi
-    } else {
-      // bir sorun var, sorunu ekrana bastıralım
-      echo $mail->ErrorInfo;
-    }
-  }
-?>
     <!-- ****** Breadcumb Area Start ****** -->
     <div class="breadcumb-area" style="background-image: url(img/bg-img/breadcumb.jpg);">
         <div class="container h-100">
@@ -111,7 +82,7 @@
                         <div class="contact-form wow fadeInUpBig" data-wow-delay="0.6s">
                             <h2 style="font-size:20px" class="contact-form-title mb-30">Herhangi bir sorunuz varsa bana bu iletişim formundan veya sosyal medya hesaplarımdan ulaşabilirsiniz !</h2>
                             <!-- Contact Form -->
-                            <form action="#" method="post">
+                            <form action="" method="post">
                                 <div class="row">
                                   <div class="form-group col-6">
                                       <input type="text" class="form-control" name="name" required id="contact-name" placeholder="Adınız...">
@@ -129,8 +100,68 @@
                                 <div class="form-group">
                                     <textarea class="form-control" name="message" required id="message" cols="30" rows="10" placeholder="Mesajınız..."></textarea>
                                 </div>
+                                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                                <center><div class="g-recaptcha" data-sitekey="6LebJp4UAAAAAJhy_JVafl4r2_n9SsVlvqGFLURl"></div></center>
                                 <center><button type="submit" name="submit" class="btn contact-btn">Mesajı Gönder</button></center>
                             </form>
+                            <?php
+                            if(isset($_POST['message'])&&$_POST['message']!=""&&$_POST['name']!=""&&$_POST['surname']!=""&&$_POST['email']!=""&&$_POST['subject']!=""){
+                              $recaptcha = $_POST['g-recaptcha-response'];
+                              if (!empty($recaptcha)) {
+                                $google_url = "https://www.google.com/recaptcha/api/siteverify";
+                                $secret = '6LebJp4UAAAAAMqEHlyhhehepN1nZAje0ggy6SXA';
+                                //kullanıcının ip adresi
+                                $ip = $_SERVER['REMOTE_ADDR'];
+                                //istek adresini oluşturuyoruz
+                                $url = $google_url . "?secret=" . $secret . "&response=" . $recaptcha . "&remoteip=" . $ip;
+                                $res = curlKullan($url);
+                                $res = json_decode($res, true);
+
+                                //işlem başarılıysa çalışacak kısım
+                                if ($res['success']) {
+                                  include "Backend/class.phpmailer.php";
+                                  $ip=GetIp();
+                                  $name=$_POST['name'];
+                                  $surname=$_POST['surname'];
+                                  $email=$_POST['email'];
+                                  $subject=$_POST['subject'];
+                                  $message=$_POST['message'];
+                                  $mail = new PHPMailer();
+                                  $mail->IsSMTP();
+                                  $mail->SMTPAuth = true;
+                                  $mail->Host = 'mail.tolgakocadag.xyz';
+                                  $mail->Port = 587;
+                                  $mail->Username = 'iletisim@tolgakocadag.xyz';
+                                  $mail->Password = 'Tlgkcdg3434';
+                                  $mail->SetFrom($mail->Username, $name.' '.$surname);
+                                  $mail->AddAddress('iletisim@tolgakocadag.xyz', $name.' '.$surname);
+                                  $mail->CharSet = 'UTF-8';
+                                  $mail->Subject = $subject;
+                                  $mail->MsgHTML('İsim:'.$name.'  Soyisim:'.$surname.'<br/>
+                                  Konu:'.$subject.'<br/>
+                                  E-Posta:'.$email.'<br/>
+                                  Mesaj:'.$message.'<br/>
+                                  IP Adresi:'.$ip);
+                                  if($mail->Send()) {
+                                    echo '<br/><center>Mesajınız başarıyla gönderildi.</center>';
+                                    $_POST['name']="";
+                                    $_POST['surname']="";
+                                    $_POST['email']="";
+                                    $_POST['subject']="";
+                                    $_POST['message']="";
+                                  }
+                                  else {
+                                    echo '<br />Mesaj gönderirken bir hata oluştu ve girmiş olduğunuz bilgiler alınamadı.' . $mail->ErrorInfo;}
+                                  }
+                                  else {
+                                    echo "<br /><center>Lütfen bot olmadığınızı doğrulayın</center>";
+                                  }
+                                }
+                                else {
+                                  echo "<br /><center>Lütfen bot olmadığınızı doğrulayın</center>";
+                                }
+                              }
+                             ?>
                         </div>
                     </div>
                 </div>
