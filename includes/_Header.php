@@ -38,15 +38,14 @@
     <!-- Responsive CSS -->
     <link href="css/responsive/responsive.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86060213-2"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86060213-3"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'UA-86060213-2');
+        gtag('config', 'UA-86060213-3');
     </script>
-
 
 </head>
 

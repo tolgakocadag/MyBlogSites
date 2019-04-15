@@ -393,7 +393,9 @@
                                                 <label class='mt-2' for='message' id='mesajkalanKarakter' style='color:#fee2d9'>0/150</label>
                                             </div>
                                           </div>
-                                          <div class='span'>
+                                          <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                                          <center><div class="g-recaptcha" data-sitekey="6LeuY54UAAAAADIHPfsP14q67dcNT74jvQVw0syi"></div></center>
+                                          <div class='span my-2'>
                                             <span>* Yorumunuz onaylandıktan sonra yayınlanacaktır!</span>
                                           </div>
                                           <button type='submit' name='post_comment' class='btn contact-btn'>Yorum yap</button>
@@ -507,13 +509,6 @@
 
                           <!-- Single Widget Area -->
                           <div class='single-widget-area add-widget text-center' style='height:200px'>
-                              <script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
-                                  <script>
-                                      (adsbygoogle = window.adsbygoogle || []).push({
-                                          google_ad_client: 'ca-pub-3620138050695153',
-                                          enable_page_level_ads: true
-                                        });
-                                  </script>
                           </div>
 
                           <!-- Single Widget Area -->

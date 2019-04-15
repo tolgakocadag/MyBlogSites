@@ -101,7 +101,7 @@
                                     <textarea class="form-control" name="message" required id="message" cols="30" rows="10" placeholder="Mesajınız..."></textarea>
                                 </div>
                                 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-                                <center><div class="g-recaptcha" data-sitekey="6LebJp4UAAAAAJhy_JVafl4r2_n9SsVlvqGFLURl"></div></center>
+                                <center><div class="g-recaptcha" data-sitekey="6LeuY54UAAAAADIHPfsP14q67dcNT74jvQVw0syi"></div></center>
                                 <center><button type="submit" name="submit" class="btn contact-btn">Mesajı Gönder</button></center>
                             </form>
                             <?php
@@ -109,7 +109,7 @@
                               $recaptcha = $_POST['g-recaptcha-response'];
                               if (!empty($recaptcha)) {
                                 $google_url = "https://www.google.com/recaptcha/api/siteverify";
-                                $secret = '6LebJp4UAAAAAMqEHlyhhehepN1nZAje0ggy6SXA';
+                                $secret = '6LeuY54UAAAAANJhs7weRYfIdkIhoEnoy8OFDXnQ';
                                 //kullanıcının ip adresi
                                 $ip = $_SERVER['REMOTE_ADDR'];
                                 //istek adresini oluşturuyoruz
@@ -129,12 +129,12 @@
                                   $mail = new PHPMailer();
                                   $mail->IsSMTP();
                                   $mail->SMTPAuth = true;
-                                  $mail->Host = 'mail.tolgakocadag.xyz';
+                                  $mail->Host = 'mail.tolgakocadag.com';
                                   $mail->Port = 587;
-                                  $mail->Username = 'iletisim@tolgakocadag.xyz';
+                                  $mail->Username = 'iletisim@tolgakocadag.com';
                                   $mail->Password = 'Tlgkcdg3434';
                                   $mail->SetFrom($mail->Username, $name.' '.$surname);
-                                  $mail->AddAddress('iletisim@tolgakocadag.xyz', $name.' '.$surname);
+                                  $mail->AddAddress('iletisim@tolgakocadag.com', $name.' '.$surname);
                                   $mail->CharSet = 'UTF-8';
                                   $mail->Subject = $subject;
                                   $mail->MsgHTML('İsim:'.$name.'  Soyisim:'.$surname.'<br/>
