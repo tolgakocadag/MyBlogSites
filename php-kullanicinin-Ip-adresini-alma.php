@@ -328,120 +328,16 @@
                                     </div>
                                   </div>
 
-                                  <?php
-                                  $comment_list=dbSingleCommentList($title);
-                                  $comment_list=$con->query($comment_list);
-                                  if($comment_list->num_rows>0)
-                                  {?>
-                                    <div class='comment_area section_padding_50 clearfix'>
-                                        <b class='mb-30'><?php echo 'Bu başlığa ait '.$comment_list->num_rows.' yorum mevcuttur.'; ?></b>
-                                        <ol>
-                                  <!-- Comment Area Start -->
-
-                                        <?php
-
-                                          while ($row=$comment_list->fetch_assoc()) {
-                                            $comment_author=$row['comment_AUTHOR'];
-                                            $comment_date=$row['comment_DATE'];
-                                            $comment_message=$row['comment_TEXT'];
-                                         ?>
-                                          <!-- Single Comment Area -->
-                                          <li>
-                                              <div class='comment-wrapper d-flex my-4'>
-                                                  <!-- Comment Content -->
-                                                  <div class='comment-content'>
-                                                      <span class='comment-date text-muted'><?php $date=explode('.',$comment_date);echo getMonth($date[1]).' '.$date[0].', '.substr($date[2],0,4); ?></span>
-                                                      <p class='my-2'><b><?php echo $comment_author; ?></b></p>
-                                                      <p><?php echo $comment_message; ?></p>
-                                                  </div>
-                                              </div>
-                                          </li>
-                                        <?php } ?>
-                                      </ol>
-                                  </div><?php } ?>
-
-                              <!-- Leave A Comment -->
-                              <div class='leave-comment-area section_padding_50 clearfix'>
-                                  <div class='comment-form'>
-                                      <h4 class='mb-30'>Bir Yorum Yap</h4>
-
-                                      <!-- Comment Form -->
-                                      <!-- Comment Form -->
-                                      <form action='' method='post'>
-                                        <div class='row'>
-                                          <div class='form-group col-10'>
-                                              <input type='text' class='form-control' required name='content_name' id='contact-name' placeholder='Adınız ve Soyadınız'>
-                                          </div>
-                                          <div class='form-group col-2'>
-                                              <label class='mt-2' for='contact-name' id='kalanKarakter' style='color:#fee2d9'>0/75</label>
-                                          </div>
-                                        </div>
-                                        <div class='row'>
-                                          <div class='form-group col-10'>
-                                              <input type='email' class='form-control' required name='content_email' id='contact-email' placeholder='Email adresiniz'>
-                                          </div>
-                                          <div class='form-group col-2'>
-                                              <label class='mt-2' for='contact-email' id='emailkalanKarakter' style='color:#fee2d9'>0/125</label>
-                                          </div>
-                                        </div>
-
-                                          <div class='row'>
-                                            <div class='form-group col-10'>
-                                                <textarea class='form-control' required name='content_text' id='message' cols='30' rows='10' placeholder='Yorumunuzu yazınız...'></textarea>
-                                            </div>
-                                            <div class='form-group col-2'>
-                                                <label class='mt-2' for='message' id='mesajkalanKarakter' style='color:#fee2d9'>0/150</label>
-                                            </div>
-                                          </div>
-                                          <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-                                          <center><div class="g-recaptcha" data-callback="enableBtn" data-sitekey="6LeuY54UAAAAADIHPfsP14q67dcNT74jvQVw0syi"></div>
-                                          <div class='span mt-4'>
-                                            <span>* Yorumunuz onaylandıktan sonra yayınlanacaktır!<br />* Email adresiniz kullanıcılara gözükmeyecektir!</span>
-                                          </div>
-                                          <button type='submit' name='post_comment' id="recaptchaClicked" disabled class='btn contact-btn'>Yorum yap</button></center>
-                                      </form>
-                                      <script type="text/javascript">
-                                      function enableBtn() {
-                                        document.getElementById("recaptchaClicked").disabled = false;
-                                      }
-
-                                      </script>
-                                  </div>
-                              </div>
-                              <?php
-                              //YORUM EKLEME
-                              if(isset($_POST['post_comment'])){
-                                $recaptcha = $_POST['g-recaptcha-response'];
-                                if (!empty($recaptcha)) {
-                                  $google_url = 'https://www.google.com/recaptcha/api/siteverify';
-                                  $secret = '6LeuY54UAAAAANJhs7weRYfIdkIhoEnoy8OFDXnQ';
-                                  //kullanıcının ip adresi
-                                  $ip = $_SERVER['REMOTE_ADDR'];
-                                  //istek adresini oluşturuyoruz
-                                  $url = $google_url . '?secret=' . $secret . '&response=' . $recaptcha . '&remoteip=' . $ip;
-                                  $res = curlKullan($url);
-                                  $res = json_decode($res, true);
-
-                                  //işlem başarılıysa çalışacak kısım
-                                  if ($res['success']) {
-                                    $comment_author=$_POST['content_name'];
-                                    $comment_email=$_POST['content_email'];
-                                    $comment_message=$_POST['content_text'];
-                                    $comment_date=date('d.m.Y').' '.date('H:i:s');
-                                    $comment_ip=GetIP();
-                                    $comment_title=$title;
-                                    $namesurname=mysqli_real_escape_string($con,$comment_author);//kullanıcı adını güvenlik kontrolünden geçiriyoruz.
-                                    $email=mysqli_real_escape_string($con,$comment_email);
-                                    $message=mysqli_real_escape_string($con,$comment_message);
-                                    $sql_add=$con->prepare(dbcommentAdd());
-                                    $sql_add->bind_param('ssssss',$comment_date,$comment_author,$comment_ip,$comment_email,$comment_message,$comment_title);
-                                    $sql_add->execute();
-                                    $sql_add->close();
-                                    header('Location: php-kullanicinin-Ip-adresini-alma.php');
-                                  }
-                                }
-                              }
-                              ?>
+                              <!-- disqus yorumları -->
+                              <div id="disqus_thread"></div>
+                              <script>
+                              (function() { // DON'T EDIT BELOW THIS LINE
+                                  var d = document, s = d.createElement('script');
+                                  s.src = 'https://tolga-kocadag-blog-1.disqus.com/embed.js';
+                                  s.setAttribute('data-timestamp', +new Date());
+                                  (d.head || d.body).appendChild(s);
+                                })();
+                              </script>
                           </div>
                       </div>
                   </div>
@@ -613,5 +509,7 @@
       <!-- Active JS -->
       <script src='js/my.js'></script>
       <script src='js/active.js'></script>
+      <!-- Disqus JS -->
+      <script id="dsq-count-scr" src="//tolga-kocadag-blog-1.disqus.com/count.js" async></script>
       </body>
       </html>
