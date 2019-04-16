@@ -22,7 +22,6 @@
                     <th>Author</th>
                     <th>URL</th>
                     <th>Hit Count</th>
-                    <th>Comment Count</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
@@ -34,7 +33,6 @@
                     <th>Author</th>
                     <th>URL</th>
                     <th>Hit Count</th>
-                    <th>Comment Count</th>
                     <th>Actions</th>
                   </tr>
                 </tfoot>
@@ -56,7 +54,6 @@
                   $post_content=$row['post_CONTENT'];
                   $post_hit=$row["post_HIT"];
                   $post_url=$row["post_URL"];
-                  $post_comment_count=$row["post_COMMENT_COUNT"];
                   $post_tag=$row["post_TAG"];
                   $post_vtag=$row["post_TAG_VISIBLE"];
                   $post_explanation=$row["post_EXPLANATION"];
@@ -67,7 +64,6 @@
                       <td>{$post_author}</td>
                       <td>{$post_url}</td>
                       <td>{$post_hit}</td>
-                      <td>{$post_comment_count}</td>
                       <td>
                       <a class='btn btn-primary btn-circle' data-toggle='modal' data-target='#edit_modal$k' href='#'><i class='fas fa-edit'></i></a>
                       <a class='btn btn-danger btn-circle' href='posts.php?delete={$post_id}'><i class='fas fa-trash'></i></a>

@@ -79,35 +79,14 @@ function dbHitPlus(){
   $sql_update="UPDATE posts SET post_HIT=post_HIT+1 WHERE post_TITLE=?";
   return $sql_update;
 }
-function dbSingleCommentList($title){
-  $sql_list ="SELECT * FROM comments WHERE comment_TITLE='{$title}' and comment_VISIBLE='on' ORDER BY comment_ID DESC";
-  return $sql_list;
-}
 function dbmyAdminPagePostsList(){
   $sql_list ="SELECT * FROM posts";
   return $sql_list;
-}
-function dbCommentList(){
-  $sql_list ="SELECT * FROM comments";
-  return $sql_list;
-}
-function dbCommentEdit(){
-  $sql_update="UPDATE comments SET comment_VISIBLE=? WHERE comment_ID=?";
-  return $sql_update;
 }
 function dbmyAdminPagePostsAdd(){
   $sql_add="INSERT INTO posts (post_AUTHOR,post_AUTHOR_ROLE,post_DATE,post_TITLE,post_EXPLANATION,post_CONTENT,post_IMAGE,post_URL,post_TAG,post_TAG_VISIBLE)
   VALUES (?,?,?,?,?,?,?,?,?,?)";
   return $sql_add;
-}
-function dbcommentAdd(){
-  $sql_add="INSERT INTO comments (comment_DATE,comment_AUTHOR,comment_IP,comment_EMAIL,comment_TEXT,comment_TITLE)
-  VALUES (?,?,?,?,?,?)";
-  return $sql_add;
-}
-function dbCommentDelete(){
-  $sql_delete="DELETE FROM comments WHERE comment_ID=?";
-  return $sql_delete;
 }
 function dbmyAdminPagePostsAddTitleControl($title){
   $sql_list ="SELECT * FROM posts WHERE post_TITLE='{$title}'";

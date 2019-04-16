@@ -51,7 +51,6 @@ function createTextforPage($title,$post_date,$author,$url){
       $"."explanation=$"."row['post_EXPLANATION'];
       $"."tag=$"."row['post_TAG'];
       $"."visiblelabels=$"."row['post_TAG_VISIBLE'];
-      $"."comment_count=$"."row['post_COMMENT_COUNT'];
    ?>
   <head>
   <?php
@@ -251,14 +250,6 @@ function createTextforPage($title,$post_date,$author,$url){
                                               <div class='post-comments'>
                                                   <a href='#'><i class='fa fa-eye' aria-hidden='true'></i> <?php echo $"."hit; ?></a>
                                               </div>
-                                              <!-- Post Comments -->
-                                              <div class='post-comments'>
-                                                  <a href='#'><i class='fa fa-comment-o' aria-hidden='true'></i> <?php echo $"."comment_count; ?></a>
-                                              </div>
-                                              <!-- Post Share -->
-                                              <div class='post-share'>
-                                                  <a href='#'><i class='fa fa-share-alt' aria-hidden='true'></i></a>
-                                              </div>
                                           </div>
                                       </div>
                                       <a href='{$url}'>
@@ -335,16 +326,16 @@ function createTextforPage($title,$post_date,$author,$url){
                                     </div>
                                   </div>
 
-                                  
-                              <div id='disqus_thread'></div>
-                              <script>
-                              (function() { // DON'T EDIT BELOW THIS LINE
-                                  var d = document, s = d.createElement('script');
-                                  s.src = 'https://tolga-kocadag-blog-1.disqus.com/embed.js';
-                                  s.setAttribute('data-timestamp', +new Date());
-                                  (d.head || d.body).appendChild(s);
-                                })();
-                              </script>
+                                  <!-- disqus yorumları -->
+                                  <div id='disqus_thread'></div>
+                                  <script>
+                                      (function() { // DON'T EDIT BELOW THIS LINE
+                                      var d = document, s = d.createElement('script');
+                                      s.src = 'https://tolga-kocadag-blog.disqus.com/embed.js';
+                                      s.setAttribute('data-timestamp', +new Date());
+                                      (d.head || d.body).appendChild(s);
+                                    })();
+                                  </script>
                           </div>
                       </div>
                   </div>
@@ -442,10 +433,13 @@ function createTextforPage($title,$post_date,$author,$url){
                               </div>
                               <p>Bültenimize abone olun; yeni yazılar vb. hakkında bildirim alın.</p>
                               <div class='newsletter-form'>
-                                  <form action='#' method='post'>
-                                      <input type='email' name='newsletter-email' id='email' placeholder='Email adresiniz'>
-                                      <button type='submit'><i class='fa fa-paper-plane-o' aria-hidden='true'></i></button>
+                                  <form action='' method='post'>
+                                      <input type='email' required name='newsletter-email' id='email' placeholder='Email adresiniz'>
+                                      <button type='submit' name='btnnews'><i class='fa fa-paper-plane-o' aria-hidden='true'></i></button>
                                   </form>
+                                  <?php
+                                      newspaper();
+                                   ?>
                               </div>
                           </div>
                       </div>
@@ -517,7 +511,7 @@ function createTextforPage($title,$post_date,$author,$url){
       <script src='js/my.js'></script>
       <script src='js/active.js'></script>
       <!-- Disqus JS -->
-      <script id='dsq-count-scr' src='//tolga-kocadag-blog-1.disqus.com/count.js' async></script>
+      <script id='dsq-count-scr' src='//tolga-kocadag-blog.disqus.com/count.js' async></script>
       </body>
       </html>";
   return $total;

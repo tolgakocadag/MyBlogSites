@@ -16,7 +16,6 @@ if (isset($_GET['search'])) {
       $post_author=$row['post_AUTHOR'];
       $post_content=$row['post_CONTENT'];
       $post_hit=$row['post_HIT'];
-      $post_comment_count=$row['post_COMMENT_COUNT'];
       $post_image=$row['post_IMAGE'];
       $post_url=$row['post_URL'];
       $post_url=explode(".",$post_url);
@@ -48,14 +47,6 @@ if (isset($_GET['search'])) {
                         <!-- Post Hits -->
                         <div class='post-comments'>
                            <a href='<?php echo $post_url; ?>'><i class='fa fa-eye' aria-hidden='true'></i> <?php echo $post_hit; ?></a>
-                        </div>
-                        <!-- Post Comments -->
-                        <div class="post-comments">
-                            <a href="<?php echo $post_url; ?>"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo $post_comment_count; ?></a>
-                        </div>
-                        <!-- Post Share -->
-                        <div class="post-share" style="display:none">
-                            <a href="<?php echo $post_url; ?>"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>

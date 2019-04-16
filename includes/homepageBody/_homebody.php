@@ -98,10 +98,13 @@
                         </div>
                         <p>Bültenimize abone olun; yeni güncellemeler, indirimler, vb. hakkında bildirim alın.</p>
                         <div class="newsletter-form">
-                            <form action="#" method="post">
-                                <input type="email" name="newsletter-email" id="email" placeholder="Email adresiniz">
-                                <button type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                            <form action="" method="post">
+                                <input type="email" required name="newsletter-email" id="email" placeholder="Email adresiniz">
+                                <button type="submit" name="btnnews"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
                             </form>
+                            <?php
+                                newspaper();
+                             ?>
                         </div>
                     </div>
                 </div>

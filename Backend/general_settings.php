@@ -94,6 +94,46 @@ function replace_tr($text) {
    $new_text = str_replace($search,$replace,$text);
    return $new_text;
 }
+function newspaper(){
+  if(isset($_POST['newsletter-email'])&&$_POST['newsletter-email']!=''){
+    $isTrue='false';
+    $dosya = fopen("newspaper.txt","a+");
+    while (!feof($dosya))
+    {
+         $okunanveri = fgets($dosya);
+         $mails=explode(',',$okunanveri);
+    }
+    foreach ($mails as $key => $value) {
+        if($mails[$key]==$_POST['newsletter-email'])
+        {
+          $isTrue='true';
+        }
+    }
+    if($isTrue=='false'){
+      fwrite($dosya, ','.$_POST['newsletter-email']);
+      echo "<br />Tebrikler! Bültenimize kayıt oldunuz.";
+      include "Backend/class.phpmailer.php";
+      $mail = new PHPMailer();
+      $mail->IsSMTP();
+      $mail->SMTPAuth = true;
+      $mail->Host = 'mail.tolgakocadag.com';
+      $mail->Port = 587;
+      $mail->Username = 'info@tolgakocadag.com';
+      $mail->Password = 'Tlgkcdg3434';
+      $mail->SetFrom($mail->Username, 'Tolga Kocadağ Blog');
+      $mail->AddAddress($_POST['newsletter-email'],' ');
+      $mail->CharSet = 'UTF-8';
+      $mail->Subject = 'E-bülten Aboneliği';
+      $mail->MsgHTML('Merhaba,<br /><br />Tolga Kocadağ Blog sitemizin e-bülten aboneliğine hoşgeldiniz. Yeni gönderilerden anında haberdar olabileceksiniz.<br /><br />Teşekkür ederiz.<br />tolgakocadag.com');
+      $mail->Send();
+    }
+    else {
+      echo "<br />Bültenimize zaten kayıtlısınız! Teşekkür ederiz.";
+    }
+    $_POST['newsletter-email']="";
+     fclose($dosya);
+  }
+}
 function GetIP(){
  if(getenv("HTTP_CLIENT_IP")) {
  $ip = getenv("HTTP_CLIENT_IP");

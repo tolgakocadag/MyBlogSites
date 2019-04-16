@@ -14,7 +14,6 @@
                         $post_explanation=$row['post_EXPLANATION'];
                         $post_content=$row['post_CONTENT'];
                         $post_hit=$row['post_HIT'];
-                        $post_comment_count=$row['post_COMMENT_COUNT'];
                         $post_image=$row['post_IMAGE'];
                         $post_url=$row['post_URL'];
                         $post_url=explode(".",$post_url);
@@ -46,14 +45,6 @@
                                         <!-- Post Hits -->
                                         <div class='post-comments'>
                                            <a href='<?php echo $post_url; ?>'><i class='fa fa-eye' aria-hidden='true'></i> <?php echo $post_hit; ?></a>
-                                        </div>
-                                        <!-- Post Comments -->
-                                        <div class="post-comments">
-                                            <a href="<?php echo $post_url; ?>"><i class="fa fa-comment" aria-hidden="true"></i> <?php echo $post_comment_count; ?></a>
-                                        </div>
-                                        <!-- Post Share -->
-                                        <div style="display:none" class="post-share">
-                                            <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -88,7 +79,6 @@
                         $post_date=$row['post_DATE'];
                         $post_author=$row['post_AUTHOR'];
                         $post_hit=$row['post_HIT'];
-                        $post_comment_count=$row['post_COMMENT_COUNT'];
                         $post_image=$row['post_IMAGE'];
                         $post_url=$row['post_URL'];
                         $post_url=explode(".",$post_url);
@@ -119,14 +109,6 @@
                                         <!-- Post Hits -->
                                         <div class='post-comments'>
                                            <a href='<?php echo $post_url; ?>'><i class='fa fa-eye' aria-hidden='true'></i> <?php echo $post_hit; ?></a>
-                                        </div>
-                                        <!-- Post Comments -->
-                                        <div class="post-comments">
-                                            <a href="<?php echo $post_url; ?>"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo $post_comment_count; ?></a>
-                                        </div>
-                                        <!-- Post Share -->
-                                        <div style="display:none" class="post-share">
-                                            <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -172,7 +154,6 @@
                         $post_author=$row['post_AUTHOR'];
                         $post_content=$row['post_CONTENT'];
                         $post_hit=$row['post_HIT'];
-                        $post_comment_count=$row['post_COMMENT_COUNT'];
                         $post_image=$row['post_IMAGE'];
                         $post_url=$row['post_URL'];
                         $post_url=explode(".",$post_url);
@@ -203,14 +184,6 @@
                                         <!-- Post Hits -->
                                         <div class='post-comments'>
                                            <a href='<?php echo $post_url; ?>'><i class='fa fa-eye' aria-hidden='true'></i> <?php echo $post_hit; ?></a>
-                                        </div>
-                                        <!-- Post Comments -->
-                                        <div class="post-comments">
-                                            <a href="<?php echo $post_url; ?>"><i class="fa fa-comment-o" aria-hidden="true"></i> <?php echo $post_comment_count; ?></a>
-                                        </div>
-                                        <!-- Post Share -->
-                                        <div style="display:none" class="post-share">
-                                            <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                 </div>

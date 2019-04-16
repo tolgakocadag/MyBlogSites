@@ -149,6 +149,19 @@
                                   IP Adresi:   '.$ip);
                                   if($mail->Send()) {
                                     echo '<br/><center>Mesajınız başarıyla gönderildi.</center>';
+                                    $mail = new PHPMailer();
+                                    $mail->IsSMTP();
+                                    $mail->SMTPAuth = true;
+                                    $mail->Host = 'mail.tolgakocadag.com';
+                                    $mail->Port = 587;
+                                    $mail->Username = 'iletisim@tolgakocadag.com';
+                                    $mail->Password = 'Tlgkcdg3434';
+                                    $mail->SetFrom($mail->Username, 'Tolga Kocadağ Blog');
+                                    $mail->AddAddress($email, ' ');
+                                    $mail->CharSet = 'UTF-8';
+                                    $mail->Subject = $subject;
+                                    $mail->MsgHTML('Merhaba '.$name.',<br /><br />Mesajınızı aldık. En kısa sürede yetkili kişiler tarafından dönüş yapılacaktır.<br /><br />Teşekkür ederiz.<br />tolgakocadag.com');
+                                    $mail->Send();
                                     $_POST['name']="";
                                     $_POST['surname']="";
                                     $_POST['email']="";
