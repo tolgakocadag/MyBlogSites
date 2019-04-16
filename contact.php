@@ -101,9 +101,14 @@
                                     <textarea class="form-control" name="message" required id="message" cols="30" rows="10" placeholder="Mesajınız..."></textarea>
                                 </div>
                                 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-                                <center><div class="g-recaptcha" data-sitekey="6LeuY54UAAAAADIHPfsP14q67dcNT74jvQVw0syi"></div></center>
-                                <center><button type="submit" name="submit" class="btn contact-btn">Mesajı Gönder</button></center>
+                                <center><div class="g-recaptcha" data-callback="enableBtn" data-sitekey="6LeuY54UAAAAADIHPfsP14q67dcNT74jvQVw0syi"></div></center>
+                                <center><button type="submit" id="recaptchaClicked" disabled name="submit" class="btn contact-btn">Mesajı Gönder</button></center>
                             </form>
+                            <script type="text/javascript">
+                            function enableBtn() {
+                              document.getElementById("recaptchaClicked").disabled = false;
+                            }
+                            </script>
                             <?php
                             if(isset($_POST['message'])&&$_POST['message']!=""&&$_POST['name']!=""&&$_POST['surname']!=""&&$_POST['email']!=""&&$_POST['subject']!=""){
                               $recaptcha = $_POST['g-recaptcha-response'];
@@ -137,11 +142,11 @@
                                   $mail->AddAddress('iletisim@tolgakocadag.com', $name.' '.$surname);
                                   $mail->CharSet = 'UTF-8';
                                   $mail->Subject = $subject;
-                                  $mail->MsgHTML('İsim:'.$name.'  Soyisim:'.$surname.'<br/>
+                                  $mail->MsgHTML('İsim:   '.$name.'  Soyisim:   '.$surname.'<br/>
                                   Konu:'.$subject.'<br/>
-                                  E-Posta:'.$email.'<br/>
-                                  Mesaj:'.$message.'<br/>
-                                  IP Adresi:'.$ip);
+                                  E-Posta:   '.$email.'<br/>
+                                  Mesaj:   '.$message.'<br/>
+                                  IP Adresi:   '.$ip);
                                   if($mail->Send()) {
                                     echo '<br/><center>Mesajınız başarıyla gönderildi.</center>';
                                     $_POST['name']="";

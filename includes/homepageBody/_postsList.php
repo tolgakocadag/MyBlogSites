@@ -147,7 +147,7 @@
                             </div>
                         </div>
                     </div>
-                  <?php }} ?>;
+                  <?php }} ?>
 <!--4LÜ GRUP FINISH-->
                     <!-- ******* List Blog Area Start ******* -->
                     <div class="col-12 mb-4" style="height:100px;">

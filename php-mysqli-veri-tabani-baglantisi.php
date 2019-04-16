@@ -393,30 +393,53 @@
                                                 <label class='mt-2' for='message' id='mesajkalanKarakter' style='color:#fee2d9'>0/150</label>
                                             </div>
                                           </div>
-                                          <div class='span'>
-                                            <span>* Yorumunuz onaylandıktan sonra yayınlanacaktır!</span>
+                                          <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                                          <center><div class="g-recaptcha" data-callback="enableBtn" data-sitekey="6LeuY54UAAAAADIHPfsP14q67dcNT74jvQVw0syi"></div>
+                                          <div class='span mt-4'>
+                                            <span>* Yorumunuz onaylandıktan sonra yayınlanacaktır!<br />* Email adresiniz kullanıcılara gözükmeyecektir!</span>
                                           </div>
-                                          <button type='submit' name='post_comment' class='btn contact-btn'>Yorum yap</button>
+                                          <button type='submit' name='post_comment' id="recaptchaClicked" disabled class='btn contact-btn'>Yorum yap</button></center>
                                       </form>
+                                      <script type="text/javascript">
+                                      function enableBtn() {
+                                        document.getElementById("recaptchaClicked").disabled = false;
+                                      }
+
+                                      </script>
                                   </div>
                               </div>
                               <?php
                               //YORUM EKLEME
                               if(isset($_POST['post_comment'])){
-                                $comment_author=$_POST['content_name'];
-                                $comment_email=$_POST['content_email'];
-                                $comment_message=$_POST['content_text'];
-                                $comment_date=date('d.m.Y').' '.date('H:i:s');
-                                $comment_ip=GetIP();
-                                $comment_title=$title;
-                                $namesurname=mysqli_real_escape_string($con,$comment_author);//kullanıcı adını güvenlik kontrolünden geçiriyoruz.
-                                $email=mysqli_real_escape_string($con,$comment_email);
-                                $message=mysqli_real_escape_string($con,$comment_message);
-                                $sql_add=$con->prepare(dbcommentAdd());
-                                $sql_add->bind_param('ssssss',$comment_date,$comment_author,$comment_ip,$comment_email,$comment_message,$comment_title);
-                                $sql_add->execute();
-                                $sql_add->close();
-                                header('Location: php-mysqli-veri-tabani-baglantisi.php');
+                                $recaptcha = $_POST['g-recaptcha-response'];
+                                if (!empty($recaptcha)) {
+                                  $google_url = 'https://www.google.com/recaptcha/api/siteverify';
+                                  $secret = '6LeuY54UAAAAANJhs7weRYfIdkIhoEnoy8OFDXnQ';
+                                  //kullanıcının ip adresi
+                                  $ip = $_SERVER['REMOTE_ADDR'];
+                                  //istek adresini oluşturuyoruz
+                                  $url = $google_url . '?secret=' . $secret . '&response=' . $recaptcha . '&remoteip=' . $ip;
+                                  $res = curlKullan($url);
+                                  $res = json_decode($res, true);
+
+                                  //işlem başarılıysa çalışacak kısım
+                                  if ($res['success']) {
+                                    $comment_author=$_POST['content_name'];
+                                    $comment_email=$_POST['content_email'];
+                                    $comment_message=$_POST['content_text'];
+                                    $comment_date=date('d.m.Y').' '.date('H:i:s');
+                                    $comment_ip=GetIP();
+                                    $comment_title=$title;
+                                    $namesurname=mysqli_real_escape_string($con,$comment_author);//kullanıcı adını güvenlik kontrolünden geçiriyoruz.
+                                    $email=mysqli_real_escape_string($con,$comment_email);
+                                    $message=mysqli_real_escape_string($con,$comment_message);
+                                    $sql_add=$con->prepare(dbcommentAdd());
+                                    $sql_add->bind_param('ssssss',$comment_date,$comment_author,$comment_ip,$comment_email,$comment_message,$comment_title);
+                                    $sql_add->execute();
+                                    $sql_add->close();
+                                    header('Location: php-kullanicinin-Ip-adresini-alma.php');
+                                  }
+                                }
                               }
                               ?>
                           </div>
