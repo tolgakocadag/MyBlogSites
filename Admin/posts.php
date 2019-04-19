@@ -136,7 +136,7 @@
                                     </script>
                                     <div class="form-group">
                                         <label for="post_content">Content</label>
-                                        <textarea id="myTextareaedit<?php echo $k; ?>" name="post_content"><?php echo $post_content; ?></textarea>
+                                        <textarea id="myTextareaedit<?php echo $k; ?>" name="post_content"><?php echo htmlspecialchars($post_content,ENT_QUOTES); ?></textarea>
                                     </div>
                                     <div class="form-group">
                                         <input type="hidden" name="post_author_role" value="<?php echo $post_author_role; ?>">

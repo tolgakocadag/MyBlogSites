@@ -1,7 +1,6 @@
 <?php include "Includes/_Header.php"; ?>
 <?php include "Includes/_Sidebar.php"; ?>
 <?php include "Includes/_Topbar.php"; ?>
-<?php require "vendor/autoload.php"; ?>
         <!-- Begin Page Content -->
         <div class="container-fluid">
 

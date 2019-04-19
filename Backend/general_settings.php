@@ -3,7 +3,7 @@ function ses_start(){session_start();}
 function ob_st(){ob_start();}
 //adminsayfası login kontrolü
 function isLogin(){
-  if (!isset($_SESSION["username"])){$uri = $_SERVER["REQUEST_URI"];$pos = stripos($uri,"login");if ($pos > 1){}else{header("location: login.php");}}
+  if (!isset($_SESSION["username"])||!isset($_SESSION["nickname"])||!isset($_SESSION["role"])){$uri = $_SERVER["REQUEST_URI"];$pos = stripos($uri,"login");if ($pos > 1){}else{header("location: login.php");}}
 }
 //index.php single post tarih çekme
 function getMonth($date){
@@ -89,8 +89,8 @@ function multiexplode ($delimiters,$string) {
 }
 function replace_tr($text) {
    $text = trim($text);
-   $search = array('Ç','ç','Ğ','ğ','ı','İ','Ö','ö','Ş','ş','Ü','ü',' ');
-   $replace = array('c','c','g','g','i','i','o','o','s','s','u','u','-');
+   $search = array('Ç','ç','Ğ','ğ','ı','İ','Ö','ö','Ş','ş','Ü','ü');
+   $replace = array('c','c','g','g','i','i','o','o','s','s','u','u');
    $new_text = str_replace($search,$replace,$text);
    return $new_text;
 }
@@ -116,14 +116,14 @@ function newspaper(){
       $mail = new PHPMailer();
       $mail->IsSMTP();
       $mail->SMTPAuth = true;
+      $mail->CharSet = 'utf-8';
       $mail->Host = 'mail.tolgakocadag.com';
       $mail->Port = 587;
       $mail->Username = 'info@tolgakocadag.com';
       $mail->Password = 'Tlgkcdg3434';
-      $mail->SetFrom($mail->Username, 'Tolga Kocadağ Blog');
+      $mail->SetFrom($mail->Username, 'Tolga Kocadag Blog');
       $mail->AddAddress($_POST['newsletter-email'],' ');
-      $mail->CharSet = 'UTF-8';
-      $mail->Subject = 'E-bülten Aboneliği';
+      $mail->Subject = 'E-bulten aboneligi';
       $mail->MsgHTML('Merhaba,<br /><br />Tolga Kocadağ Blog sitemizin e-bülten aboneliğine hoşgeldiniz. Yeni gönderilerden anında haberdar olabileceksiniz.<br /><br />Teşekkür ederiz.<br />tolgakocadag.com');
       $mail->Send();
     }

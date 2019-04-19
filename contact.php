@@ -130,6 +130,7 @@
                                   $surname=$_POST['surname'];
                                   $email=$_POST['email'];
                                   $subject=$_POST['subject'];
+                                  $subject=replace_tr($subject);
                                   $message=$_POST['message'];
                                   $mail = new PHPMailer();
                                   $mail->IsSMTP();
@@ -139,7 +140,7 @@
                                   $mail->Username = 'iletisim@tolgakocadag.com';
                                   $mail->Password = 'Tlgkcdg3434';
                                   $mail->SetFrom($mail->Username, $name.' '.$surname);
-                                  $mail->AddAddress('iletisim@tolgakocadag.com', $name.' '.$surname);
+                                  $mail->AddAddress('iletisim@tolgakocadag.com', 'Tolga Kocadag Blog');
                                   $mail->CharSet = 'UTF-8';
                                   $mail->Subject = $subject;
                                   $mail->MsgHTML('İsim:   '.$name.'  Soyisim:   '.$surname.'<br/>
@@ -156,7 +157,7 @@
                                     $mail->Port = 587;
                                     $mail->Username = 'iletisim@tolgakocadag.com';
                                     $mail->Password = 'Tlgkcdg3434';
-                                    $mail->SetFrom($mail->Username, 'Tolga Kocadağ Blog');
+                                    $mail->SetFrom($mail->Username, 'Tolga Kocadag Blog');
                                     $mail->AddAddress($email, ' ');
                                     $mail->CharSet = 'UTF-8';
                                     $mail->Subject = $subject;

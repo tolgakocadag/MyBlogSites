@@ -18,7 +18,7 @@ if(isset($_POST['add_post']) && isset($_SESSION['role'])){
     $post_visiblelabels=$_POST['post_visiblelabels'];
     $post_hit=0;
     $post_comment=0;
-    $new_title = multiexplode(array(",","|","{","!","#",">","<","/","*","+","-","=","%","&","*",";","}","[","]","(",")"," ","?"),$post_title);
+    $new_title = multiexplode(array(",","|",'.',"{","!","#",">","<","/","*","+","-","=","%","&","*",";","}","[","]","(",")"," ","?"),$post_title);
     foreach ($new_title as $key => $value) {
       $submit.=$new_title[$key]."-";
     }
@@ -35,6 +35,53 @@ if(isset($_POST['add_post']) && isset($_SESSION['role'])){
     $sql_add->close();
     fwrite($page, $text);
     fclose($page);
+    $newsletter = fopen( "../newspaper.txt" , "a+" );
+    while (!feof($newsletter))
+    {
+         $okunanveri = fgets($newsletter);
+         $mails=explode(',',$okunanveri);
+    }
+    fclose($newsletter);
+    include "../Backend/class.phpmailer.php";
+    foreach ($mails as $key => $value) {
+      if($value=="")
+      {
+        $mail = new PHPMailer();
+        $mail->IsSMTP();
+        $mail->SMTPAuth = true;
+        $mail->CharSet = 'utf-8';
+        $mail->Host = 'mail.tolgakocadag.com';
+        $mail->Port = 587;
+        $mail->Username = 'info@tolgakocadag.com';
+        $mail->Password = 'Tlgkcdg3434';
+        $mail->SetFrom($mail->Username, 'Tolga Kocadag Blog');
+        $mail->AddAddress($value,' ');
+        $mail->Subject = replace_tr($post_title);
+        $post_url=explode(".",$post_url);
+        $post_url=$post_url[0].".html";
+        $mail->MsgHTML('Merhaba,<br /><br />Yeni yazımız "'.$post_title.'" yayınlanmıştır. '.$post_explanation.' Hemen okumak için <a href=https://www.tolgakocadag.com/'.$post_url.'>tıklayınız.
+        </a><br /><br />Teşekkür ederiz.<br />tolgakocadag.com ');
+        $mail->Send();
+      }
+      else {
+        $mail = new PHPMailer();
+        $mail->IsSMTP();
+        $mail->SMTPAuth = true;
+        $mail->CharSet = 'utf-8';
+        $mail->Host = 'mail.tolgakocadag.com';
+        $mail->Port = 587;
+        $mail->Username = 'info@tolgakocadag.com';
+        $mail->Password = 'Tlgkcdg3434';
+        $mail->SetFrom($mail->Username, 'Tolga Kocadag Blog');
+        $mail->AddAddress($value,' ');
+        $mail->Subject = replace_tr($post_title);
+        $post_url=explode(".",$post_url);
+        $post_url=$post_url[0].".html";
+        $mail->MsgHTML('Merhaba,<br /><br />Yeni yazımız "'.$post_title.'" yayınlanmıştır. '.$post_explanation.' Hemen okumak için <a href=https://www.tolgakocadag.com/'.$post_url.'>tıklayınız.
+        </a><br /><br />Teşekkür ederiz.<br />tolgakocadag.com ');
+        $mail->Send();
+      }
+    }
   }
   header("Location: posts.php");
 }

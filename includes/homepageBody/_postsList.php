@@ -164,7 +164,7 @@
                         <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay="0.1s">
                             <!-- Post Thumb -->
                             <div class="post-thumb">
-                                <a href="about_me.html"><img style="height:150px;width:100%" src="<?php echo substr($post_image,3,500); ?>" alt=""></a>
+                                <a href="<?php echo $post_url; ?>"><img style="height:150px;width:100%" src="<?php echo substr($post_image,3,500); ?>" alt=""></a>
                             </div>
                             <!-- Post Content -->
                             <div class="post-content">
@@ -201,8 +201,7 @@
                                       }
                                   ?>
                                 </a>
-                                <p><?php echo substr($post_content,0,100)."..."; ?></p>
-                                <a href="<?php echo $post_url; ?>" class="read-more">Okumaya devam et...</a>
+                                <a href="<?php echo $post_url; ?>" class="read-more">Okumaya başla...</a>
                             </div>
                         </div>
                     </div>
