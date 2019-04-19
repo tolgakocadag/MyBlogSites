@@ -53,6 +53,11 @@
       }
     }
     echo "<url>
+      <loc>https://www.tolgakocadag.com/gizlilik-politikasi.html</loc>
+      <lastmod>".date('Y')."-".date('m')."-".date('d')."T".date('H:i:s')."+00:00</lastmod>
+      <priority>0.50</priority>
+    </url>";
+    echo "<url>
       <loc>https://www.tolgakocadag.com/404.html</loc>
       <lastmod>".date('Y')."-".date('m')."-".date('d')."T".date('H:i:s')."+00:00</lastmod>
       <priority>0.50</priority>

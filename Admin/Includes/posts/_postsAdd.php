@@ -18,7 +18,12 @@ if(isset($_POST['add_post']) && isset($_SESSION['role'])){
     $post_visiblelabels=$_POST['post_visiblelabels'];
     $post_hit=0;
     $post_comment=0;
-    $new_title = multiexplode(array(",","|",'.',"{","!","#",">","<","/","*","+","-","=","%","&","*",";","}","[","]","(",")"," ","?"),$post_title);
+    $new_title = multiexplode(array(",","|",'"','.',"{","!","#",">","<","/","*","+","-","=","%","&","*",";","}","[","]","(",")"," ","?"),$post_title);
+    foreach ($new_title as $key => $value) {
+      $submit.=$new_title[$key]."-";
+    }
+    $new_title=explode("'",$submit);
+    $submit="";
     foreach ($new_title as $key => $value) {
       $submit.=$new_title[$key]."-";
     }

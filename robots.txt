@@ -13,4 +13,4 @@ Disallow: /style.css
 Disallow: /ht.access
 Disallow: /php.ini
 
-Sitemap: https://tolgakocadag.xyz/sitemap.xml
+Sitemap: https://tolgakocadag.com/sitemap.xml

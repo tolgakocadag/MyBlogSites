@@ -30,8 +30,10 @@
 <footer class="footer_area">
     <div class="container">
         <div class="row">
+
             <div class="col-12">
                 <!-- Copywrite Text -->
+
                 <div class="copy_right_text text-center">
                   <?php
                       CreateMetaTag($metatag_name,$metatag_content);
@@ -39,10 +41,11 @@
                       $sql_list=$con->query($sql_list);
                       $row=$sql_list->fetch_assoc();
                       ?>
-                    <p><?php echo $row['copyright_NAME']; ?></p>
+                    <p><a style="color:gray" href='gizlilik-politikasi.html' target="_blank">Gizlilik Politikası</a><br /><?php echo $row['copyright_NAME']; ?></p>
                 </div>
             </div>
         </div>
+
     </div>
 </footer>
 
