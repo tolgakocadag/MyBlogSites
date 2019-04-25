@@ -39,7 +39,7 @@
             <tbody>
               <!--YAZILARI LİSTELEME-->
               <?php
-              $sql_list=dbmyAdminPagePostsList();
+              $sql_list=dbmyAdminPagePostsList2();
               $sql_list=$con->query($sql_list);
               $k=1;
               if($sql_list->num_rows>0)

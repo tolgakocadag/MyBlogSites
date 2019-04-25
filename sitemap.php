@@ -37,7 +37,7 @@
         </url>";
       }
     }
-    $postlist=dbmyAdminPagePostsList();
+    $postlist=dbmyAdminPagePostsList2();
     $postlist=$con->query($postlist);
     if($postlist->num_rows>0)
     {

@@ -80,6 +80,10 @@ function dbHitPlus(){
   return $sql_update;
 }
 function dbmyAdminPagePostsList(){
+  $sql_list ="SELECT * FROM posts WHERE post_HIDE='off'";
+  return $sql_list;
+}
+function dbmyAdminPagePostsList2(){
   $sql_list ="SELECT * FROM posts";
   return $sql_list;
 }

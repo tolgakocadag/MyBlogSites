@@ -1,0 +1,10 @@
+
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^tolgakocadag\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.tolgakocadag\.com$
+RewriteRule ^/?$ "https\:\/\/www\.tolgakocadag\.com\/" [R=301,L]
+RewriteRule ^(.*).html$ $1.php [L,NC]
+RewriteRule ^sitemap.xml$ sitemap.php [NC,L]
+ErrorDocument 404 https://www.tolgakocadag.com/404.html
