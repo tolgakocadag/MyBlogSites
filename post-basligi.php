@@ -251,7 +251,13 @@
                                       <a href='post-basligi.php'>
                                           <h1 class='post-headline'><?php echo $title; ?></h1>
                                       </a>
+                                      <div class="my-2" style="height:100px">
+                                        <?php yazi_ici_adsense(); ?>
+                                      </div>
                                       <p><?php echo $content; ?></p>
+                                      <div class="my-2" style="height:100px">
+                                        <?php yazi_ici_adsense(); ?>
+                                      </div>
                                   </div>
                               </div>
 
@@ -322,6 +328,9 @@
                                     </div>
                                   </div>
 
+                                  <div class='single-widget-area add-widget text-center my-2' style="height:100px">
+                                    <?php adsense_esnek(); ?>
+                                  </div>
                                   <!-- disqus yorumları -->
                                   <div id='disqus_thread'></div>
                                   <script>
@@ -332,6 +341,9 @@
                                       (d.head || d.body).appendChild(s);
                                     })();
                                   </script>
+                                  <div class='single-widget-area add-widget text-center my-2'>
+                                    <?php adsense_esnek(); ?>
+                                  </div>
                           </div>
                       </div>
                   </div>
@@ -382,7 +394,10 @@
                               <?php }} ?>
                               </div>
                           </div>
-
+                          <!-- Single Widget Area -->
+                          <div class='single-widget-area add-widget text-center'>
+                            <?php adsense_esnek(); ?>
+                          </div>
                           <!-- Single Widget Area -->
                           <div class='single-widget-area popular-post-widget'>
                               <div class='widget-title text-center'>
@@ -419,7 +434,8 @@
                           </div>
 
                           <!-- Single Widget Area -->
-                          <div class='single-widget-area add-widget text-center' style='height:200px'>
+                          <div class='single-widget-area add-widget text-center'>
+                            <?php adsense_esnek(); ?>
                           </div>
 
                           <!-- Single Widget Area -->
@@ -437,6 +453,10 @@
                                       newspaper();
                                    ?>
                               </div>
+                          </div>
+                          <!-- Single Widget Area -->
+                          <div class='single-widget-area add-widget text-center'>
+                            <?php adsense_esnek(); ?>
                           </div>
                       </div>
                   </div>

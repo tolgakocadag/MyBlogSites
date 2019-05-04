@@ -1,4 +1,4 @@
-<?php session_start();ob_start(); ?>
+<?php session_start();ob_start(); ?> 
   <?php include 'Backend/_database.php' ; ?>
   <?php include 'Backend/general_settings.php'; ?>
   <?php include 'Backend/_dbConnect.php'; ?>
@@ -402,7 +402,7 @@
                               <?php }} ?>
                               </div>
                           </div>
-                          <div class='single-widget-area add-widget text-center' style="height:200px">
+                          <div class='single-widget-area add-widget text-center'>
                             <?php adsense_esnek(); ?>
                           </div>
                           <!-- Single Widget Area -->
