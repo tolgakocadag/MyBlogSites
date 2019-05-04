@@ -260,11 +260,11 @@
                                       <a href='php-mysqli-ekleme--insert--islemi.php'>
                                           <h1 class='post-headline'><?php echo $title; ?></h1>
                                       </a>
-                                      <div class="my-2" style="height:100px">
+                                      <div class="my-2" >
                                         <?php yazi_ici_adsense(); ?>
                                       </div>
                                       <p><?php echo $content; ?></p>
-                                      <div class="my-2" style="height:100px">
+                                      <div class="my-2" >
                                         <?php yazi_ici_adsense(); ?>
                                       </div>
                                   </div>
@@ -338,7 +338,7 @@
                                   </div>
 
 
-                                  <div class='single-widget-area add-widget text-center my-2' style="height:100px">
+                                  <div class='single-widget-area add-widget text-center my-2' >
                                     <?php adsense_esnek(); ?>
                                   </div>
                                   <!-- disqus yorumları -->

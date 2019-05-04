@@ -151,6 +151,13 @@ function GetIP(){
 
 //Header Admatic
 function admaticHeader(){
+  echo '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3620138050695153",
+    enable_page_level_ads: true
+  });
+  </script>';
   echo '<ins data-publisher="adm-pub-107072239981" data-ad-type="masthead" class="adm-ads-area" data-ad-network="150976112058" data-ad-sid="501" data-ad-width="970" data-ad-height="250"></ins>
   <script src="//cdn2.admatic.com.tr/showad/showad.js" async></script>';
 }

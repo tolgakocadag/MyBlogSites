@@ -1,6 +1,14 @@
 
 <!-- ****** Our Creative Portfolio Area End ****** -->
-
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- footer -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:970px;height:250px"
+     data-ad-client="ca-pub-3620138050695153"
+     data-ad-slot="3907378975"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <!-- ****** Footer Social Icon Area Start ****** -->
 <div class="social_icon_area clearfix">
     <div class="container">
