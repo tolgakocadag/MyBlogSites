@@ -1,6 +1,6 @@
-
+<?php session_start();ob_start(); ?>
   <?php include 'Backend/_database.php' ; ?>
-  <?php include 'Backend/general_settings.php'; ses_start(); ob_st(); ?>
+  <?php include 'Backend/general_settings.php'; ?>
   <?php include 'Backend/_dbConnect.php'; ?>
   <!DOCTYPE html>
   <html lang='tr'>
@@ -200,6 +200,9 @@
               </div>
           </div>
       </header>
+      <!-- Admatic masthead 970x250 Ad Code START -->
+      <?php admaticHeader(); ?>
+      <!-- Admatic masthead 970x250 Ad Code END -->
       <!-- ****** Header Area End ****** -->
       <!-- ****** Breadcumb Area Start ****** -->
       <div class='breadcumb-nav'>
@@ -257,7 +260,13 @@
                                       <a href='404-hata-sayfasi-olusturma.php'>
                                           <h1 class='post-headline'><?php echo $title; ?></h1>
                                       </a>
+                                      <div class="my-2" style="height:100px">
+                                        <?php yazi_ici_adsense(); ?>
+                                      </div>
                                       <p><?php echo $content; ?></p>
+                                      <div class="my-2" style="height:100px">
+                                        <?php yazi_ici_adsense(); ?>
+                                      </div>
                                   </div>
                               </div>
 
@@ -327,7 +336,9 @@
                                                <?php }}}}?>
                                     </div>
                                   </div>
-
+                                  <div class='single-widget-area add-widget text-center my-2' style="height:100px">
+                                    <?php adsense_esnek(); ?>
+                                  </div>
                                   <!-- disqus yorumları -->
                                   <div id='disqus_thread'></div>
                                   <script>
@@ -338,6 +349,9 @@
                                       (d.head || d.body).appendChild(s);
                                     })();
                                   </script>
+                                  <div class='single-widget-area add-widget text-center my-2'>
+                                    <?php adsense_esnek(); ?>
+                                  </div>
                           </div>
                       </div>
                   </div>
@@ -388,7 +402,9 @@
                               <?php }} ?>
                               </div>
                           </div>
-
+                          <div class='single-widget-area add-widget text-center' style="height:200px">
+                            <?php adsense_esnek(); ?>
+                          </div>
                           <!-- Single Widget Area -->
                           <div class='single-widget-area popular-post-widget'>
                               <div class='widget-title text-center'>
@@ -425,7 +441,8 @@
                           </div>
 
                           <!-- Single Widget Area -->
-                          <div class='single-widget-area add-widget text-center' style='height:200px'>
+                          <div class='single-widget-area add-widget text-center'>
+                            <?php adsense_esnek(); ?>
                           </div>
 
                           <!-- Single Widget Area -->
@@ -443,6 +460,10 @@
                                       newspaper();
                                    ?>
                               </div>
+                          </div>
+                          <!-- Single Widget Area -->
+                          <div class='single-widget-area add-widget text-center'>
+                            <?php adsense_esnek(); ?>
                           </div>
                       </div>
                   </div>

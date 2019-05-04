@@ -1,8 +1,9 @@
 <?php
+  session_start();ob_start();
   include "../Backend/_database.php";
   include "../Backend/general_settings.php";
   include "../Backend/_dbConnect.php";
-  ses_start();ob_st();isLogin();
+  isLogin();
 
   if(isset($_POST["login"])){
     $username=$_POST["username"];

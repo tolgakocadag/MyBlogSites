@@ -58,9 +58,6 @@
                     </div>
                   <?php }} ?>
 <!--TEKLİ SİNGLE POST FINISH-->
-    <div class="col-12 mb-4" style="height:100px;">
-
-    </div>
 <!--4 LÜ GRUP -->
                     <!-- Single Post -->
                     <!--POST LİSTELEME-->
@@ -131,10 +128,6 @@
                     </div>
                   <?php }} ?>
 <!--4LÜ GRUP FINISH-->
-                    <!-- ******* List Blog Area Start ******* -->
-                    <div class="col-12 mb-4" style="height:100px;">
-
-                    </div>
 <!--4LÜ COLOMN  GRUP-->
                     <!-- Single Post -->
                     <!--POST LİSTELEME-->

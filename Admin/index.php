@@ -90,7 +90,7 @@
               </div>
             </div>
           </div>
-
+<?php print_r($_SESSION); ?>
         </div>
       </div>
 <?php include "Includes/_Footer.php"; ?>

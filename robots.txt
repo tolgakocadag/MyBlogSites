@@ -1,16 +1,5 @@
 User-Agent: *
 Allow:
 Disallow: /Admin
-Disallow: /Backend
-Disallow: /css
-Disallow: /fonts
-Disallow: /img
-Disallow: /includes
-Disallow: /js
-Disallow: /cgi-bin
-Disallow: /tinymce
-Disallow: /style.css
-Disallow: /ht.access
-Disallow: /php.ini
 
 Sitemap: https://tolgakocadag.com/sitemap.xml

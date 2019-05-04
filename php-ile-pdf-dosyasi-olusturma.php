@@ -1,11 +1,11 @@
-
+<?php session_start();ob_start(); ?>
   <?php include 'Backend/_database.php' ; ?>
-  <?php include 'Backend/general_settings.php'; ses_start(); ob_st(); ?>
+  <?php include 'Backend/general_settings.php'; ?>
   <?php include 'Backend/_dbConnect.php'; ?>
   <!DOCTYPE html>
   <html lang='tr'>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86060213-3"></script>
+  <script async src='https://www.googletagmanager.com/gtag/js?id=UA-86060213-3'></script>
   <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -31,8 +31,8 @@
   }
   ?>
   <?php
-      $title='X-Men Dark Phoenix full izle';
-      if(isset($_SESSION['X-Men Dark Phoenix full izle']))
+      $title='PHP ile PDF Dosyası Oluşturma';
+      if(isset($_SESSION['PHP ile PDF Dosyası Oluşturma']))
       {
       }
       else{
@@ -41,7 +41,7 @@
         $hit_update->execute();
         $hit_update->close();
       }
-      $_SESSION['X-Men Dark Phoenix full izle']=GetIP();
+      $_SESSION['PHP ile PDF Dosyası Oluşturma']=GetIP();
       $sql_list=dbmyAdminPagePostsAddTitleControl($title);
       $sql_list=$con->query($sql_list);
       $row=$sql_list->fetch_assoc();
@@ -200,6 +200,9 @@
               </div>
           </div>
       </header>
+<!-- Admatic masthead 970x250 Ad Code START -->
+<?php admaticHeader(); ?>
+<!-- Admatic masthead 970x250 Ad Code END -->
       <!-- ****** Header Area End ****** -->
       <!-- ****** Breadcumb Area Start ****** -->
       <div class='breadcumb-nav'>
@@ -242,7 +245,7 @@
                                               </div>
                                               <!-- Post Date -->
                                               <div class='post-date'>
-                                                  <a href='#'>Nisan 23, 2019</a>
+                                                  <a href='#'>Mayıs 02, 2019</a>
                                               </div>
                                           </div>
                                           <!-- Post Comment & Share Area -->
@@ -254,7 +257,7 @@
                                               </div>
                                           </div>
                                       </div>
-                                      <a href='x-men-dark-phoenix-full-izle.php'>
+                                      <a href='php-ile-pdf-dosyasi-olusturma.php'>
                                           <h1 class='post-headline'><?php echo $title; ?></h1>
                                       </a>
                                       <p><?php echo $content; ?></p>

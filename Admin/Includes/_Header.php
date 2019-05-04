@@ -1,10 +1,11 @@
+<?php session_start();ob_start(); ?>
 <!DOCTYPE html>
 <html lang="tr">
 <?php include "../Backend/_database.php"; ?>
 <?php include "../Backend/general_settings.php"; ?>
 <?php include "../Backend/_dbConnect.php"; ?>
 <?php include "../Backend/createPage.php"; ?>
-<?php ses_start();ob_st();isLogin();  ?>
+<?php isLogin();  ?>
 <head>
 
   <meta charset="utf-8">
@@ -13,7 +14,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>Admin Paneli</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

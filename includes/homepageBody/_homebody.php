@@ -1,3 +1,13 @@
+<!-- Admatic masthead 970x250 Ad Code START -->
+<?php admaticHeader(); ?>
+<!-- Admatic masthead 970x250 Ad Code END -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: "ca-pub-3620138050695153",
+  enable_page_level_ads: true
+});
+</script>
 <!-- ****** Welcome Post Area Start ****** -->
 <!-- ****** Blog Area Start ****** -->
 <section class="blog_area section_padding_0_80 my-4">
@@ -56,7 +66,10 @@
                           <?php }} ?>
                         </div>
                     </div>
-
+                    <!-- Single Widget Area -->
+                    <div class="single-widget-area add-widget text-center">
+                          <?php adsense_esnek(); ?>
+                    </div>
                     <!-- Single Widget Area -->
                     <div class='single-widget-area popular-post-widget'>
                         <div class='widget-title text-center'>
@@ -88,14 +101,8 @@
                         </div>
                       <?php }} ?>
                     <!-- Single Widget Area -->
-                    <div class="single-widget-area add-widget text-center" style="height:200px">
-                      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                      <script>
-                      (adsbygoogle = window.adsbygoogle || []).push({
-                        google_ad_client: "ca-pub-3620138050695153",
-                        enable_page_level_ads: true
-                      });
-                    </script>
+                    <div class="single-widget-area add-widget text-center">
+                          <?php adsense_esnek(); ?>
                     </div>
 
                     <!-- Single Widget Area -->
