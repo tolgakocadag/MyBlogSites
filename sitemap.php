@@ -29,7 +29,7 @@
       while ($row=$sql_list->fetch_assoc()) {
         $menu_url=$row['menu_URL'];
         $menu_url=explode(".",$menu_url);
-        $menu_url=$menu_url[0].".html";
+        $menu_url=$menu_url[0];
         echo "<url>
           <loc>https://www.tolgakocadag.com/".$menu_url."</loc>
           <lastmod>".date('Y')."-".date('m')."-".date('d')."T".date('H:i:s')."+00:00</lastmod>
@@ -44,7 +44,7 @@
       while ($row=$postlist->fetch_assoc()) {
         $post_url=$row['post_URL'];
         $post_url=explode(".",$post_url);
-        $post_url=$post_url[0].".html";
+        $post_url=$post_url[0];
         echo "<url>
           <loc>https://www.tolgakocadag.com/".$post_url."</loc>
           <lastmod>".date('Y')."-".date('m')."-".date('d')."T".date('H:i:s')."+00:00</lastmod>
@@ -53,12 +53,12 @@
       }
     }
     echo "<url>
-      <loc>https://www.tolgakocadag.com/gizlilik-politikasi.html</loc>
+      <loc>https://www.tolgakocadag.com/gizlilik-politikasi</loc>
       <lastmod>".date('Y')."-".date('m')."-".date('d')."T".date('H:i:s')."+00:00</lastmod>
       <priority>0.50</priority>
     </url>";
     echo "<url>
-      <loc>https://www.tolgakocadag.com/404.html</loc>
+      <loc>https://www.tolgakocadag.com/404</loc>
       <lastmod>".date('Y')."-".date('m')."-".date('d')."T".date('H:i:s')."+00:00</lastmod>
       <priority>0.50</priority>
     </url>";

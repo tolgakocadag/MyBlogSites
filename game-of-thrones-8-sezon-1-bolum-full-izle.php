@@ -137,7 +137,7 @@
                         -->
                           <!-- Search Button Area -->
                           <!-- Search Form -->
-                          <form action='search.html' method='get'>
+                          <form action='search' method='get'>
                             <div class='form-group row my-2'>
                                 <input class='form-control col-10' type='search' name='search' id='search-anything' placeholder='Bir şey ara...'>
                                 <button class='form-control col-2 fa fa-search' type='submit' style='background:none;border:none' name='searchBtn' href='#'></button>
@@ -281,7 +281,7 @@
                                       $tag_url.=$v.'+';
                                     }
                                     $tag_url=rtrim($tag_url,'+');
-                                    echo '<a href=search.html?search='.$tag_url.'>'.$tags[$key].'</a>&nbsp;';
+                                    echo '<a href=search?search='.$tag_url.'>'.$tags[$key].'</a>&nbsp;';
                                   }
                                ?>
                               </div>
@@ -306,7 +306,7 @@
                                           $post_url=$row['post_URL'];
                                           $post_url=explode('.',$post_url);
                                           $post_url=$post_url[0];
-                                          $post_url.='.html';
+                                          $post_url.='';
                                           $post_image=$row['post_IMAGE'];
                                           if(array_search($post_id, $isAdd)===FALSE)
                                           {
@@ -426,7 +426,7 @@
                                     $post_url=$row['post_URL'];
                                     $post_url=explode('.',$post_url);
                                     $post_url=$post_url[0];
-                                    $post_url.='.html';
+                                    $post_url.='';
                                     $post_image=$row['post_IMAGE'];
                                ?>
                               <!-- Single Popular Post -->

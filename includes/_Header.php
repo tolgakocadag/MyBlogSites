@@ -63,7 +63,7 @@
                 <div class="col-5 col-sm-6">
                     <!--  Top Social bar start -->
                     <div class="top_social_bar">
-                      <a href="index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+                      <a href="index"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
                       <?php
                       $sql_list=dbmyAdminSocialMediaList();
                       $sql_list=$con->query($sql_list);
@@ -83,16 +83,16 @@
                         <!--
                         <div class="login_register_area d-flex">
                             <div class="login">
-                                <a href="register.html">Giriş Yap</a>
+                                <a href="register">Giriş Yap</a>
                             </div>
                             <div class="register">
-                                <a href="register.html">Üye ol</a>
+                                <a href="register">Üye ol</a>
                             </div>
                         </div>
                       -->
                         <!-- Search Button Area -->
                         <!-- Search Form -->
-                        <form action="search.html" method="get">
+                        <form action="search" method="get">
                           <div class="form-group row my-2">
                               <input class="form-control col-10" type="search" name="search" id="search-anything" placeholder="Bir şey ara...">
                               <button class="form-control col-2 fa fa-search" type="submit" style="background:none;border:none" name="searchBtn" href="#"></button>
@@ -112,7 +112,7 @@
                 <!-- Logo Area Start -->
                 <div class="col-12">
                     <div class="logo_area text-center">
-                        <a href="index.html" class="yummy-logo"><?php echo $sitetitle; ?></a>
+                        <a href="index" class="yummy-logo"><?php echo $sitetitle; ?></a>
                     </div>
                 </div>
             </div>
