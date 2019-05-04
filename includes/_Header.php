@@ -4,7 +4,6 @@
 <?php include "Backend/createPage.php";?>
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
   <?php
   $sql_list=dbMetaTagsList();

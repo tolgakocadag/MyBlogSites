@@ -472,7 +472,9 @@
       </section>
       <!-- ****** Single Blog Area End ****** -->
 
-
+      <!-- Admatic masthead 970x250 Ad Code START -->
+      <?php footeradd(); ?>
+      <!-- Admatic masthead 970x250 Ad Code END -->
 
       <!-- ****** Footer Social Icon Area Start ****** -->
       <div class='social_icon_area clearfix'>
@@ -513,7 +515,7 @@
                             $sql_list=$con->query($sql_list);
                             $row=$sql_list->fetch_assoc();
                        ?>
-                     <p><?php echo $row['copyright_NAME']; ?></p>
+                     <?php include "includes/footercopyright.php"; ?>
                       </div>
                   </div>
               </div>

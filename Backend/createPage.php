@@ -5,9 +5,9 @@ function createTextforPage($title,$post_date,$author,$url){
   $date=getMonth($date[1])." ".$date[0].", ".substr($date[2],0,4);
   $post_image=substr($image,3,500);
   $hit=$hit+1;
-  $total.="
+  $total.="<?php session_start();ob_start(); ?>
   <?php include 'Backend/_database.php' ; ?>
-  <?php include 'Backend/general_settings.php'; ses_start(); ob_st(); ?>
+  <?php include 'Backend/general_settings.php';?>
   <?php include 'Backend/_dbConnect.php'; ?>
   <!DOCTYPE html>
   <html lang='tr'>
@@ -207,6 +207,9 @@ function createTextforPage($title,$post_date,$author,$url){
               </div>
           </div>
       </header>
+      <!-- Admatic masthead 970x250 Ad Code START -->
+      <?php admaticHeader(); ?>
+      <!-- Admatic masthead 970x250 Ad Code END -->
       <!-- ****** Header Area End ****** -->
       <!-- ****** Breadcumb Area Start ****** -->
       <div class='breadcumb-nav'>
@@ -264,7 +267,13 @@ function createTextforPage($title,$post_date,$author,$url){
                                       <a href='{$url}'>
                                           <h1 class='post-headline'><?php echo $"."title; ?></h1>
                                       </a>
+                                      <div class='my-2'>
+                                        <?php yazi_ici_adsense(); ?>
+                                      </div>
                                       <p><?php echo $"."content; ?></p>
+                                      <div class='my-2'>
+                                        <?php yazi_ici_adsense(); ?>
+                                      </div>
                                   </div>
                               </div>
 
@@ -335,6 +344,9 @@ function createTextforPage($title,$post_date,$author,$url){
                                     </div>
                                   </div>
 
+                                  <div class='single-widget-area add-widget text-center my-2'>
+                                    <?php adsense_esnek(); ?>
+                                  </div>
                                   <!-- disqus yorumları -->
                                   <div id='disqus_thread'></div>
                                   <script>
@@ -345,6 +357,9 @@ function createTextforPage($title,$post_date,$author,$url){
                                       (d.head || d.body).appendChild(s);
                                     })();
                                   </script>
+                                  <div class='single-widget-area add-widget text-center my-2'>
+                                    <?php adsense_esnek(); ?>
+                                  </div>
                           </div>
                       </div>
                   </div>
@@ -395,7 +410,10 @@ function createTextforPage($title,$post_date,$author,$url){
                               <?php }} ?>
                               </div>
                           </div>
-
+                          <!-- Single Widget Area -->
+                          <div class='single-widget-area add-widget text-center'>
+                            <?php adsense_esnek(); ?>
+                          </div>
                           <!-- Single Widget Area -->
                           <div class='single-widget-area popular-post-widget'>
                               <div class='widget-title text-center'>
@@ -432,7 +450,8 @@ function createTextforPage($title,$post_date,$author,$url){
                           </div>
 
                           <!-- Single Widget Area -->
-                          <div class='single-widget-area add-widget text-center' style='height:200px'>
+                          <div class='single-widget-area add-widget text-center'>
+                            <?php adsense_esnek(); ?>
                           </div>
 
                           <!-- Single Widget Area -->
@@ -451,6 +470,10 @@ function createTextforPage($title,$post_date,$author,$url){
                                    ?>
                               </div>
                           </div>
+                          <!-- Single Widget Area -->
+                          <div class='single-widget-area add-widget text-center'>
+                            <?php adsense_esnek(); ?>
+                          </div>
                       </div>
                   </div>
               </div>
@@ -458,7 +481,9 @@ function createTextforPage($title,$post_date,$author,$url){
       </section>
       <!-- ****** Single Blog Area End ****** -->
 
-
+      <!-- Admatic masthead 970x250 Ad Code START -->
+      <?php footeradd(); ?>
+      <!-- Admatic masthead 970x250 Ad Code END -->
 
       <!-- ****** Footer Social Icon Area Start ****** -->
       <div class='social_icon_area clearfix'>
@@ -499,7 +524,7 @@ function createTextforPage($title,$post_date,$author,$url){
                             $"."sql_list=$"."con->query($"."sql_list);
                             $"."row=$"."sql_list->fetch_assoc();
                        ?>
-                     <p><?php echo $"."row['copyright_NAME']; ?></p>
+                     <?php footercopyright(); ?>
                       </div>
                   </div>
               </div>
