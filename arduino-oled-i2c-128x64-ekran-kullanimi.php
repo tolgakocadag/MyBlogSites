@@ -1,11 +1,11 @@
 <?php session_start();ob_start(); ?>
   <?php include 'Backend/_database.php' ; ?>
-  <?php include 'Backend/general_settings.php'; ?>
+  <?php include 'Backend/general_settings.php';?>
   <?php include 'Backend/_dbConnect.php'; ?>
   <!DOCTYPE html>
   <html lang='tr'>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86060213-3"></script>
+  <script async src='https://www.googletagmanager.com/gtag/js?id=UA-86060213-3'></script>
   <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -31,8 +31,8 @@
   }
   ?>
   <?php
-      $title='PHP Resim Kaydetme';
-      if(isset($_SESSION['PHP Resim Kaydetme']))
+      $title='Arduino Oled i2c 128x64 Ekran Kullanımı';
+      if(isset($_SESSION['Arduino Oled i2c 128x64 Ekran Kullanımı']))
       {
       }
       else{
@@ -41,7 +41,7 @@
         $hit_update->execute();
         $hit_update->close();
       }
-      $_SESSION['PHP Resim Kaydetme']=GetIP();
+      $_SESSION['Arduino Oled i2c 128x64 Ekran Kullanımı']=GetIP();
       $sql_list=dbmyAdminPagePostsAddTitleControl($title);
       $sql_list=$con->query($sql_list);
       $row=$sql_list->fetch_assoc();
@@ -87,7 +87,7 @@
 
       <!-- Core Stylesheet -->
       <link href='style.css' rel='stylesheet'>
-
+      
       <!-- posts css -->
       <link href='css/posts.css' rel='stylesheet'>
 
@@ -203,9 +203,9 @@
               </div>
           </div>
       </header>
-<!-- Admatic masthead 970x250 Ad Code START -->
-<?php admaticHeader(); ?>
-<!-- Admatic masthead 970x250 Ad Code END -->
+      <!-- Admatic masthead 970x250 Ad Code START -->
+      <?php admaticHeader(); ?>
+      <!-- Admatic masthead 970x250 Ad Code END -->
       <!-- ****** Header Area End ****** -->
       <!-- ****** Breadcumb Area Start ****** -->
       <div class='breadcumb-nav'>
@@ -248,7 +248,7 @@
                                               </div>
                                               <!-- Post Date -->
                                               <div class='post-date'>
-                                                  <a href='#'>Nisan 19, 2019</a>
+                                                  <a href='#'>Mayıs 07, 2019</a>
                                               </div>
                                           </div>
                                           <!-- Post Comment & Share Area -->
@@ -260,14 +260,14 @@
                                               </div>
                                           </div>
                                       </div>
-                                      <a href='php-resim-kaydetme.php'>
+                                      <a href='arduino-oled-i2c-128x64-ekran-kullanimi.php'>
                                           <h1 class='post-headline'><?php echo $title; ?></h1>
                                       </a>
-                                      <div class="my-2" >
+                                      <div class='my-2'>
                                         <?php yazi_ici_adsense(); ?>
                                       </div>
                                       <p><?php echo $content; ?></p>
-                                      <div class="my-2" >
+                                      <div class='my-2'>
                                         <?php yazi_ici_adsense(); ?>
                                       </div>
                                   </div>
@@ -327,7 +327,7 @@
                                     </div>
                                   </div>
 
-                                  <div class='single-widget-area add-widget text-center my-2' >
+                                  <div class='single-widget-area add-widget text-center my-2'>
                                     <?php adsense_esnek(); ?>
                                   </div>
                                   <!-- disqus yorumları -->
@@ -507,7 +507,7 @@
                             $sql_list=$con->query($sql_list);
                             $row=$sql_list->fetch_assoc();
                        ?>
-                     <?php include "includes/footercopyright.php"; ?>
+                     <?php include 'includes/footercopyright.php'; ?>
                       </div>
                   </div>
               </div>

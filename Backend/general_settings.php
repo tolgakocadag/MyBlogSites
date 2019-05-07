@@ -178,6 +178,12 @@ function footeradd(){/*
 
 //yatay banner adsense 90height
 function adsense_banner(){
+  echo '<script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+  </script>';
+  echo '<amp-auto-ads type="adsense"
+                data-ad-client="ca-pub-3620138050695153">
+  </amp-auto-ads>';
   echo '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 90banner -->
 <ins class="adsbygoogle"
@@ -198,6 +204,20 @@ function yazi_ici_adsense(){
      data-ad-format="fluid"
      data-ad-client="ca-pub-3620138050695153"
      data-ad-slot="8884551093"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>';
+}
+
+//adsense feed içi
+function adsense_feedici(){
+  echo '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-fb+5w+4e-db+86"
+     data-ad-client="ca-pub-3620138050695153"
+     data-ad-slot="8390561225"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>';

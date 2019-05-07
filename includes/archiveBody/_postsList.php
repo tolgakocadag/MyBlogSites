@@ -10,17 +10,18 @@ if($page==""||$page==1){
   $starter_post=0;
 }
 else{
-  $starter_post=($page*9)-9;
+  $starter_post=($page*7)-7;
 }
 //postları sayfalama
 $count_post=dbmyAdminPagePostsList();
 $count_post=$con->query($count_post);
 $count_post=mysqli_num_rows($count_post);
-$count=ceil($count_post/9);
+$count=ceil($count_post/7);
 $sql_list=dbmyPostsList($starter_post);
 $sql_list =$con->query($sql_list);
 if($sql_list->num_rows>0)
 {
+  $adsense_Sayaci=0;
   while ($row=$sql_list->fetch_assoc()) {
     if($row['post_HIDE']=="on"){
       continue;
@@ -82,7 +83,19 @@ if($sql_list->num_rows>0)
           </div>
       </div>
   </div>
-<?php }} ?>
+<?php
+if($adsense_Sayaci==1||$adsense_Sayaci==5)
+{
+  ?>
+  <div class="col-12 col-md-6 col-lg-4">
+      <div class="single-post wow fadeInUp" data-wow-delay="0.5s">
+        <?php adsense_esnek(); ?>
+      </div>
+  </div>
+  <?php
+}
+$adsense_Sayaci++;
+ }} ?>
   <div class="col-12">
       <div class="pagination-area d-sm-flex mt-15">
           <nav aria-label="#">

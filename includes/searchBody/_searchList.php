@@ -6,6 +6,7 @@ if (isset($_GET['search'])) {
   $sql_list =$con->query($sql_list);
   if($sql_list->num_rows>0)
   {
+    $adsense_Sayaci=0;
     while ($row=$sql_list->fetch_assoc()) {
       /*if($row['post_HIDE']=="on"){
         continue;
@@ -67,27 +68,19 @@ if (isset($_GET['search'])) {
             </div>
         </div>
     </div>
-      <?php }?>
-    <div class="col-12">
-      <!--
-        <div class="pagination-area d-sm-flex mt-15">
-            <nav aria-label="#">
-                <ul class="pagination">
-                    <li class="page-item active">
-                        <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="page-status">
-                <p>Page 1 of 60 results</p>
+      <?php
+      if($adsense_Sayaci==2||$adsense_Sayaci==10||$adsense_Sayaci%20==0)
+      {
+        ?>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="single-post wow fadeInUp" data-wow-delay="0.5s">
+              <?php adsense_esnek(); ?>
             </div>
-          -->
         </div>
+        <?php
+      }
+      $adsense_Sayaci++;
+     }?>
     </div>
   <?php }?>
 <?php

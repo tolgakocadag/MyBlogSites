@@ -18,7 +18,7 @@ function dbAboutEdit(){
   return $sql_update;
 }
 function dbmyPostsList($count){
-  $sql_list ="SELECT * FROM posts ORDER BY post_HIT DESC LIMIT $count,9";
+  $sql_list ="SELECT * FROM posts ORDER BY post_HIT DESC LIMIT $count,7";
   return $sql_list;
 }
 function dbmyPopulerPostsList(){

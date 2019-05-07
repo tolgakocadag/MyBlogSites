@@ -88,6 +88,9 @@
       <!-- Core Stylesheet -->
       <link href='style.css' rel='stylesheet'>
 
+      <!-- posts css -->
+      <link href='css/posts.css' rel='stylesheet'>
+      
       <!-- Responsive CSS -->
       <link href='css/responsive/responsive.css' rel='stylesheet'>
 
@@ -233,7 +236,7 @@
                               <div class='single-post'>
                                   <!-- Post Thumb -->
                                   <div class='post-thumb'>
-                                      <img style=width:100% src='<?php echo substr($image,3,500); ?>' alt='<?php echo $title; ?>'>
+                                      <img class="mainimg" src='<?php echo substr($image,3,500); ?>' alt='<?php echo $title; ?>'>
                                   </div>
                                   <!-- Post Content -->
                                   <div class='post-content'>

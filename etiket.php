@@ -21,6 +21,7 @@ function calistir(){
     cikti+=cik+' türkçe dublaj izle,';
     cikti+=cik+' türkçe altyazılı izle,';
     cikti+=cik+' ingilizce altyazılı izle';
+    cikti+='<br />https://i.hizliresim.com/k9Vq0v.gif<br />HERHANGİ BİR REKLAMA TIKLADIKTAN SONRA FİLM AŞAĞIDA GÖRÜNTÜLENECEKTİR!'
     document.getElementById('cikti').innerHTML=cikti;
 }
 </script>

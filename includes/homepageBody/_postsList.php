@@ -24,7 +24,7 @@
                         <div class="single-post wow fadeInUp" data-wow-delay=".0s">
                             <!-- Post Thumb -->
                             <div class="post-thumb">
-                                <a href="<?php echo $post_url; ?>"><img style="height:300px;width:100%" src="<?php echo substr($post_image,3,500); ?>" alt=""></a>
+                                <a href="<?php echo $post_url; ?>"><img style="height:300px;width:75%;margin-left:12%;margin-right:12%" src="<?php echo substr($post_image,3,500); ?>" alt=""></a>
                             </div>
                             <!-- Post Content -->
                             <div class="post-content">
