@@ -1,4 +1,4 @@
-<div style="height:0px;" class='tags-area'>
+<div style='height:0px;' class='tags-area'>
 <?php
 $tags=explode(',',$visiblelabels);
     foreach ($tags as $key => $value) {
@@ -8,7 +8,7 @@ $tags=explode(',',$visiblelabels);
         $tag_url.=$v.'+';
       }
       $tag_url=rtrim($tag_url,'+');
-      echo '<a style="visibility:hidden" href=search?search='.$tag_url.'>'.$tags[$key].'</a>&nbsp;';
+      echo "<a style='visibility:hidden' href=search?search='.$tag_url.'>'.$tags[$key].'</a>&nbsp;";
     }
  ?>
 </div>
