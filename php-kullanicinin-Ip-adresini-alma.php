@@ -272,20 +272,7 @@
                               </div>
 
                               <!-- Tags Area -->
-                              <div class='tags-area'>
-                              <?php
-                              $tags=explode(',',$visiblelabels);
-                                  foreach ($tags as $key => $value) {
-                                    $t_url=explode(' ',$tags[$key]);
-                                    $tag_url='';
-                                    foreach ($t_url as $k => $v) {
-                                      $tag_url.=$v.'+';
-                                    }
-                                    $tag_url=rtrim($tag_url,'+');
-                                    echo '<a href=search?search='.$tag_url.'>'.$tags[$key].'</a>&nbsp;';
-                                  }
-                               ?>
-                              </div>
+                              <?php include "includes/postPages/visibleTags.php"; ?>
 
                               <!-- Related Post Area -->
                               <div class='related-post-area section_padding_50'>

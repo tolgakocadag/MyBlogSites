@@ -162,9 +162,18 @@ function admaticHeader(){
   (adsbygoogle = window.adsbygoogle || []).push({});
   </script>';
 }
-function footeradd(){
+function footeradd(){/*
   echo '<ins data-publisher="adm-pub-107072239981" data-ad-type="masthead" class="adm-ads-area" data-ad-network="150976112058" data-ad-sid="501" data-ad-width="970" data-ad-height="250"></ins>
-  <script src="//cdn2.admatic.com.tr/showad/showad.js" async></script>';
+  <script src="//cdn2.admatic.com.tr/showad/showad.js" async></script>';*/
+  echo '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- footer -->
+  <center><ins class="adsbygoogle"
+       style="display:inline-block;width:970px;height:250px"
+       data-ad-client="ca-pub-3620138050695153"
+       data-ad-slot="3907378975"></ins></center>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>';
 }
 
 //yatay banner adsense 90height
@@ -172,7 +181,7 @@ function adsense_banner(){
   echo '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 90banner -->
 <ins class="adsbygoogle"
-     style="display:inline-block;width:970px;height:90px"
+     style="display:inline-block;width:100%;height:90px"
      data-ad-client="ca-pub-3620138050695153"
      data-ad-slot="3454408246"></ins>
 <script>

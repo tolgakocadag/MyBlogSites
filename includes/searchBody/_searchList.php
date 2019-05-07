@@ -7,9 +7,9 @@ if (isset($_GET['search'])) {
   if($sql_list->num_rows>0)
   {
     while ($row=$sql_list->fetch_assoc()) {
-      if($row['post_HIDE']=="on"){
+      /*if($row['post_HIDE']=="on"){
         continue;
-      }
+      }*/
       $post_id=$row['post_ID'];
       $post_title=$row['post_TITLE'];
       $post_date=$row['post_DATE'];
@@ -95,7 +95,7 @@ if (isset($_GET['search'])) {
     <div class="col-12">
         <div class="single-post wow fadeInUp" data-wow-delay="0.5s">
           <b>Üzgünüz! Hiç sonuç bulunamadı. Acaba tekrar denemek ister misiniz?</b>
-          <form action="" method="post">
+          <form action="search" method="get">
             <div class="form-group row my-4">
                 <input class="form-control col-10" type="search" name="search" id="search-anything" placeholder="Bir şey ara...">
                 <button class="form-control col-2 fa fa-search" type="submit" style="background:none;border:none" name="searchBtn" href="#"></button>

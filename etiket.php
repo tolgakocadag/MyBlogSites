@@ -15,6 +15,8 @@ function calistir(){
     var cik=document.getElementById('girdi').value;
     var cikti=cik+',';
     cikti+=cik+' full izle,';
+    cikti+=cik+' full hd izle,';
+    cikti+=cik+' hd izle,';
     cikti+=cik+' full indir,';
     cikti+=cik+' türkçe dublaj izle,';
     cikti+=cik+' türkçe altyazılı izle,';

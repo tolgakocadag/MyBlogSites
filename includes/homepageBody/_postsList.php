@@ -58,6 +58,7 @@
                     </div>
                   <?php }} ?>
 <!--TEKLİ SİNGLE POST FINISH-->
+<?php adsense_banner(); ?>
 <!--4 LÜ GRUP -->
                     <!-- Single Post -->
                     <!--POST LİSTELEME-->
@@ -82,7 +83,7 @@
                         $post_url=$post_url[0];
                         $post_url.="";
                       ?>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6 my-2">
                         <div class="single-post wow fadeInUp" data-wow-delay="0s">
                             <!-- Post Thumb -->
                             <div class="post-thumb">
@@ -128,6 +129,7 @@
                     </div>
                   <?php }} ?>
 <!--4LÜ GRUP FINISH-->
+<?php adsense_banner(); ?>
 <!--4LÜ COLOMN  GRUP-->
                     <!-- Single Post -->
                     <!--POST LİSTELEME-->
@@ -153,7 +155,7 @@
                         $post_url=$post_url[0];
                         $post_url.="";
                         ?>
-                    <div class="col-12">
+                    <div class="col-12 my-2">
                         <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay="0.1s">
                             <!-- Post Thumb -->
                             <div class="post-thumb">
@@ -200,3 +202,4 @@
                     </div>
                     <?php }} ?>
 <!--4LÜ COLOMN  GRUP FINISH-->
+<?php adsense_banner(); ?>

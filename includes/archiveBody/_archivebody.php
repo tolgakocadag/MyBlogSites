@@ -1,4 +1,5 @@
 <!-- ****** Breadcumb Area Start ****** -->
+<?php adsense_banner(); ?>
 <div class="breadcumb-area" style="background-image: url(img/bg-img/breadcumb.jpg);">
     <div class="container h-100">
         <div class="row h-100 align-items-center">

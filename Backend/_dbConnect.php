@@ -97,7 +97,7 @@ function dbmyAdminPagePostsAddTitleControl($title){
   return $sql_list;
 }
 function dbsearchPostsList($search){
-  $sql_list ="SELECT * FROM posts WHERE post_TITLE LIKE '%{$search}%'";
+  $sql_list ="SELECT * FROM posts WHERE post_TAG LIKE '%{$search}%' OR post_TITLE LIKE '%{$search}%'";
   return $sql_list;
 }
 function dbrelatedPostsList($search){

@@ -5,6 +5,9 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+  <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+  </script>
   <?php
   $sql_list=dbMetaTagsList();
   $sql_list=$con->query($sql_list);
@@ -53,7 +56,9 @@
     <div id="preloader">
         <div class="yummy-load"></div>
     </div>
-
+    <amp-auto-ads type="adsense"
+                  data-ad-client="ca-pub-3620138050695153">
+    </amp-auto-ads>
 
 
     <!-- ****** Top Header Area Start ****** -->
@@ -63,7 +68,7 @@
                 <div class="col-5 col-sm-6">
                     <!--  Top Social bar start -->
                     <div class="top_social_bar">
-                      <a href="index"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+                      <a href="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
                       <?php
                       $sql_list=dbmyAdminSocialMediaList();
                       $sql_list=$con->query($sql_list);
@@ -112,7 +117,7 @@
                 <!-- Logo Area Start -->
                 <div class="col-12">
                     <div class="logo_area text-center">
-                        <a href="index" class="yummy-logo"><?php echo $sitetitle; ?></a>
+                        <a href="/" class="yummy-logo"><?php echo $sitetitle; ?></a>
                     </div>
                 </div>
             </div>
