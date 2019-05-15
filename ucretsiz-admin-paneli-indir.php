@@ -1,11 +1,11 @@
 <?php session_start();ob_start(); ?>
   <?php include 'Backend/_database.php' ; ?>
-  <?php include 'Backend/general_settings.php'; ?>
+  <?php include 'Backend/general_settings.php';?>
   <?php include 'Backend/_dbConnect.php'; ?>
   <!DOCTYPE html>
   <html lang='tr'>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86060213-3"></script>
+  <script async src='https://www.googletagmanager.com/gtag/js?id=UA-86060213-3'></script>
   <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -31,8 +31,8 @@
   }
   ?>
   <?php
-      $title='PHP Mysqli ekleme (insert) işlemi';
-      if(isset($_SESSION['PHP Mysqli ekleme (insert) işlemi']))
+      $title='Ücretsiz Admin Paneli İndir';
+      if(isset($_SESSION['Ücretsiz Admin Paneli İndir']))
       {
       }
       else{
@@ -41,7 +41,7 @@
         $hit_update->execute();
         $hit_update->close();
       }
-      $_SESSION['PHP Mysqli ekleme (insert) işlemi']=GetIP();
+      $_SESSION['Ücretsiz Admin Paneli İndir']=GetIP();
       $sql_list=dbmyAdminPagePostsAddTitleControl($title);
       $sql_list=$con->query($sql_list);
       $row=$sql_list->fetch_assoc();
@@ -203,9 +203,9 @@
               </div>
           </div>
       </header>
-<!-- Admatic masthead 970x250 Ad Code START -->
-<?php admaticHeader(); ?>
-<!-- Admatic masthead 970x250 Ad Code END -->
+      <!-- Admatic masthead 970x250 Ad Code START -->
+      <?php admaticHeader(); ?>
+      <!-- Admatic masthead 970x250 Ad Code END -->
       <!-- ****** Header Area End ****** -->
       <!-- ****** Breadcumb Area Start ****** -->
       <div class='breadcumb-nav'>
@@ -236,7 +236,7 @@
                               <div class='single-post'>
                                   <!-- Post Thumb -->
                                   <div class='post-thumb'>
-                                      <img class="mainimg" src='<?php echo substr($image,3,500); ?>' alt='<?php echo $title; ?>'>
+                                      <img class='mainimg' src='<?php echo substr($image,3,500); ?>' alt='<?php echo $title; ?>'>
                                   </div>
                                   <!-- Post Content -->
                                   <div class='post-content'>
@@ -248,7 +248,7 @@
                                               </div>
                                               <!-- Post Date -->
                                               <div class='post-date'>
-                                                  <a href='#'>Nisan 13, 2019</a>
+                                                  <a href='#'>Mayıs 11, 2019</a>
                                               </div>
                                           </div>
                                           <!-- Post Comment & Share Area -->
@@ -260,21 +260,21 @@
                                               </div>
                                           </div>
                                       </div>
-                                      <a href='php-mysqli-ekleme--insert--islemi.php'>
+                                      <a href='ucretsiz-admin-paneli-indir.php'>
                                           <h1 class='post-headline'><?php echo $title; ?></h1>
                                       </a>
-                                      <div class="my-2" >
+                                      <div class='my-2'>
                                         <?php yazi_ici_adsense(); ?>
                                       </div>
                                       <p><?php echo $content; ?></p>
-                                      <div class="my-2" >
+                                      <div class='my-2'>
                                         <?php yazi_ici_adsense(); ?>
                                       </div>
                                   </div>
                               </div>
 
                               <!-- Tags Area -->
-                              <?php include "includes/postPages/visibleTags.php"; ?>
+                              <?php include 'includes/postPages/visibleTags.php'; ?>
 
                               <!-- Related Post Area -->
                               <div class='related-post-area section_padding_50'>
@@ -294,9 +294,9 @@
                                           $post_title=$row['post_TITLE'];
                                           $post_date=$row['post_DATE'];
                                           $post_url=$row['post_URL'];
-                                          $post_url=explode(".",$post_url);
+                                          $post_url=explode('.',$post_url);
                                           $post_url=$post_url[0];
-                                          $post_url.="";
+                                          $post_url.='';
                                           $post_image=$row['post_IMAGE'];
                                           if(array_search($post_id, $isAdd)===FALSE)
                                           {
@@ -327,8 +327,7 @@
                                     </div>
                                   </div>
 
-
-                                  <div class='single-widget-area add-widget text-center my-2' >
+                                  <div class='single-widget-area add-widget text-center my-2'>
 
                                   </div>
                                   <!-- disqus yorumları -->
@@ -415,9 +414,9 @@
                                     $post_title=$row['post_TITLE'];
                                     $post_date=$row['post_DATE'];
                                     $post_url=$row['post_URL'];
-                                    $post_url=explode(".",$post_url);
+                                    $post_url=explode('.',$post_url);
                                     $post_url=$post_url[0];
-                                    $post_url.="";
+                                    $post_url.='';
                                     $post_image=$row['post_IMAGE'];
                                ?>
                               <!-- Single Popular Post -->
@@ -444,10 +443,10 @@
                                   <h6>Bülten</h6>
                               </div>
                               <p>Bültenimize abone olun; yeni yazılar vb. hakkında bildirim alın.</p>
-                              <div class="newsletter-form">
-                                  <form action="" method="post">
-                                      <input type="email" required name="newsletter-email" id="email" placeholder="Email adresiniz">
-                                      <button type="submit" name="btnnews"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                              <div class='newsletter-form'>
+                                  <form action='' method='post'>
+                                      <input type='email' required name='newsletter-email' id='email' placeholder='Email adresiniz'>
+                                      <button type='submit' name='btnnews'><i class='fa fa-paper-plane-o' aria-hidden='true'></i></button>
                                   </form>
                                   <?php
                                       newspaper();
@@ -508,7 +507,7 @@
                             $sql_list=$con->query($sql_list);
                             $row=$sql_list->fetch_assoc();
                        ?>
-                     <?php include "includes/footercopyright.php"; ?>
+                     <?php include 'includes/footercopyright.php'; ?>
                       </div>
                   </div>
               </div>
@@ -529,6 +528,6 @@
       <script src='js/my.js'></script>
       <script src='js/active.js'></script>
       <!-- Disqus JS -->
-      <script id="dsq-count-scr" src="//tolga-kocadag-blog.disqus.com/count.js" async></script>
+      <script id='dsq-count-scr' src='//tolga-kocadag-blog.disqus.com/count.js' async></script>
       </body>
       </html>

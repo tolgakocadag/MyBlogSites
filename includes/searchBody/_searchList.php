@@ -6,6 +6,13 @@ if (isset($_GET['search'])) {
   $sql_list =$con->query($sql_list);
   if($sql_list->num_rows>0)
   {
+    ?>
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="single-post wow fadeInUp" data-wow-delay="0.5s">
+          <?php adsense_esnek(); ?>
+        </div>
+    </div>
+    <?php
     $adsense_Sayaci=0;
     while ($row=$sql_list->fetch_assoc()) {
       /*if($row['post_HIDE']=="on"){
@@ -69,7 +76,7 @@ if (isset($_GET['search'])) {
         </div>
     </div>
       <?php
-      if($adsense_Sayaci==2||$adsense_Sayaci==10||$adsense_Sayaci%20==0)
+      if($adsense_Sayaci%6==0)
       {
         ?>
         <div class="col-12 col-md-6 col-lg-4">

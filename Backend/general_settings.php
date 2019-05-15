@@ -153,6 +153,13 @@ function GetIP(){
 //Header Admatic
 function admaticHeader(){
   echo '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3620138050695153",
+          enable_page_level_ads: true
+     });
+</script>';
+  echo '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <!-- footer -->
   <center><ins class="adsbygoogle"
        style="display:inline-block;width:970px;height:250px"
@@ -165,7 +172,7 @@ function admaticHeader(){
 function footeradd(){/*
   echo '<ins data-publisher="adm-pub-107072239981" data-ad-type="masthead" class="adm-ads-area" data-ad-network="150976112058" data-ad-sid="501" data-ad-width="970" data-ad-height="250"></ins>
   <script src="//cdn2.admatic.com.tr/showad/showad.js" async></script>';*/
-  echo '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  /*echo '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <!-- footer -->
   <center><ins class="adsbygoogle"
        style="display:inline-block;width:970px;height:250px"
@@ -173,7 +180,7 @@ function footeradd(){/*
        data-ad-slot="3907378975"></ins></center>
   <script>
   (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>';
+  </script>';*/
 }
 
 //yatay banner adsense 90height
@@ -184,7 +191,7 @@ function adsense_banner(){
   echo '<amp-auto-ads type="adsense"
                 data-ad-client="ca-pub-3620138050695153">
   </amp-auto-ads>';
-  echo '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  /*echo '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 90banner -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:100%;height:90px"
@@ -192,7 +199,7 @@ function adsense_banner(){
      data-ad-slot="3454408246"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
-</script>';
+</script>';*/
 }
 
 //Esnek yazı içi reklam
@@ -225,6 +232,7 @@ function adsense_feedici(){
 
 //Esnek Reklam adsense
 function adsense_esnek(){
+
   echo '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Bultenalti -->
 <ins class="adsbygoogle"

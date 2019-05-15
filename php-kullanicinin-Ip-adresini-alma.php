@@ -329,7 +329,7 @@
                                   </div>
 
                                   <div class='single-widget-area add-widget text-center my-2' >
-                                    <?php adsense_esnek(); ?>
+
                                   </div>
                                   <!-- disqus yorumları -->
                                   <div id='disqus_thread'></div>
@@ -342,7 +342,7 @@
                                     })();
                                   </script>
                                   <div class='single-widget-area add-widget text-center my-2'>
-                                    <?php adsense_esnek(); ?>
+
                                   </div>
                           </div>
                       </div>
@@ -435,7 +435,7 @@
 
                           <!-- Single Widget Area -->
                           <div class='single-widget-area add-widget text-center'>
-                            <?php adsense_esnek(); ?>
+
                           </div>
 
                           <!-- Single Widget Area -->
@@ -456,7 +456,7 @@
                           </div>
                           <!-- Single Widget Area -->
                           <div class='single-widget-area add-widget text-center'>
-                            <?php adsense_esnek(); ?>
+
                           </div>
                       </div>
                   </div>

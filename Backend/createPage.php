@@ -335,7 +335,7 @@ function createTextforPage($title,$post_date,$author,$url){
                                   </div>
 
                                   <div class='single-widget-area add-widget text-center my-2'>
-                                    <?php adsense_esnek(); ?>
+
                                   </div>
                                   <!-- disqus yorumları -->
                                   <div id='disqus_thread'></div>
@@ -348,7 +348,7 @@ function createTextforPage($title,$post_date,$author,$url){
                                     })();
                                   </script>
                                   <div class='single-widget-area add-widget text-center my-2'>
-                                    <?php adsense_esnek(); ?>
+
                                   </div>
                           </div>
                       </div>
@@ -441,7 +441,7 @@ function createTextforPage($title,$post_date,$author,$url){
 
                           <!-- Single Widget Area -->
                           <div class='single-widget-area add-widget text-center'>
-                            <?php adsense_esnek(); ?>
+
                           </div>
 
                           <!-- Single Widget Area -->
@@ -462,7 +462,7 @@ function createTextforPage($title,$post_date,$author,$url){
                           </div>
                           <!-- Single Widget Area -->
                           <div class='single-widget-area add-widget text-center'>
-                            <?php adsense_esnek(); ?>
+
                           </div>
                       </div>
                   </div>

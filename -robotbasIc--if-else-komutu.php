@@ -31,8 +31,8 @@
   }
   ?>
   <?php
-      $title='Kötü Polis Öfkenin Doğuşu - Bad Police - HD izle';
-      if(isset($_SESSION['Kötü Polis Öfkenin Doğuşu - Bad Police - HD izle']))
+      $title='[ROBOTBASIC] İf Else Komutu';
+      if(isset($_SESSION['[ROBOTBASIC] İf Else Komutu']))
       {
       }
       else{
@@ -41,7 +41,7 @@
         $hit_update->execute();
         $hit_update->close();
       }
-      $_SESSION['Kötü Polis Öfkenin Doğuşu - Bad Police - HD izle']=GetIP();
+      $_SESSION['[ROBOTBASIC] İf Else Komutu']=GetIP();
       $sql_list=dbmyAdminPagePostsAddTitleControl($title);
       $sql_list=$con->query($sql_list);
       $row=$sql_list->fetch_assoc();
@@ -236,7 +236,7 @@
                               <div class='single-post'>
                                   <!-- Post Thumb -->
                                   <div class='post-thumb'>
-                                      <img class="mainimg" src='<?php echo substr($image,3,500); ?>' alt='<?php echo $title; ?>'>
+                                      <img class='mainimg' src='<?php echo substr($image,3,500); ?>' alt='<?php echo $title; ?>'>
                                   </div>
                                   <!-- Post Content -->
                                   <div class='post-content'>
@@ -248,7 +248,7 @@
                                               </div>
                                               <!-- Post Date -->
                                               <div class='post-date'>
-                                                  <a href='#'>Mayıs 06, 2019</a>
+                                                  <a href='#'>Mayıs 07, 2019</a>
                                               </div>
                                           </div>
                                           <!-- Post Comment & Share Area -->
@@ -260,7 +260,7 @@
                                               </div>
                                           </div>
                                       </div>
-                                      <a href='kotu-polis-ofkenin-dogusu---bad-police---hd-izle.php'>
+                                      <a href='-robotbasIc--if-else-komutu.php'>
                                           <h1 class='post-headline'><?php echo $title; ?></h1>
                                       </a>
                                       <div class='my-2'>
@@ -274,7 +274,8 @@
                               </div>
 
                               <!-- Tags Area -->
-                              <?php include "includes/postPages/visibleTags.php"; ?>
+                              <?php include 'includes/postPages/visibleTags.php'; ?>
+
                               <!-- Related Post Area -->
                               <div class='related-post-area section_padding_50'>
                               <h4 class='mb-30'>Benzer Yazılar</h4>
@@ -327,7 +328,7 @@
                                   </div>
 
                                   <div class='single-widget-area add-widget text-center my-2'>
-                                    <?php adsense_esnek(); ?>
+
                                   </div>
                                   <!-- disqus yorumları -->
                                   <div id='disqus_thread'></div>
@@ -340,7 +341,7 @@
                                     })();
                                   </script>
                                   <div class='single-widget-area add-widget text-center my-2'>
-                                    <?php adsense_esnek(); ?>
+
                                   </div>
                           </div>
                       </div>
@@ -433,7 +434,7 @@
 
                           <!-- Single Widget Area -->
                           <div class='single-widget-area add-widget text-center'>
-                            <?php adsense_esnek(); ?>
+
                           </div>
 
                           <!-- Single Widget Area -->
@@ -454,7 +455,7 @@
                           </div>
                           <!-- Single Widget Area -->
                           <div class='single-widget-area add-widget text-center'>
-                            <?php adsense_esnek(); ?>
+
                           </div>
                       </div>
                   </div>

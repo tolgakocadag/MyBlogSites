@@ -31,8 +31,8 @@
   }
   ?>
   <?php
-      $title='Karanlıkla Karşı Karşıya - BlacKkKlansman - HD izle';
-      if(isset($_SESSION['Karanlıkla Karşı Karşıya - BlacKkKlansman - HD izle']))
+      $title='[ROBOTBASIC] Dikdörtgen Oluşturma';
+      if(isset($_SESSION['[ROBOTBASIC] Dikdörtgen Oluşturma']))
       {
       }
       else{
@@ -41,7 +41,7 @@
         $hit_update->execute();
         $hit_update->close();
       }
-      $_SESSION['Karanlıkla Karşı Karşıya - BlacKkKlansman - HD izle']=GetIP();
+      $_SESSION['[ROBOTBASIC] Dikdörtgen Oluşturma']=GetIP();
       $sql_list=dbmyAdminPagePostsAddTitleControl($title);
       $sql_list=$con->query($sql_list);
       $row=$sql_list->fetch_assoc();
@@ -236,7 +236,7 @@
                               <div class='single-post'>
                                   <!-- Post Thumb -->
                                   <div class='post-thumb'>
-                                      <img class="mainimg" src='<?php echo substr($image,3,500); ?>' alt='<?php echo $title; ?>'>
+                                      <img class='mainimg' src='<?php echo substr($image,3,500); ?>' alt='<?php echo $title; ?>'>
                                   </div>
                                   <!-- Post Content -->
                                   <div class='post-content'>
@@ -248,7 +248,7 @@
                                               </div>
                                               <!-- Post Date -->
                                               <div class='post-date'>
-                                                  <a href='#'>Mayıs 06, 2019</a>
+                                                  <a href='#'>Mayıs 08, 2019</a>
                                               </div>
                                           </div>
                                           <!-- Post Comment & Share Area -->
@@ -260,7 +260,7 @@
                                               </div>
                                           </div>
                                       </div>
-                                      <a href='karanlikla-karsi-karsiya---blackkklansman---hd-izle.php'>
+                                      <a href='-robotbasIc--dikdortgen-olusturma.php'>
                                           <h1 class='post-headline'><?php echo $title; ?></h1>
                                       </a>
                                       <div class='my-2'>
@@ -274,7 +274,7 @@
                               </div>
 
                               <!-- Tags Area -->
-                              <?php include "includes/postPages/visibleTags.php"; ?>
+                              <?php include 'includes/postPages/visibleTags.php'; ?>
 
                               <!-- Related Post Area -->
                               <div class='related-post-area section_padding_50'>
@@ -328,7 +328,7 @@
                                   </div>
 
                                   <div class='single-widget-area add-widget text-center my-2'>
-                                    <?php adsense_esnek(); ?>
+
                                   </div>
                                   <!-- disqus yorumları -->
                                   <div id='disqus_thread'></div>
@@ -341,7 +341,7 @@
                                     })();
                                   </script>
                                   <div class='single-widget-area add-widget text-center my-2'>
-                                    <?php adsense_esnek(); ?>
+
                                   </div>
                           </div>
                       </div>
@@ -434,7 +434,7 @@
 
                           <!-- Single Widget Area -->
                           <div class='single-widget-area add-widget text-center'>
-                            <?php adsense_esnek(); ?>
+
                           </div>
 
                           <!-- Single Widget Area -->
@@ -455,7 +455,7 @@
                           </div>
                           <!-- Single Widget Area -->
                           <div class='single-widget-area add-widget text-center'>
-                            <?php adsense_esnek(); ?>
+
                           </div>
                       </div>
                   </div>
